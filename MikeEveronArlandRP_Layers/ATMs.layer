@@ -1,0 +1,32 @@
+$grp GenericEntity : "{5E20345362011802}Prefabs/Systems/ATM.et" {
+ {
+  coords 4454.784 12.929 10709.651
+  angleX -0.886
+  angleY -8.301
+  angleZ 0.129
+  {
+   GenericEntity {
+    ID "6270D44199F20104"
+    components {
+     RplComponent "{62822EE708C9798B}" {
+     }
+    }
+   }
+  }
+ }
+ {
+  coords 4380.948 12.662 10674.281
+  angleX -0.124
+  angleY 81.992
+  angleZ -0.887
+  {
+   GenericEntity {
+    ID "6270D44199F20104"
+    components {
+     RplComponent "{62822EE708C9798B}" {
+     }
+    }
+   }
+  }
+ }
+}

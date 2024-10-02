@@ -1,0 +1,19 @@
+FrameWidgetClass {
+ {
+  TextWidgetClass "{596565CFBE414D61}" {
+   Prefab "{596565CFBE414D61}"
+   "Is Enabled" 0
+   "Is Visible" 0
+  }
+  HorizontalLayoutWidgetClass "{599ADB14E240A0B6}" {
+   Prefab "{599ADB14E240A0B6}"
+   {
+    TextWidgetClass "{599175DBA38071FC}" {
+     Prefab "{599175DBA38071FC}"
+     "Is Enabled" 0
+     "Is Visible" 0
+    }
+   }
+  }
+ }
+}

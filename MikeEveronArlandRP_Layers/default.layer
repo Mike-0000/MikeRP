@@ -1,0 +1,148 @@
+PerceptionManager PerceptionManager1 : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 1141.511 3.063 2281.934
+}
+EL_GameModeRoleplay GameMode_Roleplay1 : "{03913608C59017A3}Prefabs/MP/Modes/Roleplay/GameMode_Roleplay.et" {
+ components {
+  BON_RadialMenuAnimationsComponent "{62831AE037D40D0F}" {
+   m_MenuController SCR_RadialMenuController "{62831AE03A9A02FF}" {
+    m_RMControls SCR_RadialMenuControllerInputs "{62831AE03E221FE3}" {
+     m_sControllerContext "WeaponSelectionContext"
+     m_sOpenAction "Inventory_WeaponSwitchingRadial"
+    }
+   }
+  }
+  EPF_PersistenceManagerComponent "{5D6F1C34679B4DC0}" {
+   components {
+    EL_RespawnSystemComponent "{5DE922B7CF459104}" {
+     m_SpawnLogic SCR_MenuSpawnLogic "{628218CDEF135736}" {
+     }
+    }
+   }
+  }
+  SCR_EntityCatalogManagerComponent "{62833255341A3313}" {
+   m_aEntityCatalogs {
+    SCR_EntityCatalogMultiList "{6283325541171BD0}" : "{AB06FC03FBA685C8}Configs/EntityCatalog/CIV/Characters_EntityCatalog_CIV.conf" {
+     m_eEntityCatalogType CHARACTER
+    }
+    SCR_EntityCatalogMultiList "{628332555925CA79}" : "{45152C9ADA59EEEB}Configs/EntityCatalog/CIV/Groups_EntityCatalog_CIV.conf" {
+    }
+    SCR_EntityCatalogMultiList "{628332555CF8E808}" : "{9D7E5804BB2E9B28}Configs/EntityCatalog/CIV/InventoryItems_EntityCatalog_CIV.conf" {
+    }
+    SCR_EntityCatalogMultiList "{6283325566463495}" : "{7C53DF3E1349C5B8}Configs/EntityCatalog/CIV/Vehicles_EntityCatalog_CIV.conf" {
+    }
+   }
+  }
+  SCR_GameModeHealthSettings "{62831AE0D75D8D4E}" {
+   m_fDOTScale 0.15
+   m_fRegenScale 1.6
+  }
+  SCR_MapConfigComponent "{62831AE00B91E8B6}" {
+  }
+  SCR_NametagConfigComponent "{597514328498E41D}" {
+   Enabled 1
+  }
+  SCR_ReconnectComponent "{62831AE0595D64C1}" {
+  }
+  SCR_SpawnProtectionComponent "{62831AE38AC71D9D}" {
+   m_fProtectionTime 1
+  }
+  SCR_SupportStationManagerComponent "{62833254631AC91B}" {
+  }
+  SCR_TimeAndWeatherHandlerComponent "{62831AE398D4D355}" {
+   m_bRandomStartingDaytime 1
+   m_bRandomStartingDaytimeRange 1
+   m_iRangeHoursStart 5
+   m_iRangeHoursEnd 15
+   m_fDayTimeAcceleration 6
+   m_fNightTimeAcceleration 9
+   m_bRandomStartingWeather 1
+   m_bRandomWeatherChanges 1
+  }
+  SerializerInventoryStorageManagerComponent "{62831AE3C9EA56BF}" {
+  }
+  RplComponent "{597514327E500A0C}" {
+   Streamable Disabled
+  }
+ }
+ coords 1142.16 3.062 2279.375
+ m_aDisabledResourceTypes {
+  0
+ }
+ m_CurrencyConfig KF_CurrencyConfig "{6282101319A5A9C2}" {
+  m_aCurrencies {
+   KF_Currency "{628210131EB735AB}" {
+    m_CurrencyProperties KF_CurrencyProperties "{628210131DA936F3}" {
+     m_sCurrencyName "$"
+    }
+    m_iStartingAmount 5000
+   }
+  }
+ }
+}
+SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
+ coords 1700.746 16.038 2295.042
+ Factions {
+  SCR_Faction "{56DEAC40D2DBC8B1}" {
+   UIInfo SCR_FactionUIInfo "{528C961236B7DCD3}" {
+    Name "Police"
+    m_sNameUpper "POLICE"
+   }
+   m_bIsPlayable 1
+   m_bShowInWelcomeScreenIfNonPlayable 0
+  }
+  SCR_Faction "{56DEAC40D3C2E623}" {
+   m_bShowInWelcomeScreenIfNonPlayable 0
+  }
+  SCR_Faction "{56DEAC40D132400B}" {
+   m_bShowInWelcomeScreenIfNonPlayable 0
+  }
+  SCR_Faction "{607AA5C7A94496DA}" {
+   m_bIsPlayable 1
+   m_bIsMilitary 1
+  }
+  SCR_Faction "{5EAEC8DEE0A2B3F7}" {
+   m_bIsPlayable 0
+   m_bShowInWelcomeScreenIfNonPlayable 0
+  }
+ }
+ m_bCanChangeFactionsPlayable 0
+}
+EPF_SpawnPoint : "{260C1BEFBF9AA86B}Prefabs/MP/Spawn/SpawnPoint_LIFE.et" {
+ components {
+  RplComponent "{62822EE7DB823A3E}" {
+  }
+ }
+ coords 4440.909 12.821 10750.138
+ angleX -6.255
+ angleY -89.136
+ angleZ 0.796
+ m_fSpawnRadius 3
+}
+GenericEntity FactionSwitcher : "{403E2B0BE16D6CC9}Prefabs/ItemShop_Base.et" {
+ components {
+  ADM_ShopComponent "{5D775155BFB12BA4}" {
+   Enabled 0
+   m_ShopName "Police Car Dealer"
+   m_ShopConfig "{C487BABC00BCA327}Configs/Shops/VehicleShop.conf"
+  }
+  ActionsManagerComponent "{5D774D0B81D1F3C8}" {
+   ActionContexts {
+    UserActionContext "{5D775155C8CDB558}" {
+     ContextName "ChangeFactionUserAction"
+     Radius 0.64
+    }
+   }
+   additionalActions {
+    ChangeFactionUserAction "{5D775155F326F8BF}" {
+     ParentContextList {
+      "ChangeFactionUserAction"
+     }
+     ActionTitle "Change Faction to COP"
+     "Inventory action" 1
+    }
+   }
+  }
+ }
+ coords 4478.572 4.156 11122.35
+ angleY -136.92
+}

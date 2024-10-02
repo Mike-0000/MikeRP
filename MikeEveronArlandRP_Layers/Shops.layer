@@ -1,0 +1,291 @@
+GenericEntity GeneralStore1 : "{403E2B0BE16D6CC9}Prefabs/ItemShop_Base.et" {
+ components {
+  ADM_ShopComponent "{5D775155BFB12BA4}" {
+   m_ShopName "General Store"
+   m_ShopConfig "{365845681049D78D}Configs/Shops/GeneralShop.conf"
+  }
+  ActionsManagerComponent "{5D774D0B81D1F3C8}" {
+   additionalActions {
+    ADM_PoliceShopAction "{6283649FEDE963BD}" {
+    }
+   }
+  }
+ }
+ coords 4368.422 12.671 10671.646
+ angleY 80.237
+}
+$grp SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/Government/police_101.et" {
+ {
+  components {
+   SCR_EditableEntityComponent "{5CCD1A6A47654137}" {
+    Enabled 0
+   }
+  }
+  coords 4732.479 4.081 10368.63
+  angleY -123.423
+  {
+   GenericEntity : "{386782DD1644B266}Prefabs/Structures/Services/Government/police_interior_03.et" {
+    components {
+     RplComponent "{62822EE7E82AFD26}" {
+     }
+    }
+    coords 0.01 1.731 -6.775
+   }
+   GenericEntity : "{B1AFFAC4A665AA23}Prefabs/Structures/Services/Government/police_interior_01.et" {
+    coords -6.219 5.31 2.029
+    angleY 0.13
+    {
+     GenericEntity {
+      ID "5CC82C2694455EEE"
+      {
+       GenericEntity {
+        ID "568ABA5656ABBD13"
+        components {
+         DoorComponent "{221C667A9F7D4B69}" {
+          DoorAction SCR_PoliceDoorUserAction "{50888D3646A61640}" {
+           ParentContextList {
+            "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+         SCR_AISmartActionComponent "{5890ED6117CBB20D}" {
+          Enabled 0
+         }
+         ActionsManagerComponent "{F32B667C3C823800}" {
+          ActionContexts {
+           UserActionContext "{50888D37F529F720}" {
+            ContextName "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+     GenericEntity {
+      ID "5CC82C269446371C"
+      coords 7.946 0.034 -2.691
+     }
+     GenericEntity {
+      ID "5CC82C2694455EEC"
+      {
+       GenericEntity {
+        ID "568ABA5656ABBD13"
+        components {
+         DoorComponent "{221C667A9F7D4B69}" {
+          DoorAction SCR_PoliceDoorUserAction "{50888D3646A61640}" {
+           ParentContextList {
+            "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+         SCR_AISmartActionComponent "{5890ED6117CBB20D}" {
+          Enabled 0
+         }
+         ActionsManagerComponent "{F32B667C3C823800}" {
+          ActionContexts {
+           UserActionContext "{50888D37F529F720}" {
+            ContextName "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+   GenericEntity : "{DDFBCE241AA1250D}Prefabs/Structures/Services/Government/police_interior_02.et" {
+    components {
+     RplComponent "{5624A88DC2D9928D}" {
+      Enabled 1
+     }
+    }
+    coords -5.331 1.731 -3.509
+    angleY -90.681
+   }
+  }
+ }
+ {
+  components {
+   SCR_EditableEntityComponent "{5CCD1A6A47654137}" {
+    Enabled 0
+   }
+  }
+  coords 4650.203 0.023 11214.056
+  angleY 3.774
+  {
+   GenericEntity : "{386782DD1644B266}Prefabs/Structures/Services/Government/police_interior_03.et" {
+    components {
+     RplComponent "{62822EE7E82AFD26}" {
+     }
+    }
+    coords 0.01 1.731 -6.775
+   }
+   GenericEntity : "{B1AFFAC4A665AA23}Prefabs/Structures/Services/Government/police_interior_01.et" {
+    coords -6.219 5.31 2.029
+    angleY 0.13
+    {
+     GenericEntity {
+      ID "5CC82C2694455EEE"
+      {
+       GenericEntity {
+        ID "568ABA5656ABBD13"
+        components {
+         DoorComponent "{221C667A9F7D4B69}" {
+          DoorAction SCR_PoliceDoorUserAction "{50888D3646A61640}" {
+           ParentContextList {
+            "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+         SCR_AISmartActionComponent "{5890ED6117CBB20D}" {
+          Enabled 0
+         }
+         ActionsManagerComponent "{F32B667C3C823800}" {
+          ActionContexts {
+           UserActionContext "{50888D37F529F720}" {
+            ContextName "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+     GenericEntity {
+      ID "5CC82C269446371C"
+      coords 7.946 0.034 -2.691
+     }
+     GenericEntity {
+      ID "5CC82C2694455EEC"
+      {
+       GenericEntity {
+        ID "568ABA5656ABBD13"
+        components {
+         DoorComponent "{221C667A9F7D4B69}" {
+          DoorAction SCR_PoliceDoorUserAction "{50888D3646A61640}" {
+           ParentContextList {
+            "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+         SCR_AISmartActionComponent "{5890ED6117CBB20D}" {
+          Enabled 0
+         }
+         ActionsManagerComponent "{F32B667C3C823800}" {
+          ActionContexts {
+           UserActionContext "{50888D37F529F720}" {
+            ContextName "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+   GenericEntity : "{DDFBCE241AA1250D}Prefabs/Structures/Services/Government/police_interior_02.et" {
+    components {
+     RplComponent "{5624A88DC2D9928D}" {
+      Enabled 1
+     }
+    }
+    coords -5.331 1.731 -3.509
+    angleY -90.681
+   }
+  }
+ }
+ {
+  components {
+   SCR_EditableEntityComponent "{5CCD1A6A47654137}" {
+    Enabled 0
+   }
+  }
+  coords 4474.301 0.893 11124.229
+  angleY 27.65
+  {
+   GenericEntity : "{386782DD1644B266}Prefabs/Structures/Services/Government/police_interior_03.et" {
+    components {
+     RplComponent "{62822EE7E82AFD26}" {
+     }
+    }
+    coords 0.01 1.731 -6.775
+   }
+   GenericEntity : "{B1AFFAC4A665AA23}Prefabs/Structures/Services/Government/police_interior_01.et" {
+    coords -6.219 5.31 2.029
+    angleY 0.13
+    {
+     GenericEntity {
+      ID "5CC82C2694455EEE"
+      {
+       GenericEntity {
+        ID "568ABA5656ABBD13"
+        components {
+         DoorComponent "{221C667A9F7D4B69}" {
+          DoorAction SCR_PoliceDoorUserAction "{50888D3646A61640}" {
+           ParentContextList {
+            "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+         SCR_AISmartActionComponent "{5890ED6117CBB20D}" {
+          Enabled 0
+         }
+         ActionsManagerComponent "{F32B667C3C823800}" {
+          ActionContexts {
+           UserActionContext "{50888D37F529F720}" {
+            ContextName "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+     GenericEntity {
+      ID "5CC82C269446371C"
+      coords 7.946 0.034 -2.691
+     }
+     GenericEntity {
+      ID "5CC82C2694455EEC"
+      {
+       GenericEntity {
+        ID "568ABA5656ABBD13"
+        components {
+         DoorComponent "{221C667A9F7D4B69}" {
+          DoorAction SCR_PoliceDoorUserAction "{50888D3646A61640}" {
+           ParentContextList {
+            "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+         SCR_AISmartActionComponent "{5890ED6117CBB20D}" {
+          Enabled 0
+         }
+         ActionsManagerComponent "{F32B667C3C823800}" {
+          ActionContexts {
+           UserActionContext "{50888D37F529F720}" {
+            ContextName "SCR_PoliceDoorUserAction"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+   GenericEntity : "{DDFBCE241AA1250D}Prefabs/Structures/Services/Government/police_interior_02.et" {
+    components {
+     RplComponent "{5624A88DC2D9928D}" {
+      Enabled 1
+     }
+    }
+    coords -5.331 1.731 -3.509
+    angleY -90.681
+   }
+  }
+ }
+}

@@ -1,0 +1,8 @@
+SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base.et" {
+ ID "520EC961A090B1EE"
+ components {
+  FactionAffiliationComponent "{62836BF216716A61}" {
+   "faction affiliation" "CIV"
+  }
+ }
+}
