@@ -1,0 +1,151 @@
+GenericEntity {
+ ID "62844D1DBD8D063B"
+ components {
+  SignalsManagerComponent "{62844D1DBD8D0632}" {
+  }
+  WeaponSoundComponent "{62844D1DBD8D060C}" {
+   Filenames {
+    "{44CBBB2C398E653B}Sounds/Weapons/Handguns/PM/Weapons_Handguns_PM_Handling.acp" "{0EDF037F2DC3E098}Sounds/Weapons/_SharedData/PickUp/Weapons_PickUp_UGL_Generic.acp" "{27E5FEBCE92BE40B}Sounds/Weapons/_SharedData/Melee/Weapons_Melee.acp" "{E93E101E7ACA2172}Sounds/Weapons/_SharedData/Drop/Weapons_Drop_Grenade.acp"
+   }
+  }
+  MeshObject "{62844D1DBD8D0604}" {
+   Object "{D8D813A670E49EA9}assets/pick.xob"
+   LODFactors {
+    1 1 1 1
+   }
+  }
+  RigidBody "{62844D1DBD8D0601}" {
+   ModelGeometry 1
+  }
+  SCR_MeleeWeaponProperties "{62844D1DBD8D061F}" {
+   m_fDamage 10
+  }
+  SCR_WeaponAttachmentsStorageComponent "{62844D1DBD8D061C}" {
+   Attributes SCR_ItemAttributeCollection "{62844D1DBD8D061B}" {
+    ItemDisplayName WeaponUIInfo "{62844D1DBD8D0618}" {
+     Name "Machete"
+    }
+    ItemPhysAttributes ItemPhysicalAttributes "{62844D1DBD8D0614}" {
+     Weight 0.7
+     SizeSetupStrategy Manual
+     ItemVolume 200
+     RestingUP Left
+     RestingAdditiveRotationLS 0 0 0
+     RestingAdditiveOffsetLS 0.01 0 0
+    }
+    ItemAnimationAttributes ItemAnimationAttributes "{62844D1DBD8D0613}" {
+     IkSettings {
+      ItemIKSettings "{62844D1DBD8D0611}" {
+       Lowered 1
+       ProneTurn 1
+       InAds 0
+       MovementSpeedRange 2 3
+      }
+     }
+     AnimationInstance "{D00F21BD5047AD32}anims/workspaces/player/player_main_Machete.asi"
+     AnimationIKPose "{B4AE33A93315AF27}Assets/Weapons/workspaces/txa/p_knf_01_ik.anm"
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{62844D1DBD8D05E4}" {
+      CameraOrbitAngles 0 -70 20
+      CameraDistanceToItem 0.35
+      CameraOffset -0.1 -0.02 0
+      FOV 45
+      AnimationInstance "{B2310BF09F78B065}anims/workspaces/player/player_inventory_pistol.asi"
+     }
+    }
+    m_SlotType SLOT_WEAPONS_STORAGE
+   }
+   StoragePurpose 32
+  }
+  WeaponComponent "{62844D1DBD8D05FE}" {
+   components {
+    WeaponAnimationComponent "{62844D1DBD8D05F7}" {
+     AnimGraph "{0A046C9C356F9198}Assets/Weapons/Handguns/workspaces/PM.agr"
+     AnimInstance "{9D1FA29C8172197B}Assets/Weapons/Handguns/workspaces/PM_weapon.asi"
+     StartNode "IdleFireSTM"
+     AlwaysActive 1
+     AnimInjection AnimationAttachmentInfo "{62844D1DBD8D05F2}" {
+      AnimGraph "{0A046C9C356F9198}Assets/Weapons/Handguns/workspaces/PM.agr"
+      AnimInstance "{E862282813BBE360}Assets/Weapons/workspaces/Machete_Weapon.asi"
+      StartNode "IdleFireSTM"
+      BindingName "Weapon"
+     }
+     BindWithInjection 1
+     AnimVariablesToBind {
+      "State"
+     }
+    }
+   }
+   SignalsSourceAccess SignalsSourceAccessClass "{62844D1DBD8D05CD}" {
+   }
+   WeaponType Rifle
+   AllowedRaise "Only lowered"
+   obstructionTestCharacterOffset 0 0 0
+   obstructionTestAddedLength 0.35
+   obstructionTestBBScale 1 0.75 0.05
+   sightsCameraRollScaler -1
+   SoundInt 1010100
+   UIInfo WeaponUIInfo "{62844D1DBD8D05C8}" {
+    Name "Machete"
+    Icon "{9DE83EF9996D2EC8}UI/Textures/WeaponIcons/weapon_Bayonet6Kh4.edds"
+   }
+   WeaponSlotType "primary"
+   WeaponOffset 0 0 0
+  }
+  ActionsManagerComponent "{62844D1DBD8D05C6}" {
+   ActionContexts {
+    UserActionContext "{62844D1DBD8D05C5}" {
+     ContextName "default"
+     Position PointInfo "{62844D1DBD8D05C3}" {
+      Offset 0 0.02 0
+     }
+     Radius 1
+    }
+   }
+   additionalActions {
+    SCR_EquipWeaponAction "{62844D1DBD8D05DF}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{62844D1DBD8D05DC}" {
+      Name "#AR-Inventory_Equip"
+     }
+    }
+    SCR_EquipWeaponHolsterAction "{62844D1DBD8D05DA}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{62844D1DBD8D05DB}" {
+      Name "#AR-Inventory_EquipHolster"
+     }
+     "Sort Priority" 1
+    }
+    SCR_PickUpItemAction "{62844D1DBD8D05AC}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{62844D1DBD8D05AD}" {
+      Name "#AR-Inventory_PickUp"
+     }
+     "Sort Priority" 2
+    }
+    SCR_WeaponAction "{62844D1DBD8D05AB}" {
+     ParentContextList {
+      "bipod"
+     }
+     UIInfo UIInfo "{62844D1DBD8D05A8}" {
+      Name "Bipod"
+     }
+     m_WeaponActionType Bipod
+    }
+   }
+  }
+  RplComponent "{62844D1DBD8D05A7}" {
+  }
+  Hierarchy "{62844D1DBD8D05A5}" {
+  }
+ }
+ coords 120.452 2.019 123.11
+ Flags 4194307
+}

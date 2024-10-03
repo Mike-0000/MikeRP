@@ -1,0 +1,45 @@
+GenericEntity : "{8594DC1E8A135607}Prefabs/Processor/ItemProcessor_Base.et" {
+ ID "598F21A86EB5B48E"
+ components {
+  MeshObject "{598F21A867C4015C}" {
+   Object "{820BEDD412EF4AA4}Assets/Structures/BuildingsParts/Industrial/Sawmill/Sawmill_E_01_SmallSaw.xob"
+  }
+  SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
+   DisplayName "Assemble Gun Parts"
+  }
+  ActionsManagerComponent "{598F21A8710B89C1}" {
+   ActionContexts {
+    UserActionContext "{598F21A871DA7304}" {
+     Position PointInfo "{598F21A875320722}" {
+      Offset 0.2541 0.9136 0
+     }
+    }
+   }
+   additionalActions {
+    EL_ProcessAction "{598F21A877BE6DEE}" {
+     UIInfo UIInfo "{62836BD2418484CC}" {
+      Name "Process wooden log"
+     }
+     Duration 1
+     m_aProcessingInputs {
+      EL_ProcessingInput "{62836BD2418484C0}" {
+       m_InputPrefab "{577A665F1662E7AD}Prefabs/Resources/Mining/CopperBar.et"
+      }
+      EL_ProcessingInput "{62836BD25A6C0B39}" {
+       m_InputPrefab "{BCD1E8CD7F975074}Prefabs/Resources/Mining/IronBar.et"
+       m_iInputAmount 2
+      }
+     }
+     m_aProcessingOutputs {
+      EL_ProcessingOutput "{62836BD2418484D8}" {
+       m_OutputPrefab "{9C85B00E7EBE4AA5}PrefabsEditable/Auto/Props/Civilian/Suspicious Items/E_DisassembledGlock.et"
+      }
+     }
+     m_bForceDropOutput 1
+     m_vDropOffset -1.8 2 0
+     m_vRotation 90 0 0
+    }
+   }
+  }
+ }
+}

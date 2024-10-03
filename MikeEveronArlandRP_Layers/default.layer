@@ -38,6 +38,8 @@ EL_GameModeRoleplay GameMode_Roleplay1 : "{03913608C59017A3}Prefabs/MP/Modes/Rol
   }
   SCR_MapConfigComponent "{62831AE00B91E8B6}" {
   }
+  SCR_MapMarkerManagerComponent "{628458FFDABE4D2E}" {
+  }
   SCR_NametagConfigComponent "{597514328498E41D}" {
    Enabled 1
   }
@@ -68,16 +70,6 @@ EL_GameModeRoleplay GameMode_Roleplay1 : "{03913608C59017A3}Prefabs/MP/Modes/Rol
  m_aDisabledResourceTypes {
   0
  }
- m_CurrencyConfig KF_CurrencyConfig "{6282101319A5A9C2}" {
-  m_aCurrencies {
-   KF_Currency "{628210131EB735AB}" {
-    m_CurrencyProperties KF_CurrencyProperties "{628210131DA936F3}" {
-     m_sCurrencyName "$"
-    }
-    m_iStartingAmount 5000
-   }
-  }
- }
 }
 SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
  coords 1700.746 16.038 2295.042
@@ -98,14 +90,14 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
   }
   SCR_Faction "{607AA5C7A94496DA}" {
    m_bIsPlayable 1
-   m_bIsMilitary 1
+   m_aFriendlyFactionsIds {
+   }
   }
   SCR_Faction "{5EAEC8DEE0A2B3F7}" {
    m_bIsPlayable 0
    m_bShowInWelcomeScreenIfNonPlayable 0
   }
  }
- m_bCanChangeFactionsPlayable 0
 }
 EPF_SpawnPoint : "{260C1BEFBF9AA86B}Prefabs/MP/Spawn/SpawnPoint_LIFE.et" {
  components {
@@ -118,31 +110,61 @@ EPF_SpawnPoint : "{260C1BEFBF9AA86B}Prefabs/MP/Spawn/SpawnPoint_LIFE.et" {
  angleZ 0.796
  m_fSpawnRadius 3
 }
-GenericEntity FactionSwitcher : "{403E2B0BE16D6CC9}Prefabs/ItemShop_Base.et" {
- components {
-  ADM_ShopComponent "{5D775155BFB12BA4}" {
-   Enabled 0
-   m_ShopName "Police Car Dealer"
-   m_ShopConfig "{C487BABC00BCA327}Configs/Shops/VehicleShop.conf"
-  }
-  ActionsManagerComponent "{5D774D0B81D1F3C8}" {
-   ActionContexts {
-    UserActionContext "{5D775155C8CDB558}" {
-     ContextName "ChangeFactionUserAction"
-     Radius 0.64
-    }
+$grp GenericEntity : "{5AB38BCEACF295B2}Prefabs/PoliceItemShop.et" {
+ {
+  components {
+   ADM_ShopComponent "{5D775155BFB12BA4}" {
+    m_ShopConfig "{181ED3C694C5F0CD}Configs/Shops/PoliceVehicleShop.conf"
    }
-   additionalActions {
-    ChangeFactionUserAction "{5D775155F326F8BF}" {
-     ParentContextList {
-      "ChangeFactionUserAction"
+   SCR_MapDescriptorComponent "{628458FD0773B331}" {
+    DisplayName "Police Car Dealer"
+    Faction 1
+   }
+   ActionsManagerComponent "{5D774D0B81D1F3C8}" {
+    ActionContexts {
+     UserActionContext "{5D775155C8CDB558}" {
+      Position PointInfo "{5D775155F4703FFA}" {
+       Offset -0.0001 -0.2131 0
+      }
+      Radius 0.8
      }
-     ActionTitle "Change Faction to COP"
-     "Inventory action" 1
     }
    }
   }
+  coords 4459.144 2.164 11090.175
+  angleY -69.798
  }
- coords 4478.572 4.156 11122.35
- angleY -136.92
+ {
+  components {
+   ADM_ShopComponent "{5D775155BFB12BA4}" {
+    m_ShopName "Police Item Shop"
+    m_ShopConfig "{D2FC8180B47924EF}Configs/Shops/PoliceItemShop.conf"
+   }
+   SCR_CampaignMilitaryBaseMapDescriptorComponent "{628458FEDCD740A8}" {
+    DisplayName "TEST Police Item Store"
+    MainType Store
+   }
+   SCR_MapDescriptorComponent "{628458FD0773B331}" {
+    Enabled 0
+    MapItemDescriptor 1
+    Scale 10
+   }
+   ActionsManagerComponent "{5D774D0B81D1F3C8}" {
+    ActionContexts {
+     UserActionContext "{5D775155C8CDB558}" {
+      Position PointInfo "{5D775155F4703FFA}" {
+       Offset 0 -0.2995 -0.0002
+      }
+      Radius 0.8
+     }
+    }
+    additionalActions {
+     ADM_PoliceShopAction "{5D775155F326F8BF}" {
+     }
+    }
+   }
+  }
+  coords 4471.356 7.634 11126.423
+  angleY -60.573
+ }
 }

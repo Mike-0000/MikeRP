@@ -1,0 +1,41 @@
+GenericEntity : "{8594DC1E8A135607}Prefabs/Processor/ItemProcessor_Base.et" {
+ ID "598F21A86EB5B48E"
+ components {
+  MeshObject "{598F21A867C4015C}" {
+   Object "{820BEDD412EF4AA4}Assets/Structures/BuildingsParts/Industrial/Sawmill/Sawmill_E_01_SmallSaw.xob"
+  }
+  SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
+   DisplayName "Copper Ore Crusher"
+  }
+  ActionsManagerComponent "{598F21A8710B89C1}" {
+   ActionContexts {
+    UserActionContext "{598F21A871DA7304}" {
+     Position PointInfo "{598F21A875320722}" {
+      Offset 0.2541 0.9136 0
+     }
+    }
+   }
+   additionalActions {
+    EL_ProcessAction "{598F21A877BE6DEE}" {
+     UIInfo UIInfo "{62836BD373F7BD94}" {
+      Name "Process wooden log"
+     }
+     Duration 1
+     m_aProcessingInputs {
+      EL_ProcessingInput "{62836BD373F7BD69}" {
+       m_InputPrefab "{C7FC93FD15F0574C}Prefabs/Resources/Mining/CopperOre.et"
+      }
+     }
+     m_aProcessingOutputs {
+      EL_ProcessingOutput "{62836BD373F7BD7E}" {
+       m_OutputPrefab "{1881C4F2BD43E3E1}Prefabs/Resources/Mining/CopperNugget.et"
+      }
+     }
+     m_bForceDropOutput 1
+     m_vDropOffset -1.8 2 0
+     m_vRotation 90 0 0
+    }
+   }
+  }
+ }
+}

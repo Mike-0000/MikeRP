@@ -4,8 +4,8 @@ SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/
    Enabled 0
   }
  }
- coords 1707.084 2.451 2304.615
- angleY 127.189
+ coords 4474.301 0.893 11124.229
+ angleY 27.65
  {
   GenericEntity : "{386782DD1644B266}Prefabs/Structures/Services/Government/police_interior_03.et" {
    components {
@@ -13,6 +13,43 @@ SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/
     }
    }
    coords 0.01 1.731 -6.775
+  }
+  GenericEntity FactionSwitcher : "{403E2B0BE16D6CC9}Prefabs/ItemShop_Base.et" {
+   components {
+    ADM_ShopComponent "{5D775155BFB12BA4}" {
+     Enabled 0
+     m_ShopName "Police Car Dealer"
+     m_ShopConfig "{C487BABC00BCA327}Configs/Shops/VehicleShop.conf"
+    }
+    ActionsManagerComponent "{5D774D0B81D1F3C8}" {
+     ActionContexts {
+      UserActionContext "{5D775155C8CDB558}" {
+       UIInfo UIInfo "{628458FB34897214}" {
+        Name "Change Faction to Police (Whitelist Required)"
+       }
+       ContextName "ChangeFactionUserAction"
+       Position PointInfo "{5D775155F4703FFA}" {
+        Offset 0 -0.2724 0
+       }
+       Radius 0.96
+      }
+     }
+     additionalActions {
+      ChangeFactionUserAction "{5D775155F326F8BF}" {
+       ParentContextList {
+        "ChangeFactionUserAction"
+       }
+       UIInfo UIInfo "{628458FB4135A361}" {
+        Name "Change Faction to Police (Whitelist Required)"
+       }
+       ActionTitle "Change Faction to COP"
+       "Inventory action" 1
+      }
+     }
+    }
+   }
+   coords 4.656 1.731 0.318
+   angleY -164.57
   }
   GenericEntity : "{B1AFFAC4A665AA23}Prefabs/Structures/Services/Government/police_interior_01.et" {
    coords -6.219 5.31 2.029

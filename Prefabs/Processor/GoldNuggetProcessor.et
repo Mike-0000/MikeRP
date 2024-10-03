@@ -1,0 +1,43 @@
+GenericEntity : "{8594DC1E8A135607}Prefabs/Processor/ItemProcessor_Base.et" {
+ ID "598F21A86EB5B48E"
+ components {
+  MeshObject "{598F21A867C4015C}" {
+   Object "{80B025A53ACD4525}Assets/Props/Industrial/PotIndustrial_01/PotIndustrial_01.xob"
+  }
+  SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
+   DisplayName "Gold Bar Smelter"
+  }
+  ActionsManagerComponent "{598F21A8710B89C1}" {
+   ActionContexts {
+    UserActionContext "{598F21A871DA7304}" {
+     Position PointInfo "{598F21A875320722}" {
+      Offset -0.5958 0.9136 0.48
+     }
+     Radius 1
+    }
+   }
+   additionalActions {
+    EL_ProcessAction "{598F21A877BE6DEE}" {
+     UIInfo UIInfo "{62836BD2B2D7B572}" {
+      Name "Process wooden log"
+     }
+     Duration 1
+     m_aProcessingInputs {
+      EL_ProcessingInput "{62836BD2B2D7B541}" {
+       m_InputPrefab "{8F81BD0BF343CF49}Prefabs/Resources/Mining/GoldNugget.et"
+       m_iInputAmount 4
+      }
+     }
+     m_aProcessingOutputs {
+      EL_ProcessingOutput "{62836BD2B2D7B557}" {
+       m_OutputPrefab "{ACC9A10F0F20F5C4}Prefabs/Resources/Mining/GoldBar.et"
+      }
+     }
+     m_bForceDropOutput 1
+     m_vDropOffset -1.8 2 0
+     m_vRotation 90 0 0
+    }
+   }
+  }
+ }
+}

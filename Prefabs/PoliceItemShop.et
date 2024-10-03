@@ -1,0 +1,18 @@
+GenericEntity : "{403E2B0BE16D6CC9}Prefabs/ItemShop_Base.et" {
+ ID "5D7751550EF5EE4E"
+ components {
+  SCR_MapDescriptorComponent "{628458FD0773B331}" {
+   DisplayName "Police Item Store"
+  }
+  BaseLoadoutManagerComponent "{5D774D0B9B498936}" {
+   Slots {
+    LoadoutSlotInfo Jacket {
+     Prefab "{9757095E37B2AB65}Prefabs/Characters/Jacket/Jacket_US_TanTShirt_Pocket.et"
+    }
+    LoadoutSlotInfo Pants {
+     Prefab "{F849A5134C0C9A8F}Prefabs/Characters/Pants/Pants_US_CryeG3_Base.et"
+    }
+   }
+  }
+ }
+}

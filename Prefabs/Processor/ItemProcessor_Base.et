@@ -1,0 +1,8 @@
+GenericEntity {
+ ID "598F21A86EB5B48E"
+ components {
+  SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
+   MainType "Construction Site"
+  }
+ }
+}
