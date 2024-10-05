@@ -4,5 +4,8 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
   FactionAffiliationComponent "{62836BF216716A61}" {
    "faction affiliation" "CIV"
   }
+  SCR_NotificationsComponent "{62884C9D72EBA812}" {
+   m_sNotificationConfig "{D50EEE378B97A83F}CustomNotifications.conf"
+  }
  }
 }

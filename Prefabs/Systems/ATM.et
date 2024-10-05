@@ -1,0 +1,9 @@
+GenericEntity {
+ ID "6270D44199F2ABFD"
+ components {
+  SCR_MapDescriptorComponent "{628867E1DE028AEB}" {
+   DisplayName "ATM"
+   MainType "Name Local"
+  }
+ }
+}

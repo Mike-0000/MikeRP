@@ -15,6 +15,7 @@ EL_GameModeRoleplay GameMode_Roleplay1 : "{03913608C59017A3}Prefabs/MP/Modes/Rol
    components {
     EL_RespawnSystemComponent "{5DE922B7CF459104}" {
      m_SpawnLogic SCR_MenuSpawnLogic "{628218CDEF135736}" {
+      m_sForcedFaction "CIV"
      }
     }
    }
@@ -35,6 +36,7 @@ EL_GameModeRoleplay GameMode_Roleplay1 : "{03913608C59017A3}Prefabs/MP/Modes/Rol
   SCR_GameModeHealthSettings "{62831AE0D75D8D4E}" {
    m_fDOTScale 0.15
    m_fRegenScale 1.6
+   m_fRegenerationScale 1.348
   }
   SCR_MapConfigComponent "{62831AE00B91E8B6}" {
   }
@@ -43,7 +45,17 @@ EL_GameModeRoleplay GameMode_Roleplay1 : "{03913608C59017A3}Prefabs/MP/Modes/Rol
   SCR_NametagConfigComponent "{597514328498E41D}" {
    Enabled 1
   }
+  SCR_NotificationSenderComponent "{62884C925219BB22}" {
+   m_bShowPlayerLeftNotification 0
+   m_iKillFeedType DISABLED
+  }
   SCR_ReconnectComponent "{62831AE0595D64C1}" {
+  }
+  SCR_RespawnSystemComponent "{628651374D01210D}" {
+   Enabled 0
+   m_SpawnLogic SCR_AutoSpawnLogic "{62865137549ED319}" {
+    m_sForcedFaction "CIV"
+   }
   }
   SCR_SpawnProtectionComponent "{62831AE38AC71D9D}" {
    m_fProtectionTime 1
@@ -79,7 +91,6 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
     Name "Police"
     m_sNameUpper "POLICE"
    }
-   m_bIsPlayable 1
    m_bShowInWelcomeScreenIfNonPlayable 0
   }
   SCR_Faction "{56DEAC40D3C2E623}" {
@@ -99,72 +110,63 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
   }
  }
 }
-EPF_SpawnPoint : "{260C1BEFBF9AA86B}Prefabs/MP/Spawn/SpawnPoint_LIFE.et" {
- components {
-  RplComponent "{62822EE7DB823A3E}" {
+$grp EPF_SpawnPoint : "{260C1BEFBF9AA86B}Prefabs/MP/Spawn/SpawnPoint_LIFE.et" {
+ {
+  components {
+   RplComponent "{62822EE7DB823A3E}" {
+   }
   }
+  coords 4422.352 12.745 10653.623
+  angleX -0.127
+  angleY 141.518
+  angleZ 0.091
+  m_fSpawnRadius 1
  }
- coords 4440.909 12.821 10750.138
- angleX -6.255
- angleY -89.136
- angleZ 0.796
- m_fSpawnRadius 3
+ {
+  components {
+   RplComponent "{62822EE7DB823A3E}" {
+   }
+  }
+  coords 4424.582 12.746 10654.052
+  angleX -0.156
+  angleY 174.253
+  angleZ 0.008
+  m_fSpawnRadius 1
+ }
+ {
+  components {
+   RplComponent "{62822EE7DB823A3E}" {
+   }
+  }
+  coords 4426.698 12.747 10654.331
+  angleX -0.156
+  angleY 174.253
+  angleZ 0.008
+  m_fSpawnRadius 1
+ }
 }
-$grp GenericEntity : "{5AB38BCEACF295B2}Prefabs/PoliceItemShop.et" {
+GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/ScenarioFramework/Components/Area.et" {
+ coords 4479.195 4.156 11121.699
  {
-  components {
-   ADM_ShopComponent "{5D775155BFB12BA4}" {
-    m_ShopConfig "{181ED3C694C5F0CD}Configs/Shops/PoliceVehicleShop.conf"
-   }
-   SCR_MapDescriptorComponent "{628458FD0773B331}" {
-    DisplayName "Police Car Dealer"
-    Faction 1
-   }
-   ActionsManagerComponent "{5D774D0B81D1F3C8}" {
-    ActionContexts {
-     UserActionContext "{5D775155C8CDB558}" {
-      Position PointInfo "{5D775155F4703FFA}" {
-       Offset -0.0001 -0.2131 0
+  GenericEntity Layer1 : "{5F9FFF4BF027B3A3}Prefabs/ScenarioFramework/Components/Layer.et" {
+   coords 0 0 0
+   {
+    GenericEntity SlotMarker1 : "{E537867C6E760514}Prefabs/ScenarioFramework/Components/SlotMarker.et" {
+     components {
+      SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+       m_eActivationType ON_INIT
+       m_bExcludeFromDynamicDespawn 1
+       m_bCanBeGarbageCollected 0
+       m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{628641916E3F9C8A}" {
+        m_sMapMarkerText "Police Headquarters"
+        m_eMapMarkerIcon CIRCLE2
+        m_eMapMarkerColor BLUFOR
+       }
       }
-      Radius 0.8
      }
+     coords 360.871 21.424 -354.893
     }
    }
   }
-  coords 4459.144 2.164 11090.175
-  angleY -69.798
- }
- {
-  components {
-   ADM_ShopComponent "{5D775155BFB12BA4}" {
-    m_ShopName "Police Item Shop"
-    m_ShopConfig "{D2FC8180B47924EF}Configs/Shops/PoliceItemShop.conf"
-   }
-   SCR_CampaignMilitaryBaseMapDescriptorComponent "{628458FEDCD740A8}" {
-    DisplayName "TEST Police Item Store"
-    MainType Store
-   }
-   SCR_MapDescriptorComponent "{628458FD0773B331}" {
-    Enabled 0
-    MapItemDescriptor 1
-    Scale 10
-   }
-   ActionsManagerComponent "{5D774D0B81D1F3C8}" {
-    ActionContexts {
-     UserActionContext "{5D775155C8CDB558}" {
-      Position PointInfo "{5D775155F4703FFA}" {
-       Offset 0 -0.2995 -0.0002
-      }
-      Radius 0.8
-     }
-    }
-    additionalActions {
-     ADM_PoliceShopAction "{5D775155F326F8BF}" {
-     }
-    }
-   }
-  }
-  coords 4471.356 7.634 11126.423
-  angleY -60.573
  }
 }

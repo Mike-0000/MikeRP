@@ -3,7 +3,10 @@ GenericEntity {
  components {
   SCR_MapDescriptorComponent "{628458FD0773B331}" {
    DisplayName "General Store"
-   MainType Store
+   MainType "Name Village"
+  }
+  SCR_MapDescriptorComponent "{62865194AA5AFD5C}" {
+   MainType Pub
   }
  }
 }
