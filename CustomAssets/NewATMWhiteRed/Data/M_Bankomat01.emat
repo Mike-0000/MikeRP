@@ -1,0 +1,7 @@
+MatPBRDecal {
+ EmissiveMap "{0C5B6FC16A9861A7}CustomAssets/NewATMWhiteRed/Data/T_Bankomat01_03_Emissive.edds"
+ BCRMap "{3238B6DFDA9AB673}CustomAssets/NewATMWhiteRed/Data/T_Bankomat01_03_BaseColor.edds"
+ OpacityMap "{7BF5F3E929731274}CustomAssets/NewATMWhiteRed/Data/T_Bankomat01_03_MaskMap.edds"
+ NormalPower 1.1
+ NMOMap "{73626E28C7B8F17A}CustomAssets/NewATMWhiteRed/Data/T_Bankomat01_03_Normal.edds"
+}

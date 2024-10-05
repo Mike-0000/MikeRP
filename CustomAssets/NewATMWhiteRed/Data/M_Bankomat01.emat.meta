@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{CEE71D1A6194FBD1}CustomAssets/NewATMWhiteRed/Data/M_Bankomat01.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}
