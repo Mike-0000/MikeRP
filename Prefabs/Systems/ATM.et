@@ -7,13 +7,39 @@ GenericEntity {
   }
  }
  {
+  KF_AtmScreen {
+   ID "6270D44199F20103"
+   components {
+    MeshObject "{62528DA09309D172}" {
+     Enabled 0
+    }
+    ActionsManagerComponent "{62546C93157508ED}" {
+     ActionContexts {
+      UserActionContext "{625A699DDE3A1809}" {
+       ContextName "withdraw100"
+      }
+     }
+    }
+   }
+   coords 0.053 1.486 0.504
+   angleX -21.647
+   angleY -179.873
+   angleZ -0.048
+  }
   GenericEntity {
    ID "6270D44199F20104"
    components {
     MeshObject "{62571954A8A6AE22}" {
-     Object "{1ED7DD4FAEADF6D9}CustomAssets/BankomatHigh01.xob"
+     Object "{23338EA97ABCA5EB}ATMCustom1.xob"
+     Materials {
+      MaterialAssignClass "{628B5AA2457A05CC}" {
+       SourceMaterial "M_Bankomat01"
+       AssignedMaterial "{CEE71D1A6194FBD1}Data/M_Bankomat01.emat"
+      }
+     }
     }
    }
+   scale 1.477
   }
  }
 }

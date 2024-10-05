@@ -1,0 +1,11 @@
+MatPBRBasic {
+ Emissive 0.522 0.482 0.275 0
+ EmissiveLV 7.56
+ RoughnessScale 0.292
+ MetalnessScale 0.888
+ AOScale 0.506
+ EmissiveMap "{686CE216B48D93D5}CustomAssets/NewATMWhiteRed/NewData/T_Bankomat01_03_Emissive.edds"
+ BCRMap "{66481DFEBC8AEEED}CustomAssets/NewATMWhiteRed/NewData/T_Bankomat01_03.edds"
+ NormalPower 0.998
+ NMOMap "{AADC34F4B0248AA2}CustomAssets/NewATMWhiteRed/NewData/T_Bankomat01Normal_03.edds"
+}

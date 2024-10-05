@@ -1,0 +1,7 @@
+MatPBRDecal {
+ EmissiveLV 14.416
+ EmissiveMap "{686CE216B48D93D5}CustomAssets/NewATMWhiteRed/NewData/T_Bankomat01_03_Emissive.edds"
+ BCRMap "{66481DFEBC8AEEED}CustomAssets/NewATMWhiteRed/NewData/T_Bankomat01_03.edds"
+ NMOMap "{AADC34F4B0248AA2}CustomAssets/NewATMWhiteRed/NewData/T_Bankomat01Normal_03.edds"
+ HeightMap "{1FA634877BC0EC15}CustomAssets/NewATMWhiteRed/NewData/T_Bankomat01Height_03.edds"
+}

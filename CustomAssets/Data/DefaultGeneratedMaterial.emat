@@ -1,8 +1,0 @@
-MatPBRBasic {
- Emissive 0.59 0.617 0.651 0
- EmissiveLV 6.769
- EmissiveMap "{A738EFE78F0D6379}CustomAssets/Data/Version 1/T_Bankomat01Emissive_03.edds"
- BCRMap "{564038B4CF9EA90E}CustomAssets/Data/Version 1/T_Bankomat01_03_Diffuse.edds"
- NMOMap "{89BF66F0C47C95A7}CustomAssets/Data/Version 1/T_Bankomat01Normal_03.edds"
- HeightMap "{3CC566830F98F310}CustomAssets/Data/Version 1/T_Bankomat01Height_03.edds"
-}
