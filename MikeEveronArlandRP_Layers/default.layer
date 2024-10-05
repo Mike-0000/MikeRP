@@ -82,6 +82,7 @@ EL_GameModeRoleplay GameMode_Roleplay1 : "{03913608C59017A3}Prefabs/MP/Modes/Rol
  m_aDisabledResourceTypes {
   0
  }
+ m_iStartingAmount 10000
 }
 SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
  coords 1700.746 16.038 2295.042

@@ -6,4 +6,14 @@ GenericEntity {
    MainType "Name Local"
   }
  }
+ {
+  GenericEntity {
+   ID "6270D44199F20104"
+   components {
+    MeshObject "{62571954A8A6AE22}" {
+     Object "{1ED7DD4FAEADF6D9}CustomAssets/BankomatHigh01.xob"
+    }
+   }
+  }
+ }
 }

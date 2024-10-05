@@ -1,0 +1,19 @@
+FrameWidgetClass {
+ {
+  RTTextureWidgetClass "{5ED33E3C8B8D259D}" {
+   Prefab "{5ED33E3C8B8D259D}"
+   {
+    TextWidgetClass "{62546C9F54C2BFD8}" {
+     Prefab "{62546C9F54C2BFD8}"
+     "Is Enabled" 0
+    }
+    TextWidgetClass "{628AE8D0E1322995}" {
+     Name "Text0"
+     Slot FrameWidgetSlot "{628AE8D0E132CB08}" {
+     }
+     Text "Deposit 1000"
+    }
+   }
+  }
+ }
+}
