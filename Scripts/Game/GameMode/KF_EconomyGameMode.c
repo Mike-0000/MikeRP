@@ -196,7 +196,8 @@ modded class SCR_BaseGameMode
 	//! \param[in] string uid Unique player identity id
     void CreateAccount(string uid)
     {
-		Rpc(RpcDo_CreateAccount, uid);
+		Rpc(RpcDo_CreateCashAccount, uid);
+		Rpc(RpcDo_CreateBankAccount, uid);
     }
 
     [RplRpc(RplChannel.Reliable, RplRcver.Server)]
@@ -218,12 +219,12 @@ modded class SCR_BaseGameMode
     void RpcDo_CreateCashAccount(string uid)
     {
 
-		
+		EDF_JsonFileDbConnectionInfo connectInfo();
 		// Create Cash database entry and write balance
 		connectInfo.m_sDatabaseName = "Cash";
 		EDF_DbContext dbContext = EDF_DbContext.Create(connectInfo);
 		EDF_DbRepository<MIKE_CashDB> repository = EDF_DbEntityHelper<MIKE_CashDB>.GetRepository(dbContext);
-		MIKE_BankDB newEntry = MIKE_CashDB.Create(uid, m_iStartingAmount);
+		MIKE_CashDB newEntry = MIKE_CashDB.Create(uid, m_iStartingAmount);
 		repository.AddOrUpdateAsync(newEntry);
 	}
 	
