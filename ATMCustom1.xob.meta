@@ -2,7 +2,7 @@ MetaFileClass {
  Name "{23338EA97ABCA5EB}ATMCustom1.xob"
  Configurations {
   FBXResourceClass PC {
-   Scale 1.1 1.1 1.1
+   Scale 1.25 1.25 1.25
    MaterialAssigns {
     MaterialAssignClass "{628B53CDB577FA8F}" {
      SourceMaterial "M_Bankomat01"

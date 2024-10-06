@@ -1,0 +1,105 @@
+KF_AtmScreen {
+ ID "62528DA39CE92FFC"
+ components {
+  MeshObject "{62528DA09309D172}" {
+   Object "{F6812DBD9C2292BB}Prefabs/Props/ATM/NewBankDisplay.xob"
+   Materials {
+    MaterialAssignClass "{628D10074599A6EC}" {
+     SourceMaterial "DefaultGeneratedMaterial"
+     AssignedMaterial "{8EBD1CC7855898D6}Assets/ATM_Screen/data/ATM_Screen.emat"
+    }
+   }
+  }
+  ActionsManagerComponent "{62546C93157508ED}" {
+   ActionContexts {
+    UserActionContext "{625A699DDE3A1809}" {
+     ContextName "withdraw100"
+     Position PointInfo "{625A699DE2B9AFD3}" {
+      Offset -0.1831 0.05 0.1006
+     }
+    }
+    UserActionContext "{625A77EE1A237EC6}" {
+     ContextName "deposit100"
+     Position PointInfo "{625A77EE2EDED16C}" {
+      Offset -0.1661 0.05 0.0119
+     }
+    }
+    UserActionContext "{62607CD90B9A7B28}" {
+     Position PointInfo "{625A77EE2EDED16C}" {
+      Offset -0.004 0.05 -0.0756
+     }
+    }
+    UserActionContext "{628B5AB11A15C322}" {
+     UIInfo UIInfo "{628C2E0906F5E530}" {
+      Name "Withdraw $1,000"
+     }
+     ContextName "withdraw1000"
+     Position PointInfo "{628B5AB0A7992F48}" {
+      Offset -0.0124 0.05 0.089
+     }
+    }
+    UserActionContext "{628B5AB0CFB053DD}" {
+     ContextName "withdraw10000"
+     Position PointInfo "{628B5AB0A7992F48}" {
+      Offset 0.1553 0.05 0.0882
+     }
+     Height 0
+    }
+    UserActionContext "{628B5AB0E2330574}" {
+     ContextName "deposit1000"
+     Position PointInfo "{628B5AB014365C3D}" {
+      Offset -0.0081 0.05 -0.0001
+     }
+     Radius 0.03
+     Height 0
+    }
+    UserActionContext "{628B5AB0E3ED296D}" {
+     ContextName "deposit10000"
+     Position PointInfo "{628B5AB008E40EEB}" {
+      Offset 0.151 0.05 -0.0067
+     }
+     Height 0
+    }
+   }
+   additionalActions {
+    KF_ATM_StartAction "{62546C932C7A905C}" {
+     ParentContextList {
+     }
+     UIInfo UIInfo "{62607CD92E1D1C41}" {
+     }
+    }
+    KF_ATM_WithdrawAction1000 "{6258517DC7BF05C7}" {
+     ParentContextList {
+      "withdraw1000"
+     }
+    }
+    KF_ATM_WithdrawAction100 "{628CF7AAF92C17E1}" {
+     ParentContextList {
+      "withdraw100"
+     }
+    }
+    KF_ATM_WithdrawAction10000 "{628C2E084EED1CB4}" {
+     ParentContextList {
+      "withdraw10000"
+     }
+    }
+    KF_ATM_DepositAction100 "{628C2E08500657DF}" {
+     ParentContextList {
+      "deposit100"
+     }
+    }
+    KF_ATM_DepositAction1000 "{628C2E0856F006C7}" {
+     ParentContextList {
+      "deposit1000"
+     }
+    }
+    KF_ATM_DepositAction10000 "{628C2E085A2F513D}" {
+     ParentContextList {
+      "withdraw10000"
+     }
+    }
+   }
+  }
+ }
+ scale 0.086
+}

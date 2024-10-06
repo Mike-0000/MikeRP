@@ -1,0 +1,127 @@
+GenericEntity {
+ ID "628D16895D433871"
+ components {
+  RplComponent "{628D168948BC294B}" {
+  }
+ }
+ {
+  GenericEntity {
+   ID "628D168ACAA5B2BE"
+   components {
+    MeshObject "{628D168AD283628C}" {
+     Object "{23338EA97ABCA5EB}ATMCustom1.xob"
+    }
+    RigidBody "{628D168AE14948F0}" {
+     Layers 524290
+     Active AlwaysActive
+     CenterOfMass 0 0.829 0
+     Gravity 0
+     ResponseIndex "Normal"
+     ModelGeometry 1
+     Static 1
+    }
+    ActionsManagerComponent "{628D168AE53D6529}" {
+     ActionContexts {
+      UserActionContext "{628D168A008D9203}" {
+       ContextName "withdraw-100"
+       Position PointInfo "{628D168A0B4AA78A}" {
+        Offset -0.1715 1.5415 -0.1703
+       }
+       Radius 0.7
+       Height 0.05
+      }
+      UserActionContext "{628D23BA42C9513A}" {
+       ContextName "withdraw-1000"
+       Position PointInfo "{628D23BB8AEA16DC}" {
+        Offset -0.1711 1.4356 -0.2042
+       }
+       Radius 0.7
+       Height 0.05
+      }
+      UserActionContext "{628D23BAD7FE6178}" {
+       ContextName "deposit-100"
+       Position PointInfo "{628D23BAE0959CFD}" {
+        Offset 0.2382 1.4648 -0.2079
+       }
+       Radius 0.7
+       Height 0.05
+      }
+      UserActionContext "{628D23BAFE288522}" {
+       ContextName "deposit-1000"
+       Position PointInfo "{628D23BBE7011494}" {
+        Offset 0.2405 1.323 -0.2576
+       }
+       Radius 0.7
+       Height 0.05
+      }
+      UserActionContext "{628D23B95739683B}" {
+       UIInfo UIInfo "{628D23B976108A58}" {
+        Name "Deposit All"
+       }
+       ContextName "deposit-all"
+       Position PointInfo "{628D23B95DDA9C01}" {
+        Offset 0.0014 1.0897 -0.3306
+       }
+       Radius 0.7
+       Height 0.05
+      }
+      UserActionContext "{628D23B2A61462E2}" {
+       ContextName "withdraw-10000"
+       Position PointInfo "{628D23B2BC52A4B6}" {
+        Offset -0.1783 1.3154 -0.258
+       }
+       Radius 0.7
+       Height 0.05
+       VisibilityAngle 45
+      }
+     }
+     additionalActions {
+      KF_ATM_DepositActionMIKE "{628D23BABF02D229}" {
+       ParentContextList {
+        "deposit-100"
+       }
+       DepositAmount 100
+      }
+      KF_ATM_DepositActionMIKE "{628D23BA1C68AF6A}" {
+       ParentContextList {
+        "deposit-1000"
+       }
+       DepositAmount 1000
+      }
+      KF_ATM_WithdrawActionMIKE "{628D23BA16ECEE95}" {
+       ParentContextList {
+        "withdraw-100"
+       }
+       WithdrawAmount 100
+      }
+      KF_ATM_WithdrawActionMIKE "{628D23BA30D492BB}" {
+       ParentContextList {
+        "withdraw-1000"
+       }
+       WithdrawAmount 1000
+      }
+      KF_ATM_DepositActionMIKE "{628D23B9368A6263}" {
+       ParentContextList {
+        "deposit-all"
+       }
+       UIInfo UIInfo "{628D23B94C373812}" {
+        Name "Deposit All"
+       }
+       ActionTitle "Deposit All"
+       m_bDepositAll 1
+      }
+      KF_ATM_WithdrawActionMIKE "{628D23B2DF951D85}" {
+       ParentContextList {
+        "withdraw-10000"
+       }
+       WithdrawAmount 10000
+      }
+     }
+    }
+    RplComponent "{628D23B8962CAF74}" {
+    }
+   }
+   coords 0 0 0
+  }
+ }
+}

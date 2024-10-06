@@ -89,7 +89,7 @@ modded class SCR_BaseGameMode
         {
             // Create and store context
             ref AccountContext context = new AccountContext();
-	        Print("AccountContext Created: PlayerId=" + playerId + ", Cash=" + cash, LogLevel.ERROR); // DEBUG
+	        Print("AccountContext Created: PlayerId=" + playerId + ", Cash=" + cash, LogLevel.NORMAL); // DEBUG
             context.playerId = playerId;
             context.cash = cash;
             m_AccountContexts.Insert(uid, context);
@@ -132,7 +132,7 @@ modded class SCR_BaseGameMode
         {
             resultStatus = "Not Found";
         }
-        Print("OnHasAccountFound: StatusCode=" + statusCode + ", Result=" + resultStatus, LogLevel.ERROR); // DEBUG
+        Print("OnHasAccountFound: StatusCode=" + statusCode + ", Result=" + resultStatus, LogLevel.NORMAL); // DEBUG
         string uid;
         if (result != null)
         {
@@ -223,7 +223,7 @@ modded class SCR_BaseGameMode
     //! new balance is assigned to player's ChimeraCharacter.
     //! \param[in] int playerId Unique player identifier for current session
     void RefreshBalance(int playerId) {
-        Print("RefreshBalance: PlayerId=" + playerId, LogLevel.ERROR); // DEBUG
+        Print("RefreshBalance: PlayerId=" + playerId, LogLevel.NORMAL); // DEBUG
         // Get chimera character
         SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId));
         if (!char)
@@ -252,7 +252,7 @@ modded class SCR_BaseGameMode
     {
         string uid = GetGame().GetBackendApi().GetPlayerIdentityId(playerId);
         ReadBalance(uid, playerId, charBalance);
-		Print("RpcAsk_RefreshBalance: PlayerId=" + playerId + ", Amount=" + charBalance, LogLevel.ERROR);
+		Print("RpcAsk_RefreshBalance: PlayerId=" + playerId + ", Amount=" + charBalance, LogLevel.NORMAL);
     }
 
     //------------------------------------------------------------------------------------------------
@@ -260,7 +260,7 @@ modded class SCR_BaseGameMode
     {
         // Create and store context
         ref AccountContext context = new AccountContext();
-        Print("ReadBalance AccountContext Created: PlayerId=" + playerId + ", Amount=" + charBalance, LogLevel.ERROR); // DEBUG
+        Print("ReadBalance AccountContext Created: PlayerId=" + playerId + ", Amount=" + charBalance, LogLevel.NORMAL); // DEBUG
         context.playerId = playerId;
         context.cash = false; // Not needed for balance refresh
         context.amount = 0;   // Not needed here
@@ -340,17 +340,17 @@ modded class SCR_BaseGameMode
     //! \param[in] string currencySymbol Currency identifier (not used here but kept for compatibility)
     //! \param[in] int amount Amount to be added to current balance (positive value for addition, negative for removal)
     void AdjustBalance(int playerId, string currencySymbol, int amount) {
-        Print("AdjustBalance (Client/Server Initial Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
-        Print("AdjustBalance (Initial Client/Server Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
-        Print("AdjustBalance (Client): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
+        Print("AdjustBalance (Client/Server Initial Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalance (Initial Client/Server Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalance (Client): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         if (Replication.IsServer())
         {
             AdjustBalanceInternal(playerId, amount);
         }
         else
         {
-            Print("RpcAsk_AdjustBalance (Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
-        Print("RpcAsk_AdjustBalance (Before Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
+            Print("RpcAsk_AdjustBalance (Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("RpcAsk_AdjustBalance (Before Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         Rpc(RpcAsk_AdjustBalance, playerId, currencySymbol, amount);
         }
     }
@@ -362,7 +362,7 @@ modded class SCR_BaseGameMode
     //! \param[in] int amount Amount to be added to current balance
     //! \param[in] string message Notification message
     void AdjustBalanceAndNotify(int playerId, string currencySymbol, int amount, string message) {
-        Print("AdjustBalanceAndNotify (Client/Server): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.ERROR); // DEBUG
+        Print("AdjustBalanceAndNotify (Client/Server): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.NORMAL); // DEBUG
         if (Replication.IsServer())
         {
             AdjustBalanceInternal(playerId, amount);
@@ -370,7 +370,7 @@ modded class SCR_BaseGameMode
         }
         else
         {
-            Print("RpcAsk_AdjustBalanceAndNotify (Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.ERROR); // DEBUG
+            Print("RpcAsk_AdjustBalanceAndNotify (Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.NORMAL); // DEBUG
         Rpc(RpcAsk_AdjustBalanceAndNotify, playerId, currencySymbol, amount, message);
         }
     }
@@ -378,32 +378,32 @@ modded class SCR_BaseGameMode
     //------------------------------------------------------------------------------------------------
     [RplRpc(RplChannel.Reliable, RplRcver.Server)]
     void RpcAsk_AdjustBalance(int playerId, string currencySymbol, int amount) {
-        Print("RpcAsk_AdjustBalance (Server Received): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
-        Print("RpcAsk_AdjustBalance (Server-Side Received): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
-        Print("RpcAsk_AdjustBalance (Server): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
+        Print("RpcAsk_AdjustBalance (Server Received): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("RpcAsk_AdjustBalance (Server-Side Received): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("RpcAsk_AdjustBalance (Server): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         AdjustBalanceInternal(playerId, amount);
     }
 
     [RplRpc(RplChannel.Reliable, RplRcver.Server)]
     void RpcAsk_AdjustBalanceAndNotify(int playerId, string currencySymbol, int amount, string message) {
-        Print("RpcAsk_AdjustBalanceAndNotify (Server): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.ERROR); // DEBUG
+        Print("RpcAsk_AdjustBalanceAndNotify (Server): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.NORMAL); // DEBUG
         AdjustBalanceInternal(playerId, amount);
         NotifyPlayer(playerId, amount, message);
     }
 
     //------------------------------------------------------------------------------------------------
     void AdjustBalanceInternal(int playerId, int amount) {
-        Print("AdjustBalanceInternal (Server): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
-        Print("AdjustBalanceInternal: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
+        Print("AdjustBalanceInternal (Server): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalanceInternal: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         string uid = GetGame().GetBackendApi().GetPlayerIdentityId(playerId);
 
         // Create and store context
         ref AccountContext context = new AccountContext();
-        Print("AdjustBalanceInternal AccountContext Created: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
+        Print("AdjustBalanceInternal AccountContext Created: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         context.playerId = playerId;
         context.cash = false; // Not needed for balance adjustment
         context.amount = amount;
-        Print("AdjustBalanceInternal AccountContext Updated: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.ERROR); // DEBUG
+        Print("AdjustBalanceInternal AccountContext Updated: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         m_AccountContexts.Insert(uid, context);
 
         EDF_JsonFileDbConnectionInfo connectInfo();

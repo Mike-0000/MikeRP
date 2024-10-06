@@ -36,7 +36,7 @@ GenericEntity : "{8594DC1E8A135607}Prefabs/Processor/ItemProcessor_Base.et" {
       }
      }
      m_bForceDropOutput 1
-     m_vDropOffset -1.8 2 0
+     m_vDropOffset -2 2 0
      m_vRotation 90 0 0
     }
    }

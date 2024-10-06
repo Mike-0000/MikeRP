@@ -22,27 +22,42 @@ class KF_ATM_StartAction : ScriptedUserAction
         m_AtmScreen.SetUser(playerId);
     }
 }
-class KF_ATM_DepositAction100 : ScriptedUserAction
+class KF_ATM_DepositActionMIKE : ScriptedUserAction
 {
+	[Attribute(defvalue: "1", desc: "Amount to Deposit from this action. Will update the Action Title based on this amount", uiwidget: UIWidgets.EditBox, category: "MikeCustom")]
+    protected int DepositAmount;
+	[Attribute(defvalue: "0", desc: "0 to use DepositAmount Value, 1 to deposit All.", uiwidget: UIWidgets.EditBox, category: "MikeCustom")]
+    protected bool m_bDepositAll;
 	int moneyAmount = 100;
-	[RplProp()]
-    KF_AtmScreen m_AtmScreen;
+//	[RplProp()]
+//    KF_AtmScreen m_AtmScreen;
     SCR_BaseGameMode m_GameMode;
 
     [Attribute("0", UIWidgets.CheckBox, "")]
-    bool m_bDepositAll;
+	override bool GetActionNameScript(out string outName)
+    {
+		if (m_bDepositAll == true){
+			outName = "Deposit All";
+			return true;
 
+		}
+			
+        outName = "Deposit $"+DepositAmount;
+        
+        return true;
+    }
     //------------------------------------------------------------------------------------------------
     override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
     {
-        m_AtmScreen = KF_AtmScreen.Cast(pOwnerEntity);
+        //m_AtmScreen = KF_AtmScreen.Cast(pOwnerEntity);
         m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
     }
 
     //------------------------------------------------------------------------------------------------
     override bool CanBeShownScript(IEntity user)
     {
-        return (m_AtmScreen.m_bBusy);
+//        return (m_AtmScreen.m_bBusy);
+		return true;
     }
 
     //------------------------------------------------------------------------------------------------
@@ -60,15 +75,18 @@ class KF_ATM_DepositAction100 : ScriptedUserAction
         }
         else
         {
-            return (moneyAmount <= cashAmount);
+            return (DepositAmount <= cashAmount);
         }
     }
 
     //------------------------------------------------------------------------------------------------
     override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
     {
+		Print("KF_ATM_DepositActionMIKE PerformAction: DepositAmount = " + DepositAmount.ToString(), LogLevel.NORMAL); // DEBUG
+
         int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
 
+		
         SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(pUserEntity);
         if (!userChar) return;
 
@@ -79,147 +97,13 @@ class KF_ATM_DepositAction100 : ScriptedUserAction
         }
         else
         {
-            amount = moneyAmount;
+            amount = DepositAmount;
         }
 
-        if (moneyAmount > 0)
+        if (amount > 0)
         {
-            userChar.SetCash(-moneyAmount, true);
-            m_GameMode.AdjustBalanceAndNotify(playerId, "$", moneyAmount, "Deposit $" + moneyAmount);
-        }
-    }
-}
-class KF_ATM_DepositAction1000 : ScriptedUserAction
-{
-	int moneyAmount = 1000;
-	[RplProp()]
-    KF_AtmScreen m_AtmScreen;
-    SCR_BaseGameMode m_GameMode;
-
-    [Attribute("0", UIWidgets.CheckBox, "")]
-    bool m_bDepositAll;
-
-    //------------------------------------------------------------------------------------------------
-    override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
-    {
-        m_AtmScreen = KF_AtmScreen.Cast(pOwnerEntity);
-        m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
-    }
-
-    //------------------------------------------------------------------------------------------------
-    override bool CanBeShownScript(IEntity user)
-    {
-        return (m_AtmScreen.m_bBusy);
-    }
-
-    //------------------------------------------------------------------------------------------------
-    override bool CanBePerformedScript(IEntity user)
-    {
-        SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(user);
-        if (!userChar) return false;
-
-        int cashAmount = userChar.m_iCash;
-
-        SetCannotPerformReason("Insufficient cash");
-        if (m_bDepositAll)
-        {
-            return (cashAmount > 0);
-        }
-        else
-        {
-            return (moneyAmount <= cashAmount);
-        }
-    }
-
-    //------------------------------------------------------------------------------------------------
-    override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
-    {
-        int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
-
-        SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(pUserEntity);
-        if (!userChar) return;
-
-        int amount;
-        if (m_bDepositAll)
-        {
-            amount = userChar.m_iCash;
-        }
-        else
-        {
-            amount = moneyAmount;
-        }
-
-        if (moneyAmount > 0)
-        {
-            userChar.SetCash(-moneyAmount, true);
-            m_GameMode.AdjustBalanceAndNotify(playerId, "$", moneyAmount, "Deposit $" + moneyAmount);
-        }
-    }
-}
-class KF_ATM_DepositAction10000 : ScriptedUserAction
-{
-	int moneyAmount = 100;
-	[RplProp()]
-    KF_AtmScreen m_AtmScreen;
-    SCR_BaseGameMode m_GameMode;
-
-    [Attribute("0", UIWidgets.CheckBox, "")]
-    bool m_bDepositAll;
-
-    //------------------------------------------------------------------------------------------------
-    override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
-    {
-        m_AtmScreen = KF_AtmScreen.Cast(pOwnerEntity);
-        m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
-    }
-
-    //------------------------------------------------------------------------------------------------
-    override bool CanBeShownScript(IEntity user)
-    {
-        return (m_AtmScreen.m_bBusy);
-    }
-
-    //------------------------------------------------------------------------------------------------
-    override bool CanBePerformedScript(IEntity user)
-    {
-        SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(user);
-        if (!userChar) return false;
-
-        int cashAmount = userChar.m_iCash;
-
-        SetCannotPerformReason("Insufficient cash");
-        if (m_bDepositAll)
-        {
-            return (cashAmount > 0);
-        }
-        else
-        {
-            return (moneyAmount <= cashAmount);
-        }
-    }
-
-    //------------------------------------------------------------------------------------------------
-    override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
-    {
-        int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
-
-        SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(pUserEntity);
-        if (!userChar) return;
-
-        int amount;
-        if (m_bDepositAll)
-        {
-            amount = userChar.m_iCash;
-        }
-        else
-        {
-            amount = moneyAmount;
-        }
-
-        if (moneyAmount > 0)
-        {
-            userChar.SetCash(-moneyAmount, true);
-            m_GameMode.AdjustBalanceAndNotify(playerId, "$", moneyAmount, "Deposit $" + moneyAmount);
+            userChar.SetCash(-amount, true);
+            m_GameMode.AdjustBalanceAndNotify(playerId, "$", amount, "Deposit $" + amount);
         }
     }
 }
@@ -274,136 +158,61 @@ class KF_ATM_DepositAction10000 : ScriptedUserAction
 //    }
 //}
 
-class KF_ATM_WithdrawAction100 : ScriptedUserAction
+class KF_ATM_WithdrawActionMIKE : ScriptedUserAction
 {
-	[RplProp()]
-	KF_AtmScreen m_AtmScreen;
+	[Attribute(defvalue: "1", desc: "Amount to Withdraw from this action. Will update the Action Title based on this amount", uiwidget: UIWidgets.EditBox, category: "MikeCustom")]
+    protected int WithdrawAmount;
+//	[RplProp()]
+//	KF_AtmScreen m_AtmScreen;
 	SCR_BaseGameMode m_GameMode;
 	
 	//------------------------------------------------------------------------------------------------
 	override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
 	{
-		m_AtmScreen = KF_AtmScreen.Cast(pOwnerEntity);
+		//m_AtmScreen = KF_AtmScreen.Cast(pOwnerEntity);
 		m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
 	}
-	
+	override bool GetActionNameScript(out string outName)
+    {
+        outName = "Withdraw $"+WithdrawAmount;
+        
+        return true;
+    }
 	//------------------------------------------------------------------------------------------------
 	override bool CanBeShownScript(IEntity user)
 	{
-		return (m_AtmScreen.m_bBusy);
+//		Print("KF_ATM_WithdrawActionMIKE CanBeShownScript = true", LogLevel.NORMAL); // DEBUG
+		return true;
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	override bool CanBePerformedScript(IEntity user)
 	{
+//		Print("KF_ATM_WithdrawActionMIKE CanBePerformedScript RAN!", LogLevel.NORMAL); // DEBUG
 		if (!m_GameMode) m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
 		
 		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(user);
 		int accountBalance = m_GameMode.GetBalance(playerId, "$");
 		
+//		Print("KF_ATM_WithdrawActionMIKE CanBePerformedScript Return = " + (WithdrawAmount <= accountBalance).ToString(), LogLevel.NORMAL); // DEBUG
 		SetCannotPerformReason("Insufficient balance");
-		return (100 <= accountBalance);
+		return (WithdrawAmount <= accountBalance);
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
+		Print("KF_ATM_WithdrawActionMIKE PerformAction: WithdrawAmount = " + WithdrawAmount.ToString(), LogLevel.NORMAL); // DEBUG
 		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
 		
 		SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(pUserEntity);
 		if (!userChar) return;
 		
-		userChar.SetCash(m_AtmScreen.m_iInputAmount, true);
-		m_GameMode.AdjustBalanceAndNotify(playerId, "$", -100, "Withdrawal");
+		userChar.SetCash(WithdrawAmount, true);
+		m_GameMode.AdjustBalanceAndNotify(playerId, "$", -WithdrawAmount, "Withdrawal");
 	}
 }
 
-class KF_ATM_WithdrawAction1000 : ScriptedUserAction
-{
-	[RplProp()]
-	KF_AtmScreen m_AtmScreen;
-	SCR_BaseGameMode m_GameMode;
-	
-	//------------------------------------------------------------------------------------------------
-	override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
-	{
-		m_AtmScreen = KF_AtmScreen.Cast(pOwnerEntity);
-		m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	override bool CanBeShownScript(IEntity user)
-	{
-		return (m_AtmScreen.m_bBusy);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	override bool CanBePerformedScript(IEntity user)
-	{
-		if (!m_GameMode) m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
-		
-		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(user);
-		int accountBalance = m_GameMode.GetBalance(playerId, "$");
-		
-		SetCannotPerformReason("Insufficient balance");
-		return (1000 <= accountBalance);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
-	{
-		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
-		
-		SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(pUserEntity);
-		if (!userChar) return;
-		
-		userChar.SetCash(m_AtmScreen.m_iInputAmount, true);
-		m_GameMode.AdjustBalanceAndNotify(playerId, "$", -1000, "Withdrawal");
-	}
-}
-class KF_ATM_WithdrawAction10000 : ScriptedUserAction
-{
-	[RplProp()]
-	KF_AtmScreen m_AtmScreen;
-	SCR_BaseGameMode m_GameMode;
-	
-	//------------------------------------------------------------------------------------------------
-	override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
-	{
-		m_AtmScreen = KF_AtmScreen.Cast(pOwnerEntity);
-		m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	override bool CanBeShownScript(IEntity user)
-	{
-		return (m_AtmScreen.m_bBusy);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	override bool CanBePerformedScript(IEntity user)
-	{
-		if (!m_GameMode) m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
-		
-		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(user);
-		int accountBalance = m_GameMode.GetBalance(playerId, "$");
-		
-		SetCannotPerformReason("Insufficient balance");
-		return (10000 <= accountBalance);
-	}
-	
-	//------------------------------------------------------------------------------------------------
-	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
-	{
-		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
-		
-		SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(pUserEntity);
-		if (!userChar) return;
-		
-		userChar.SetCash(m_AtmScreen.m_iInputAmount, true);
-		m_GameMode.AdjustBalanceAndNotify(playerId, "$", -10000, "Withdrawal");
-	}
-}
 
 
 
