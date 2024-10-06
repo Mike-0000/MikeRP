@@ -3,15 +3,191 @@ FrameWidgetClass {
   RTTextureWidgetClass "{5ED33E3C8B8D259D}" {
    Prefab "{5ED33E3C8B8D259D}"
    {
+    TextWidgetClass "{62546C9CA2E62CDD}" {
+     Prefab "{62546C9CA2E62CDD}"
+     "Is Enabled" 0
+     "Is Visible" 0
+    }
+    TextWidgetClass "{62546C9C863CD7CD}" {
+     Prefab "{62546C9C863CD7CD}"
+     "Is Enabled" 0
+     "Is Visible" 0
+    }
     TextWidgetClass "{62546C9F54C2BFD8}" {
      Prefab "{62546C9F54C2BFD8}"
      "Is Enabled" 0
+     "Is Visible" 0
     }
-    TextWidgetClass "{628AE8D0E1322995}" {
-     Name "Text0"
-     Slot FrameWidgetSlot "{628AE8D0E132CB08}" {
+    TextWidgetClass "{62546C9F39D6946D}" {
+     Prefab "{62546C9F39D6946D}"
+     "Is Enabled" 0
+     "Is Visible" 0
+    }
+    TextWidgetClass "{62546C9F291F652F}" {
+     Prefab "{62546C9F291F652F}"
+     Slot FrameWidgetSlot "{6252CAC596A1DBE7}" {
+      PositionX 796.063
+      OffsetLeft 796.063
+      PositionY 148.299
+      OffsetTop 148.299
+      SizeX 150.061
+      OffsetRight -946.124
+      SizeY 303.434
+      OffsetBottom -451.733
      }
-     Text "Deposit 1000"
+    }
+    TextWidgetClass "{62546C9FB81EEBD1}" {
+     Prefab "{62546C9FB81EEBD1}"
+     Slot FrameWidgetSlot "{6252CAC596A1DBE7}" {
+      PositionX 87.638
+      OffsetLeft 87.638
+      PositionY 560.94
+      OffsetTop 560.94
+      SizeX 200.001
+      OffsetRight -287.639
+      SizeY 200
+      OffsetBottom -760.94
+     }
+    }
+    TextWidgetClass "{6252CAC596A1DBCE}" {
+     Prefab "{6252CAC596A1DBCE}"
+     Slot FrameWidgetSlot "{6252CAC596A1DBE7}" {
+      PositionX 339.414
+      OffsetLeft 339.414
+      PositionY 368.523
+      OffsetTop 368.523
+      SizeX 200
+      OffsetRight -539.414
+      SizeY 200
+      OffsetBottom -568.523
+     }
+    }
+    ImageWidgetClass "{6254AA1DF5557983}" {
+     Prefab "{6254AA1DF5557983}"
+     Slot FrameWidgetSlot "{6252CAC7E5CB752B}" {
+      Anchor 0 0 0.088 0.03
+      PositionX 1.348
+      OffsetLeft 1.348
+      PositionY 3.216
+      OffsetTop 3.216
+      SizeX 986.622
+      OffsetRight -987.97
+      SizeY 1042.91
+      OffsetBottom -1046.13
+     }
+    }
+    TextWidgetClass "{628B5AA99DA7BF62}" {
+     Name "Withdraw100"
+     Slot FrameWidgetSlot "{628B5AA99DA7BEDE}" {
+      Anchor 0 0 0.148 0.065
+      PositionX 47.156
+      OffsetLeft 47.156
+      PositionY 100
+      OffsetTop 100
+      SizeX 13.233
+      OffsetRight -60.389
+      SizeY 96.102
+      OffsetBottom -196.102
+     }
+     Text "Withdraw $100"
+     "Font Size" 110
+     "Min Font Size" 32
+     "Horizontal Alignment" Center
+     "Vertical Alignment" Center
+    }
+    TextWidgetClass "{628B5AA9D593F2A2}" {
+     Name "Withdraw1000"
+     Slot FrameWidgetSlot "{628B5AA99DA7BEDE}" {
+      Anchor 0 0 1 0.091
+      PositionX 288.435
+      OffsetLeft 288.435
+      PositionY 100
+      OffsetTop 100
+      SizeX -906.926
+      OffsetRight 618.491
+      SizeY 68.971
+      OffsetBottom -168.972
+     }
+     Text "Withdraw $1000"
+     "Font Size" 110
+     "Min Font Size" 32
+     "Horizontal Alignment" Center
+     "Vertical Alignment" Center
+    }
+    TextWidgetClass "{628B5AA9E0D7D7D5}" {
+     Name "Withdraw10000"
+     Slot FrameWidgetSlot "{628B5AA99DA7BEDE}" {
+      Anchor 0 0 0.148 0.065
+      PositionX 557.515
+      OffsetLeft 557.515
+      PositionY 100
+      OffsetTop 100
+      SizeX 13.233
+      OffsetRight -570.748
+      SizeY 93.578
+      OffsetBottom -193.578
+     }
+     Text "Withdraw $10000"
+     "Font Size" 110
+     "Min Font Size" 32
+     "Horizontal Alignment" Center
+     "Vertical Alignment" Center
+    }
+    TextWidgetClass "{628B5AA9E90C1CC7}" {
+     Name "Deposit 100"
+     Slot FrameWidgetSlot "{628B5AA99DA7BEDE}" {
+      Anchor 0 0 0.995 0.093
+      PositionX 45.418
+      OffsetLeft 45.418
+      PositionY 319.973
+      OffsetTop 320
+      SizeX -901.592
+      OffsetRight 856.174
+      SizeY 67.724
+      OffsetBottom -390
+     }
+     Text "Deposit $100"
+     "Font Size" 110
+     "Horizontal Alignment" Center
+     "Vertical Alignment" Center
+    }
+    TextWidgetClass "{628B5AAD5584E03A}" {
+     Name "Deposit 1000"
+     Slot FrameWidgetSlot "{628B5AA99DA7BEDE}" {
+      Anchor 0 0 0.995 0.093
+      PositionX 301.06
+      OffsetLeft 301.06
+      PositionY 311.393
+      OffsetTop 320
+      SizeX -901.592
+      OffsetRight 600.532
+      SizeY 67.725
+      OffsetBottom -390
+     }
+     Text "Deposit $1000"
+     "Font Size" 110
+     "Min Font Size" 30
+     "Horizontal Alignment" Center
+     "Vertical Alignment" Center
+    }
+    TextWidgetClass "{628B5AAD5DF97735}" {
+     Name "Deposit 10000"
+     Slot FrameWidgetSlot "{628B5AA99DA7BEDE}" {
+      Anchor 0 0 0.995 0.093
+      PositionX 561.037
+      OffsetLeft 561.037
+      PositionY 308.588
+      OffsetTop 320
+      SizeX -901.593
+      OffsetRight 340.556
+      SizeY 67.725
+      OffsetBottom -390
+     }
+     Text "Deposit $10000"
+     "Font Size" 110
+     "Min Font Size" 30
+     "Horizontal Alignment" Center
+     "Vertical Alignment" Center
     }
    }
   }

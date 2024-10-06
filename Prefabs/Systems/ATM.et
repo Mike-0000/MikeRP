@@ -10,18 +10,57 @@ GenericEntity {
   KF_AtmScreen {
    ID "6270D44199F20103"
    components {
-    MeshObject "{62528DA09309D172}" {
-     Enabled 0
-    }
     ActionsManagerComponent "{62546C93157508ED}" {
      ActionContexts {
       UserActionContext "{625A699DDE3A1809}" {
        ContextName "withdraw100"
+       Position PointInfo "{625A699DE2B9AFD3}" {
+        Offset -0.1745 0.1125 0
+       }
+      }
+      UserActionContext "{628B5AB11A15C322}" {
+       ContextName "withdraw1000"
+       Position PointInfo "{628B5AB0A7992F48}" {
+        Offset -0.077 0.1103 0
+       }
+      }
+      UserActionContext "{628B5AB0CFB053DD}" {
+       ContextName "withdraw10000"
+       Position PointInfo "{628B5AB0A7992F48}" {
+        Offset 0.0846 0.1025 0
+       }
+       Height 0
+      }
+      UserActionContext "{625A77EE1A237EC6}" {
+       ContextName "deposit100"
+       Position PointInfo "{625A77EE2EDED16C}" {
+        Offset -0.1616 0.0314 0
+       }
+      }
+      UserActionContext "{628B5AB0E2330574}" {
+       ContextName "deposit1000"
+       Position PointInfo "{628B5AB014365C3D}" {
+        Offset -0.0523 0.0385 0
+       }
+       Radius 0.03
+       Height 0
+      }
+      UserActionContext "{628B5AB0E3ED296D}" {
+       ContextName "deposit10000"
+       Position PointInfo "{628B5AB008E40EEB}" {
+        Offset 0.0791 0.0358 0
+       }
+       Height 0
+      }
+      UserActionContext "{62607CD90B9A7B28}" {
+       Position PointInfo "{625A77EE2EDED16C}" {
+        Offset 0.1881 0.1073 0
+       }
       }
      }
     }
    }
-   coords 0.053 1.486 0.504
+   coords 0.065 1.685 0.578
    angleX -21.647
    angleY -179.873
    angleZ -0.048

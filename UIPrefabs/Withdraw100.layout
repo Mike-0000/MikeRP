@@ -1,0 +1,19 @@
+TextWidgetClass {
+ Name "Withdraw100"
+ Slot FrameWidgetSlot "{628B5AA99DA7BEDE}" {
+  Anchor 0 0 0.148 0.065
+  PositionX 47.156
+  OffsetLeft 47.156
+  PositionY 100.666
+  OffsetTop 100
+  SizeX 13.233
+  OffsetRight -60.389
+  SizeY 88.474
+  OffsetBottom -189.14
+ }
+ Text "Withdraw $100"
+ "Font Size" 220
+ "Min Font Size" 30
+ "Horizontal Alignment" Center
+ "Vertical Alignment" Center
+}
