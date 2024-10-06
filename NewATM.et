@@ -80,24 +80,28 @@ GenericEntity {
        ParentContextList {
         "deposit-100"
        }
+       Duration 0.2
        DepositAmount 100
       }
       KF_ATM_DepositActionMIKE "{628D23BA1C68AF6A}" {
        ParentContextList {
         "deposit-1000"
        }
+       Duration 0.2
        DepositAmount 1000
       }
       KF_ATM_WithdrawActionMIKE "{628D23BA16ECEE95}" {
        ParentContextList {
         "withdraw-100"
        }
+       Duration 0.2
        WithdrawAmount 100
       }
       KF_ATM_WithdrawActionMIKE "{628D23BA30D492BB}" {
        ParentContextList {
         "withdraw-1000"
        }
+       Duration 0.2
        WithdrawAmount 1000
       }
       KF_ATM_DepositActionMIKE "{628D23B9368A6263}" {
@@ -108,12 +112,14 @@ GenericEntity {
         Name "Deposit All"
        }
        ActionTitle "Deposit All"
+       Duration 0.2
        m_bDepositAll 1
       }
       KF_ATM_WithdrawActionMIKE "{628D23B2DF951D85}" {
        ParentContextList {
         "withdraw-10000"
        }
+       Duration 0.2
        WithdrawAmount 10000
       }
      }

@@ -82,6 +82,7 @@ class KF_ATM_DepositActionMIKE : ScriptedUserAction
     //------------------------------------------------------------------------------------------------
     override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
     {
+		if (!m_GameMode) m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
 		Print("KF_ATM_DepositActionMIKE PerformAction: DepositAmount = " + DepositAmount.ToString(), LogLevel.NORMAL); // DEBUG
 
         int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
@@ -103,7 +104,10 @@ class KF_ATM_DepositActionMIKE : ScriptedUserAction
         if (amount > 0)
         {
             userChar.SetCash(-amount, true);
-            m_GameMode.AdjustBalanceAndNotify(playerId, "$", amount, "Deposit $" + amount);
+			Print("Cash set on personal record", LogLevel.NORMAL); // DEBUG
+
+            m_GameMode.AdjustBalanceAndNotify(playerId, "$", amount, "Deposit $");
+			Print("Cash set on Server record", LogLevel.NORMAL); // DEBUG
         }
     }
 }
@@ -161,7 +165,7 @@ class KF_ATM_DepositActionMIKE : ScriptedUserAction
 class KF_ATM_WithdrawActionMIKE : ScriptedUserAction
 {
 	[Attribute(defvalue: "1", desc: "Amount to Withdraw from this action. Will update the Action Title based on this amount", uiwidget: UIWidgets.EditBox, category: "MikeCustom")]
-    protected int WithdrawAmount;
+    int WithdrawAmount;
 //	[RplProp()]
 //	KF_AtmScreen m_AtmScreen;
 	SCR_BaseGameMode m_GameMode;
@@ -200,8 +204,53 @@ class KF_ATM_WithdrawActionMIKE : ScriptedUserAction
 	}
 	
 	//------------------------------------------------------------------------------------------------
+	
+
+//	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
+//	{
+//	    // Ensure this code runs only on the server
+//	    if (!Replication.IsServer())
+//	    {
+//	        // Send an RPC to the server to perform the action
+//	        Rpc(RpcDo_PerformAction, pUserEntity);
+//	        return;
+//	    }
+//	
+//	    PerformActionServer(pUserEntity);
+//	}
+//	
+//	[RplRpc(RplChannel.Reliable, RplRcver.Server)]
+//	void RpcDo_PerformAction(IEntity pUserEntity)
+//	{
+//	    PerformActionServer(pUserEntity);
+//	}
+//	
+//	void PerformActionServer(IEntity pUserEntity)
+//	{
+//	    Print("KF_ATM_WithdrawActionMIKE PerformActionServer: WithdrawAmount = " + WithdrawAmount.ToString(), LogLevel.NORMAL); // DEBUG
+//	
+//	    int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
+//	
+//	    SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(pUserEntity);
+//	    if (!userChar) return;
+//	
+//	    // Adjust the player's cash only once on the server
+//	    userChar.SetCash(WithdrawAmount, true);
+//	    m_GameMode.AdjustBalanceAndNotify(playerId, "$", -WithdrawAmount, "Withdrawal");
+//	}
+
+	
+	
+	
+	
+	
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
+		if (!Replication.IsServer())
+	    {
+	        return;
+	    }
+		if (!m_GameMode) m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
 		Print("KF_ATM_WithdrawActionMIKE PerformAction: WithdrawAmount = " + WithdrawAmount.ToString(), LogLevel.NORMAL); // DEBUG
 		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
 		
@@ -209,8 +258,12 @@ class KF_ATM_WithdrawActionMIKE : ScriptedUserAction
 		if (!userChar) return;
 		
 		userChar.SetCash(WithdrawAmount, true);
+		Print("Cash set on personal record. Doing Server Action: PlayerID = " + playerId + " Withdraw Amount " + WithdrawAmount, LogLevel.NORMAL); // DEBUG
+		
 		m_GameMode.AdjustBalanceAndNotify(playerId, "$", -WithdrawAmount, "Withdrawal");
+		Print("Cash set on server record", LogLevel.NORMAL); // DEBUG
 	}
+	
 }
 
 
