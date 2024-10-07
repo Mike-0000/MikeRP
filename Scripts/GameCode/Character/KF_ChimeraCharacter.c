@@ -21,6 +21,16 @@ class MIKE_Cash : EDF_DbEntity
 
 modded class SCR_ChimeraCharacter
 {
+	[RplProp()]
+    bool basicGunLicenseExists = false;
+	[RplProp()]
+    bool driversLicenseExists = false;
+	[RplProp()]
+    bool tier2GunLicenseExists = false;
+	[RplProp()]
+    string recentLicense = "";
+    [RplProp()]
+    bool m_bIsBusy = false;
     [RplProp()]
     string m_sPlayerUid;
 
@@ -36,6 +46,16 @@ modded class SCR_ChimeraCharacter
     [RplProp()]
     bool m_bRecentDeath;
 
+	void SetBusyState(bool isBusy)
+    {
+        m_bIsBusy = isBusy;
+		Replication.BumpMe(); // Ensure the state is synchronized across clients and server
+        Print("[SCR_ChimeraCharacter] SetBusyState: " + isBusy.ToString(), LogLevel.DEBUG);
+    }
+	bool IsBusy()
+    {
+        return m_bIsBusy;
+    }
     //------------------------------------------------------------------------------------------------
     //! Assigns replicated player uid
     //! \param[in] string uid Unique player identity id

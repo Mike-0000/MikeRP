@@ -1,22 +1,41 @@
-GenericEntity : "{19A3C48FC2665A3F}Prefabs/Props/Construction/GravelPile_01_large.et" {
- components {
-  SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
-   DisplayName "Iron Ore Mine"
-  }
-  ActionsManagerComponent "{59A84AD20BA3F0D3}" {
-   additionalActions {
-    EL_GatherAction "{59A84AD20134F93A}" {
-     ActionTitle "Mine Iron"
-     Duration 20
-     m_GatherItemPrefab "{2C571D6F7C05E095}Prefabs/Resources/Mining/IronOre.et"
-     m_GatherToolRequirement "{202B26ADA162119A}Prefabs/weapons/Melee/Pickaxe.et"
-     m_CheckInventoryForToolRequirement 1
-    }
+$grp GenericEntity : "{04269D0496781F49}Prefabs/Processor/IronNuggetProcessor.et" {
+ {
+  components {
+   SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
+    DisplayName "Iron Processing"
+    MainType "Name Settlement"
    }
   }
+  coords 5137.666 174.021 7100.021
+  angleY 108.333
  }
- coords 7678.727 247.717 3868.683
- angleX -4.463
- angleY 0.14
- angleZ -1.795
+ {
+  components {
+   SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
+    Enabled 0
+   }
+  }
+  coords 5139.993 174.021 7107.166
+  angleY 108.527
+ }
+}
+$grp GenericEntity : "{BAF93DCAE323F5D2}Prefabs/Processor/IronOreProcessor.et" {
+ {
+  components {
+   SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
+    Enabled 0
+   }
+  }
+  coords 5139.691 174.031 7106.026
+  angleY 14.374
+ }
+ {
+  components {
+   SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
+    Enabled 0
+   }
+  }
+  coords 5137.367 174.031 7098.88
+  angleY 14.18
+ }
 }

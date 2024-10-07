@@ -64,8 +64,13 @@ class KF_ATM_DepositActionMIKE : ScriptedUserAction
     override bool CanBePerformedScript(IEntity user)
     {
         SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(user);
-        if (!userChar) return false;
 
+        if (!userChar) return false;
+		 if (userChar.IsBusy())
+        {
+            SetCannotPerformReason("Another transaction is in progress.");
+            return false;
+        }
         int cashAmount = userChar.m_iCash;
 
         SetCannotPerformReason("Insufficient cash");
@@ -82,15 +87,22 @@ class KF_ATM_DepositActionMIKE : ScriptedUserAction
     //------------------------------------------------------------------------------------------------
     override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
     {
+		if (!Replication.IsServer())
+	    {
+	        return;
+	    }
+		
 		if (!m_GameMode) m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
-		Print("KF_ATM_DepositActionMIKE PerformAction: DepositAmount = " + DepositAmount.ToString(), LogLevel.NORMAL); // DEBUG
-
+		//Print("KF_ATM_DepositActionMIKE PerformAction: DepositAmount = " + DepositAmount.ToString(), LogLevel.NORMAL); // DEBUG
+		
+		
+		
         int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
-
+		
 		
         SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(pUserEntity);
         if (!userChar) return;
-
+		userChar.SetBusyState(true);
         int amount;
         if (m_bDepositAll)
         {
@@ -104,11 +116,12 @@ class KF_ATM_DepositActionMIKE : ScriptedUserAction
         if (amount > 0)
         {
             userChar.SetCash(-amount, true);
-			Print("Cash set on personal record", LogLevel.NORMAL); // DEBUG
+			//Print("Cash set on personal record", LogLevel.NORMAL); // DEBUG
 
             m_GameMode.AdjustBalanceAndNotify(playerId, "$", amount, "Deposit $");
-			Print("Cash set on Server record", LogLevel.NORMAL); // DEBUG
+			//Print("Cash set on Server record", LogLevel.NORMAL); // DEBUG
         }
+		userChar.SetBusyState(false);
     }
 }
 //class KF_ATM_WithdrawAction : ScriptedUserAction
@@ -135,7 +148,7 @@ class KF_ATM_DepositActionMIKE : ScriptedUserAction
 //        SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(user);
 //        if (!userChar) return false;
 //
-//        Print("KF_ATM_WithdrawAction CanBePerformedScript m_iInputAmount = " + m_AtmScreen.m_iInputAmount.ToString(), LogLevel.ERROR); // DEBUG
+//        //Print("KF_ATM_WithdrawAction CanBePerformedScript m_iInputAmount = " + m_AtmScreen.m_iInputAmount.ToString(), LogLevel.ERROR); // DEBUG
 //
 //        int accountBalance = userChar.m_iBalance;
 //
@@ -152,7 +165,7 @@ class KF_ATM_DepositActionMIKE : ScriptedUserAction
 //        if (!userChar) return;
 //
 //        int amount = m_AtmScreen.m_iInputAmount;
-//        Print("KF_ATM_WithdrawAction PerformAction m_iInputAmount = " + m_AtmScreen.m_iInputAmount.ToString() + " Amount: " + amount.ToString(), LogLevel.ERROR);  // DEBUG
+//        //Print("KF_ATM_WithdrawAction PerformAction m_iInputAmount = " + m_AtmScreen.m_iInputAmount.ToString() + " Amount: " + amount.ToString(), LogLevel.ERROR);  // DEBUG
 //
 //        if (amount > 0 && amount <= userChar.m_iBalance)
 //        {
@@ -185,20 +198,27 @@ class KF_ATM_WithdrawActionMIKE : ScriptedUserAction
 	//------------------------------------------------------------------------------------------------
 	override bool CanBeShownScript(IEntity user)
 	{
-//		Print("KF_ATM_WithdrawActionMIKE CanBeShownScript = true", LogLevel.NORMAL); // DEBUG
+//		//Print("KF_ATM_WithdrawActionMIKE CanBeShownScript = true", LogLevel.NORMAL); // DEBUG
 		return true;
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	override bool CanBePerformedScript(IEntity user)
 	{
-//		Print("KF_ATM_WithdrawActionMIKE CanBePerformedScript RAN!", LogLevel.NORMAL); // DEBUG
+		SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(user);
+		if (!userChar) return false;
+		 if (userChar.IsBusy())
+        {
+            SetCannotPerformReason("Another transaction is in progress.");
+            return false;
+        }
+//		//Print("KF_ATM_WithdrawActionMIKE CanBePerformedScript RAN!", LogLevel.NORMAL); // DEBUG
 		if (!m_GameMode) m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
 		
 		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(user);
 		int accountBalance = m_GameMode.GetBalance(playerId, "$");
 		
-//		Print("KF_ATM_WithdrawActionMIKE CanBePerformedScript Return = " + (WithdrawAmount <= accountBalance).ToString(), LogLevel.NORMAL); // DEBUG
+//		//Print("KF_ATM_WithdrawActionMIKE CanBePerformedScript Return = " + (WithdrawAmount <= accountBalance).ToString(), LogLevel.NORMAL); // DEBUG
 		SetCannotPerformReason("Insufficient balance");
 		return (WithdrawAmount <= accountBalance);
 	}
@@ -227,7 +247,7 @@ class KF_ATM_WithdrawActionMIKE : ScriptedUserAction
 //	
 //	void PerformActionServer(IEntity pUserEntity)
 //	{
-//	    Print("KF_ATM_WithdrawActionMIKE PerformActionServer: WithdrawAmount = " + WithdrawAmount.ToString(), LogLevel.NORMAL); // DEBUG
+//	    //Print("KF_ATM_WithdrawActionMIKE PerformActionServer: WithdrawAmount = " + WithdrawAmount.ToString(), LogLevel.NORMAL); // DEBUG
 //	
 //	    int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
 //	
@@ -251,17 +271,20 @@ class KF_ATM_WithdrawActionMIKE : ScriptedUserAction
 	        return;
 	    }
 		if (!m_GameMode) m_GameMode = SCR_BaseGameMode.Cast(GetGame().GetGameMode());
-		Print("KF_ATM_WithdrawActionMIKE PerformAction: WithdrawAmount = " + WithdrawAmount.ToString(), LogLevel.NORMAL); // DEBUG
+		//Print("KF_ATM_WithdrawActionMIKE PerformAction: WithdrawAmount = " + WithdrawAmount.ToString(), LogLevel.NORMAL); // DEBUG
 		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
 		
 		SCR_ChimeraCharacter userChar = SCR_ChimeraCharacter.Cast(pUserEntity);
 		if (!userChar) return;
 		
+		userChar.SetBusyState(true);
+		
 		userChar.SetCash(WithdrawAmount, true);
-		Print("Cash set on personal record. Doing Server Action: PlayerID = " + playerId + " Withdraw Amount " + WithdrawAmount, LogLevel.NORMAL); // DEBUG
+		//Print("Cash set on personal record. Doing Server Action: PlayerID = " + playerId + " Withdraw Amount " + WithdrawAmount, LogLevel.NORMAL); // DEBUG
 		
 		m_GameMode.AdjustBalanceAndNotify(playerId, "$", -WithdrawAmount, "Withdrawal");
-		Print("Cash set on server record", LogLevel.NORMAL); // DEBUG
+		//Print("Cash set on server record", LogLevel.NORMAL); // DEBUG
+		userChar.SetBusyState(false);
 	}
 	
 }
@@ -348,12 +371,12 @@ class KF_ATM_ChangeAmountAction : SCR_AdjustSignalAction
 //    
 //        if (!Replication.IsServer())
 //        {
-//            Print("[CLIENT] Attempting to call server-side HandleAction", LogLevel.ERROR);
+//            //Print("[CLIENT] Attempting to call server-side HandleAction", LogLevel.ERROR);
 //            RpcDoHandleActionId(value);  // Call RPC to execute server-side logic
 //            return;
 //        }
 //    
-//        Print("[SERVER/CLIENT] Executing HandleAction m_iAmount = " + m_iAmount.ToString() + " value: " + value.ToString(), LogLevel.ERROR);
+//        //Print("[SERVER/CLIENT] Executing HandleAction m_iAmount = " + m_iAmount.ToString() + " value: " + value.ToString(), LogLevel.ERROR);
 //    
 //        AdjustAmount(value);
 //    

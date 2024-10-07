@@ -1,0 +1,18 @@
+GenericEntity IronMine : "{209AC28A5AFE8226}IronMine.et" {
+ coords 7678.727 247.717 3868.683
+ angleX -4.463
+ angleY 0.14
+ angleZ -1.795
+}
+GenericEntity CopperMine : "{3015494657D1632D}CopperMine.et" {
+ coords 3430.815 43.084 3695.758
+ angleX 11.48
+ angleY -0.108
+ angleZ -0.899
+}
+GenericEntity GoldMine : "{5EEE78057DBAB7C9}GoldMine.et" {
+ coords 10842.073 187.08 2389.22
+ angleX 13.13
+ angleY -0.985
+ angleZ -3.707
+}

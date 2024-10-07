@@ -1,5 +1,5 @@
 [EDF_DbName.Automatic()]
-class MIKE_LicenseInfo : EDF_DbEntity
+class TAG_LicenseInfo : EDF_DbEntity
 {
     string guid1;
     string licensename;
@@ -7,9 +7,9 @@ class MIKE_LicenseInfo : EDF_DbEntity
     //------------------------------------------------------------------------------------------------
     //! Db entities cannot have a constructor with parameters; this is a limitation of the engine.
     //! Consult the docs for more info on this.
-    static MIKE_LicenseInfo Create(string guid2, string text)
+    static TAG_LicenseInfo Create(string guid2, string text)
     {
-        MIKE_LicenseInfo instance();
+        TAG_LicenseInfo instance();
         instance.guid1 = guid2;
         instance.licensename = text;
         return instance;
@@ -66,14 +66,14 @@ class MIKE_License : ADM_MerchandisePrefab
         EDF_DbContext dbContext = EDF_DbContext.Create(connectInfo);
 
         // Interact with the DB context through a repository
-        EDF_DbRepository<MIKE_LicenseInfo> repository = EDF_DbEntityHelper<MIKE_LicenseInfo>.GetRepository(dbContext);
+        EDF_DbRepository<TAG_LicenseInfo> repository = EDF_DbEntityHelper<TAG_LicenseInfo>.GetRepository(dbContext);
 
         // Now find the record
         EDF_DbFindCondition condition = EDF_DbFind.And({
             EDF_DbFind.Field("guid1").Contains(playerguid1),
             EDF_DbFind.Field("licensename").Contains(LicenseName)
         });
-        EDF_DbFindCallbackSingle<MIKE_LicenseInfo> findRecordHandler(this, "FindRecord");
+        EDF_DbFindCallbackSingle<TAG_LicenseInfo> findRecordHandler(this, "FindRecord");
         repository.FindFirstAsync(condition, callback: findRecordHandler);
 		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();
         // Check if the player already has the license
@@ -109,17 +109,18 @@ class MIKE_License : ADM_MerchandisePrefab
         EDF_DbContext dbContext = EDF_DbContext.Create(connectInfo);
 
         // Interact with the DB context through a repository
-        EDF_DbRepository<MIKE_LicenseInfo> repository = EDF_DbEntityHelper<MIKE_LicenseInfo>.GetRepository(dbContext);
-
+        EDF_DbRepository<TAG_LicenseInfo> repository = EDF_DbEntityHelper<TAG_LicenseInfo>.GetRepository(dbContext);
+		TAG_LicenseInfo newEntry = TAG_LicenseInfo.Create(playerguid1, LicenseName);
+		newEntry.SetId(playerguid1);
         // Add or update the license entry
-        repository.AddOrUpdateAsync(MIKE_LicenseInfo.Create(playerguid1, LicenseName));
+        repository.AddOrUpdateAsync(newEntry);
 
         // Confirm the license was added
         EDF_DbFindCondition condition = EDF_DbFind.And({
             EDF_DbFind.Field("guid1").Contains(playerguid1),
             EDF_DbFind.Field("licensename").Contains(LicenseName)
         });
-        EDF_DbFindCallbackSingle<MIKE_LicenseInfo> findRecordHandler(this, "FindRecord");
+        EDF_DbFindCallbackSingle<TAG_LicenseInfo> findRecordHandler(this, "FindRecord");
         repository.FindFirstAsync(condition, callback: findRecordHandler);
 		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();
         if (licenseExists == true)
@@ -138,7 +139,7 @@ class MIKE_License : ADM_MerchandisePrefab
     }
 
     // Changed access modifier from 'protected' to 'public'
-    void FindRecord(EDF_EDbOperationStatusCode statusCode, MIKE_LicenseInfo result)
+    void FindRecord(EDF_EDbOperationStatusCode statusCode, TAG_LicenseInfo result)
     {
 
         if (result)

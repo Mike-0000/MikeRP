@@ -1,5 +1,5 @@
 GenericEntity GunStore1 : "{39395A6166E54808}Prefabs/LicensedShop.et" {
- coords 4438.716 11.511 10786.858
+ coords 4439.637 11.511 10789.288
  angleY 154.82
 }
 GenericEntity GeneralStore1 : "{403E2B0BE16D6CC9}Prefabs/ItemShop_Base.et" {

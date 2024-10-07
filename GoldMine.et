@@ -1,0 +1,26 @@
+GenericEntity : "{19A3C48FC2665A3F}Prefabs/Props/Construction/GravelPile_01_large.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  ActionsManagerComponent "{59A84AD20BA3F0D3}" {
+   additionalActions {
+    EL_GatherAction "{59A84AD20134F93A}" {
+     UIInfo UIInfo "{59A84AD1D9DE9F7F}" {
+      Name "Mine Gold"
+     }
+     ActionTitle "Mine Gold"
+     Duration 50
+     m_GatherItemPrefab "{3C4F54AD0CB24525}Prefabs/Resources/Mining/GoldOre.et"
+     m_GatherAmountMax 8
+     m_GatherTimeout 90
+    }
+   }
+  }
+  SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
+   DisplayName "Gold Ore Mine"
+  }
+ }
+ coords 10842.073 187.08 2389.22
+ angleX 13.13
+ angleY -0.985
+ angleZ -3.707
+}
