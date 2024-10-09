@@ -17,22 +17,12 @@ Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15C
  {
   $grp GenericEntity : "{5192DCEC37001463}PrefabLibrary/Props/Construction/ConcretePipe_01_Short.et" {
    {
-    coords -0.075 0.025 3.192
+    coords -0.076 0.025 3.186
     angleY 179.35
    }
    {
-    coords 0.049 -0.001 -3.53
+    coords 0.047 -0.001 -3.47
     angleY 179.107
-   }
-  }
-  $grp GenericEntity : "{6720CD0D5B7B7768}Prefabs/Props/Construction/ConcretePipe/ConcretePipe_01_Long.et" {
-   {
-    coords 1.639 -0.001 -0.067
-    angleY 90.232
-   }
-   {
-    coords -1.624 -0.001 -0.001
-    angleY 89.841
    }
   }
  }

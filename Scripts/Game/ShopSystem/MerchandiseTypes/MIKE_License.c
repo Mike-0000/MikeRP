@@ -128,7 +128,24 @@ class MIKE_License : ADM_MerchandisePrefab
 			
 			hintComponent.ShowCustomHint("License Purchased!", "You have purchased a "+LicenseName+". You are now able to use the shops locked to this license.", 10);
             Print("License Found! Returning true to Deliver.", LogLevel.NORMAL);
-            return true;
+			SCR_ChimeraCharacter playerChar = SCR_ChimeraCharacter.Cast(player);
+			
+			
+			
+			if (LicenseName == "drivers"){
+		
+			playerChar.driversLicenseExists = true;
+							
+			}
+			else if (LicenseName == "civhandgun"){
+				playerChar.basicGunLicenseExists = true;
+			
+			}
+			else if (LicenseName == "tier2civhandgun"){
+				playerChar.tier2GunLicenseExists = true;
+			
+			}
+	        return true;
         }
         else
         {

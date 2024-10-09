@@ -9,7 +9,12 @@ EPF_SpawnPoint : "{260C1BEFBF9AA86B}Prefabs/MP/Spawn/SpawnPoint_LIFE.et" {
  angleZ -0.001
  m_fSpawnRadius 1.5
 }
-GenericEntity : "{5051C35424F81B0C}NewATM.et" {
- coords 4381.134 12.658 10674.393
- angleY -98.601
+$grp GenericEntity : "{5051C35424F81B0C}NewATM.et" {
+ {
+  coords 4381.134 12.658 10674.393
+  angleY -98.601
+ }
+ {
+  coords 4689.155 20.812 10755.646
+ }
 }

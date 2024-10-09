@@ -5,7 +5,8 @@ GenericEntity : "{8594DC1E8A135607}Prefabs/Processor/ItemProcessor_Base.et" {
    Object "{80B025A53ACD4525}Assets/Props/Industrial/PotIndustrial_01/PotIndustrial_01.xob"
   }
   SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
-   DisplayName "Iron Bar Smelter"
+   DisplayName "Iron Processing"
+   MainType "Name Settlement"
   }
   ActionsManagerComponent "{598F21A8710B89C1}" {
    ActionContexts {
@@ -40,4 +41,6 @@ GenericEntity : "{8594DC1E8A135607}Prefabs/Processor/ItemProcessor_Base.et" {
    }
   }
  }
+ coords 5137.666 174.021 7100.021
+ angleY 108.333
 }

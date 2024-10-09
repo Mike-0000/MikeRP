@@ -5,7 +5,9 @@ GenericEntity : "{8594DC1E8A135607}Prefabs/Processor/ItemProcessor_Base.et" {
    Object "{820BEDD412EF4AA4}Assets/Structures/BuildingsParts/Industrial/Sawmill/Sawmill_E_01_SmallSaw.xob"
   }
   SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
+   Enabled 1
    DisplayName "Iron Ore Crusher"
+   MainType "Name Village"
   }
   ActionsManagerComponent "{598F21A8710B89C1}" {
    ActionContexts {
@@ -20,19 +22,20 @@ GenericEntity : "{8594DC1E8A135607}Prefabs/Processor/ItemProcessor_Base.et" {
      UIInfo UIInfo "{62836BD39AA68233}" {
       Name "Process wooden log"
      }
+     ActionTitle "Process 1 Iron Ore"
      Duration 1
      m_aProcessingInputs {
       EL_ProcessingInput "{62836BD39AA68209}" {
-       m_InputPrefab "{2C571D6F7C05E095}Prefabs/Resources/Mining/IronOre.et"
+       m_InputPrefab "{6853E2E2AE878611}Prefabs/Resources/Mining/IronNugget.et"
       }
      }
      m_aProcessingOutputs {
       EL_ProcessingOutput "{62836BD39AA68200}" {
-       m_OutputPrefab "{6853E2E2AE878611}Prefabs/Resources/Mining/IronNugget.et"
+       m_OutputPrefab "{BCD1E8CD7F975074}Prefabs/Resources/Mining/IronBar.et"
       }
      }
      m_bForceDropOutput 1
-     m_vDropOffset -1.8 2 0
+     m_vDropOffset 1.5 0 0
      m_vRotation 90 0 0
     }
    }

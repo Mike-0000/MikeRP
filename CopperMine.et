@@ -1,6 +1,10 @@
 GenericEntity : "{19A3C48FC2665A3F}Prefabs/Props/Construction/GravelPile_01_large.et" {
  ID "F0DBA538AC2A0552"
  components {
+  SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
+   DisplayName "Copper Ore Mine"
+   MainType "Name Village"
+  }
   ActionsManagerComponent "{59A84AD20BA3F0D3}" {
    additionalActions {
     EL_GatherAction "{59A84AD20134F93A}" {
@@ -8,12 +12,9 @@ GenericEntity : "{19A3C48FC2665A3F}Prefabs/Props/Construction/GravelPile_01_larg
       Name "Mine Copper"
      }
      ActionTitle "Mine Copper"
-     m_GatherItemPrefab "{C7FC93FD15F0574C}Prefabs/Resources/Mining/CopperOre.et"
+     m_GatherItemPrefab "{1881C4F2BD43E3E1}Prefabs/Resources/Mining/CopperNugget.et"
     }
    }
-  }
-  SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
-   DisplayName "Copper Ore Mine"
   }
  }
  coords 3430.815 43.084 3695.758

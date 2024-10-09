@@ -1,0 +1,8 @@
+GenericEntity : "{3805C0B87B9D2AB0}prefabs/weapons/Melee/Knife.et" {
+ ID "5AED36F42E5099A6"
+ components {
+  SCR_MeleeWeaponProperties "{5AED36F415E489A6}" {
+   m_fDamage 30
+  }
+ }
+}

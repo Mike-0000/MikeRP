@@ -31,8 +31,162 @@ class AccountContext
     int amount; // Added for AdjustBalance context
 }
 
+
+
+class MikesMethods
+{
+//    bool CheckIfLicenseExistsLOCAL(string LicenseName, IEntity player)
+//    {
+//		if(LicenseName == "drivers"){
+//			
+//		}
+//		
+//		
+//		
+//        return true;
+//		
+//    }
+	
+	
+	
+	void SetLocalLicenseRecordsAsync(IEntity player)
+    	{
+		
+		if (Replication.IsClient()){
+			Print("SetLocalLicenseRecordsAsync caught as running on client, exiting..", LogLevel.NORMAL); // DEBUG
+            return;
+		}
+		
+		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(player);
+
+        string playerGUID = GetGame().GetBackendApi().GetPlayerIdentityId(playerId);
+
+        // Get the connection info
+        EDF_JsonFileDbConnectionInfo connectInfo();
+        connectInfo.m_sDatabaseName = "LicenseInfo";
+
+        // Get a db context instance
+        EDF_DbContext dbContext = EDF_DbContext.Create(connectInfo);
+
+        // Interact with the DB context through a repository
+        EDF_DbRepository<TAG_LicenseInfo> repository = EDF_DbEntityHelper<TAG_LicenseInfo>.GetRepository(dbContext);
+		Tuple1<SCR_ChimeraCharacter> context(SCR_ChimeraCharacter.Cast(player));
+		
+		
+		
+        
+		// check for drivers license
+        EDF_DbFindCondition condition = EDF_DbFind.And({
+            EDF_DbFind.Field("guid1").Equals(playerGUID),
+            EDF_DbFind.Field("licensename").Equals("drivers")
+        });
+		
+
+        // Set up the callback handler
+		
+        EDF_DbFindCallbackSingle<TAG_LicenseInfo> findRecordHandler(this, "FindLicenseRecord", context);
+		Print("FindFirstAsync Invoked", LogLevel.NORMAL); // DEBUG
+        repository.FindFirstAsync(condition, callback: findRecordHandler);
+		
+				// check for drivers license
+        EDF_DbFindCondition condition1 = EDF_DbFind.And({
+            EDF_DbFind.Field("guid1").Equals(playerGUID),
+            EDF_DbFind.Field("licensename").Equals("civhandgun")
+        });
+		
+
+        // Set up the callback handler
+		
+
+		Print("FindFirstAsync Invoked", LogLevel.NORMAL); // DEBUG
+        repository.FindFirstAsync(condition1, callback: findRecordHandler);
+		
+		
+		
+		
+		
+				// check for tier2civhandgun license
+        EDF_DbFindCondition condition2 = EDF_DbFind.And({
+            EDF_DbFind.Field("guid1").Equals(playerGUID),
+            EDF_DbFind.Field("licensename").Equals("tier2civhandgun")
+        });
+		
+
+        // Set up the callback handler
+		
+
+		Print("FindFirstAsync Invoked", LogLevel.NORMAL); // DEBUG
+        repository.FindFirstAsync(condition2, callback: findRecordHandler);
+		
+		
+		
+    }
+	
+	
+	
+	
+	
+	
+	void FindLicenseRecord(EDF_EDbOperationStatusCode statusCode, TAG_LicenseInfo result, Managed playerEntity)
+    {
+		Print("FIND RECORD INVOKED", LogLevel.NORMAL);
+		Tuple1<SCR_ChimeraCharacter> typedContext = Tuple1<SCR_ChimeraCharacter>.Cast(playerEntity);
+		SCR_ChimeraCharacter currentUserChar = typedContext.param1; // We get our DoFind parameter back yay!
+
+		if(statusCode != EDF_EDbOperationStatusCode.SUCCESS || result == null){
+			Print("License not found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
+			return;
+		}
+//		if(result.licensename == null){
+//			Print("License not found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
+//			return;
+		//}
+		if (result.licensename == "drivers"){
+		
+			currentUserChar.driversLicenseExists = true;
+			Print("Drivers license found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
+			
+		}
+		else if (result.licensename == "civhandgun"){
+			currentUserChar.basicGunLicenseExists = true;
+			Print("Basic Gun license found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
+		
+		}
+		else if (result.licensename == "tier2civhandgun"){
+			currentUserChar.tier2GunLicenseExists = true;
+			Print("Tier 2 Gun license found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
+		
+		}
+		
+		Print("Record received. recentLicense = Result GUID = " + result.guid1, LogLevel.NORMAL); // DEBUG
+        if (statusCode == EDF_EDbOperationStatusCode.SUCCESS && result != null)
+        {
+			currentUserChar.recentLicense = result.licensename;	
+            //licenseExists = true;
+            Print("License found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
+        }
+        else
+        {
+			
+            //licenseExists = false;
+            Print("License not found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
+        }
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
 modded class SCR_BaseGameMode
 {
+	
     // Replicated Configuration Variables
 
     [Attribute("1000", UIWidgets.EditBox, desc: "Bank starting amount", category: "Economy - System")]
@@ -60,7 +214,8 @@ modded class SCR_BaseGameMode
     override void OnPlayerSpawned(int playerId, IEntity controlledEntity)
     {
 		
-			
+		
+
         super.OnPlayerSpawned(playerId, controlledEntity);
 
         if (Replication.IsClient())
@@ -78,45 +233,9 @@ modded class SCR_BaseGameMode
         playerChar.m_iBalance = 0;
 		
 		
-		
-		
-		
-
-        string playerGUID = GetGame().GetBackendApi().GetPlayerIdentityId(playerId);
-
-        // Get the connection info
-        EDF_JsonFileDbConnectionInfo connectInfo();
-        connectInfo.m_sDatabaseName = "LicenseInfo";
-
-        // Get a db context instance
-        EDF_DbContext dbContext = EDF_DbContext.Create(connectInfo);
-
-        // Interact with the DB context through a repository
-        EDF_DbRepository<TAG_LicenseInfo> repository = EDF_DbEntityHelper<TAG_LicenseInfo>.GetRepository(dbContext);
-		
-        
-		
-		
-		
-		
-		
-		// Now find the drivers record
-	
-		
-        EDF_DbFindCondition condition = EDF_DbFind.And({
-            EDF_DbFind.Field("guid1").Equals(playerGUID),
-            EDF_DbFind.Field("licensename").Equals("drivers")
-        });
-		
-
-        // Set up the callback handler
-		Tuple1<SCR_ChimeraCharacter> context(SCR_ChimeraCharacter.Cast(controlledEntity));
-        EDF_DbFindCallbackSingle<TAG_LicenseInfo> findRecordHandler(this, "FindRecord", context);
-		Print("FindFirstAsync Invoked", LogLevel.NORMAL); // DEBUG
-        repository.FindFirstAsync(condition, callback: findRecordHandler);
-		
-		
-		
+				
+		MikesMethods Mikes = new MikesMethods();
+		Mikes.SetLocalLicenseRecordsAsync(controlledEntity);
 		
 		
 		
@@ -129,12 +248,23 @@ modded class SCR_BaseGameMode
 	
 	 void FindRecord(EDF_EDbOperationStatusCode statusCode, TAG_LicenseInfo result, Managed playerEntity)
     {
+		Print("FIND RECORD INVOKED", LogLevel.NORMAL);
 		Tuple1<SCR_ChimeraCharacter> typedContext = Tuple1<SCR_ChimeraCharacter>.Cast(playerEntity);
 		SCR_ChimeraCharacter currentUserChar = typedContext.param1; // We get our DoFind parameter back yay!
+
+		if(statusCode != EDF_EDbOperationStatusCode.SUCCESS || result == null){
+			Print("License not found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
+			return;
+		}
+//		if(result.licensename == null){
+//			Print("License not found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
+//			return;
+		//}
 		if (result.licensename == "drivers"){
 		
 			currentUserChar.driversLicenseExists = true;
-							
+			
+			
 		}
 		else if (result.licensename == "civhandgun"){
 			currentUserChar.basicGunLicenseExists = true;
@@ -173,22 +303,25 @@ modded class SCR_BaseGameMode
         if (Replication.IsServer())
         {
             // Create and store context
-            ref AccountContext context = new AccountContext();
-	        //Print("AccountContext Created: PlayerId=" + playerId + ", Cash=" + cash, LogLevel.NORMAL); // DEBUG
-            context.playerId = playerId;
-            context.cash = cash;
-            m_AccountContexts.Insert(uid, context);
-
+            ref AccountContext context1 = new AccountContext();
+	        Print("AccountContext Created: PlayerId=" + playerId + ", Cash=" + cash, LogLevel.NORMAL); // DEBUG
+            context1.playerId = playerId;
+            context1.cash = cash;
+            m_AccountContexts.Insert(uid, context1);
+			
             EDF_JsonFileDbConnectionInfo connectInfo();
             connectInfo.m_sDatabaseName = "BankDB";
-
+			
+			
+			
+			Tuple1<int> context(playerId);
             // Get a db context instance
             EDF_DbContext dbContext = EDF_DbContext.Create(connectInfo);
             // Interact with the DB context through a repository
             EDF_DbRepository<MIKE_Bank> repository = EDF_DbEntityHelper<MIKE_Bank>.GetRepository(dbContext);
             // Now find the record
             EDF_DbFindCondition condition = EDF_DbFind.Field("mikeguid").Equals(uid);
-            repository.FindFirstAsync(condition, callback: new EDF_DbFindCallbackSingle<MIKE_Bank>(this, "OnHasAccountFound"));
+            repository.FindFirstAsync(condition, callback: new EDF_DbFindCallbackSingle<MIKE_Bank>(this, "OnHasAccountFound", context));
         }
         else
         {
@@ -207,34 +340,45 @@ modded class SCR_BaseGameMode
     //! Callback function after checking if account exists
     //! \param[in] EDF_EDbOperationStatusCode statusCode Operation status
     //! \param[in] MIKE_Bank result The result from the database query
-    void OnHasAccountFound(EDF_EDbOperationStatusCode statusCode, MIKE_Bank result) {
-        string resultStatus;
+    void OnHasAccountFound(EDF_EDbOperationStatusCode statusCode, MIKE_Bank result, Managed playerIdContext) {
+		string uid;
+		string resultStatus;
         if (result != null)
         {
             resultStatus = "Exists";
+			uid = result.mikeguid;
         }
         else
         {
-            resultStatus = "Not Found";
-        }
-        //Print("OnHasAccountFound: StatusCode=" + statusCode + ", Result=" + resultStatus, LogLevel.NORMAL); // DEBUG
-        string uid;
-        if (result != null)
-        {
-            uid = result.mikeguid;
-        }
-        else
-        {
-            uid = string.Empty;
-        }
+			
+			
+		Tuple1<int> typedContext = Tuple1<int>.Cast(playerIdContext);
+		int playerID = typedContext.param1; // We get our DoFind parameter back yay!
+	
+			
+			
+			BackendApi api = GetGame().GetBackendApi();
+			uid = api.GetPlayerIdentityId(playerID);
+			
+			
+			
+			
+			
+			
+	            // Retrieve the original uid from the context or another reliable source
+	        // Assuming you have access to the playerId or another identifier
 
-        if (uid == string.Empty)
-        {
-            // Unable to retrieve UID from result, handle accordingly
-            //Print("OnHasAccountFound: UID is empty.", LogLevel.WARNING);
-            return;
+	        Print("Account not found for UID: " + uid + ". Creating new account.", LogLevel.NORMAL); // DEBUG
+	        
+	        // Call CreateAccount to create a new account for the user
+	        CreateAccount(uid);
+	        
+	        // Remove the context as it's no longer needed
+	        m_AccountContexts.Remove(uid);
+	        return; // Exit the callback early since account creation is handle
         }
-
+        Print("OnHasAccountFound: StatusCode=" + statusCode + ", Result=" + resultStatus, LogLevel.NORMAL); // DEBUG
+        
         // Find the corresponding context
         AccountContext context;
         if (m_AccountContexts.Find(uid, context))
@@ -248,6 +392,7 @@ modded class SCR_BaseGameMode
 
             if (!accountExists)
             {
+				
                 // Account not found, create new account
                 CreateAccount(uid);
             }
@@ -272,7 +417,7 @@ modded class SCR_BaseGameMode
         else
         {
             // Handle cases where uid is empty or context not found
-            //Print("OnHasAccountFound: Context not found for UID: " + uid, LogLevel.WARNING);
+            Print("OnHasAccountFound: Context not found for UID: " + uid, LogLevel.WARNING);
         }
     }
 
@@ -308,7 +453,7 @@ modded class SCR_BaseGameMode
     //! new balance is assigned to player's ChimeraCharacter.
     //! \param[in] int playerId Unique player identifier for current session
     void RefreshBalance(int playerId) {
-        //Print("RefreshBalance: PlayerId=" + playerId, LogLevel.NORMAL); // DEBUG
+        Print("RefreshBalance: PlayerId=" + playerId, LogLevel.NORMAL); // DEBUG
         // Get chimera character
         SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(GetGame().GetPlayerManager().GetPlayerControlledEntity(playerId));
         if (!char)
@@ -337,7 +482,7 @@ modded class SCR_BaseGameMode
     {
         string uid = GetGame().GetBackendApi().GetPlayerIdentityId(playerId);
         ReadBalance(uid, playerId, charBalance);
-		//Print("RpcAsk_RefreshBalance: PlayerId=" + playerId + ", Amount=" + charBalance, LogLevel.NORMAL);
+		Print("RpcAsk_RefreshBalance: PlayerId=" + playerId + ", Amount=" + charBalance, LogLevel.NORMAL);
     }
 
     //------------------------------------------------------------------------------------------------
@@ -345,7 +490,7 @@ modded class SCR_BaseGameMode
     {
         // Create and store context
         ref AccountContext context = new AccountContext();
-        //Print("ReadBalance AccountContext Created: PlayerId=" + playerId + ", Amount=" + charBalance, LogLevel.NORMAL); // DEBUG
+        Print("ReadBalance AccountContext Created: PlayerId=" + playerId + ", Amount=" + charBalance, LogLevel.NORMAL); // DEBUG
         context.playerId = playerId;
         context.cash = false; // Not needed for balance refresh
         context.amount = 0;   // Not needed here
@@ -376,14 +521,8 @@ modded class SCR_BaseGameMode
         }
         else
         {
-            uid = string.Empty;
-        }
-
-        if (uid == string.Empty)
-        {
-            // Unable to retrieve UID from result, handle accordingly
-            //Print("OnBalanceRead: UID is empty.", LogLevel.WARNING);
-            return;
+			Print("OnBalanceRead Record not found. result == null.", LogLevel.WARNING);
+			return;
         }
 
         // Find the corresponding context
@@ -415,7 +554,7 @@ modded class SCR_BaseGameMode
         else
         {
             // Handle cases where context is not found
-            //Print("OnBalanceRead: Context not found for UID: " + uid, LogLevel.WARNING);
+            Print("OnBalanceRead: Context not found for UID: " + uid, LogLevel.WARNING);
         }
     }
 
@@ -425,17 +564,17 @@ modded class SCR_BaseGameMode
     //! \param[in] string currencySymbol Currency identifier (not used here but kept for compatibility)
     //! \param[in] int amount Amount to be added to current balance (positive value for addition, negative for removal)
     void AdjustBalance(int playerId, string currencySymbol, int amount) {
-        //Print("AdjustBalance (Client/Server Initial Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
-        //Print("AdjustBalance (Initial Client/Server Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
-        //Print("AdjustBalance (Client): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalance (Client/Server Initial Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalance (Initial Client/Server Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalance (Client): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         if (Replication.IsServer())
         {
             AdjustBalanceInternal(playerId, amount);
         }
         else
         {
-            //Print("RpcAsk_AdjustBalance (Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
-        //Print("RpcAsk_AdjustBalance (Before Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+            Print("RpcAsk_AdjustBalance (Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("RpcAsk_AdjustBalance (Before Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         Rpc(RpcAsk_AdjustBalance, playerId, currencySymbol, amount);
         }
     }
@@ -447,7 +586,7 @@ modded class SCR_BaseGameMode
     //! \param[in] int amount Amount to be added to current balance
     //! \param[in] string message Notification message
     void AdjustBalanceAndNotify(int playerId, string currencySymbol, int amount, string message) {
-        //Print("AdjustBalanceAndNotify (Client/Server): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalanceAndNotify (Client/Server): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.NORMAL); // DEBUG
         if (Replication.IsServer())
         {
             AdjustBalanceInternal(playerId, amount);
@@ -455,7 +594,7 @@ modded class SCR_BaseGameMode
         }
         else
         {
-            //Print("RpcAsk_AdjustBalanceAndNotify (Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.NORMAL); // DEBUG
+            Print("RpcAsk_AdjustBalanceAndNotify (Client-Side Call): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.NORMAL); // DEBUG
         Rpc(RpcAsk_AdjustBalanceAndNotify, playerId, currencySymbol, amount, message);
         }
     }
@@ -463,32 +602,32 @@ modded class SCR_BaseGameMode
     //------------------------------------------------------------------------------------------------
     [RplRpc(RplChannel.Reliable, RplRcver.Server)]
     void RpcAsk_AdjustBalance(int playerId, string currencySymbol, int amount) {
-        //Print("RpcAsk_AdjustBalance (Server Received): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
-        //Print("RpcAsk_AdjustBalance (Server-Side Received): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
-        //Print("RpcAsk_AdjustBalance (Server): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("RpcAsk_AdjustBalance (Server Received): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("RpcAsk_AdjustBalance (Server-Side Received): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("RpcAsk_AdjustBalance (Server): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         AdjustBalanceInternal(playerId, amount);
     }
 
     [RplRpc(RplChannel.Reliable, RplRcver.Server)]
     void RpcAsk_AdjustBalanceAndNotify(int playerId, string currencySymbol, int amount, string message) {
-        //Print("RpcAsk_AdjustBalanceAndNotify (Server): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.NORMAL); // DEBUG
+        Print("RpcAsk_AdjustBalanceAndNotify (Server): PlayerId=" + playerId + ", Amount=" + amount + ", Message=" + message, LogLevel.NORMAL); // DEBUG
         AdjustBalanceInternal(playerId, amount);
         NotifyPlayer(playerId, amount, message);
     }
 
     //------------------------------------------------------------------------------------------------
     void AdjustBalanceInternal(int playerId, int amount) {
-        //Print("AdjustBalanceInternal (Server): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
-        //Print("AdjustBalanceInternal: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalanceInternal (Server): PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalanceInternal: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         string uid = GetGame().GetBackendApi().GetPlayerIdentityId(playerId);
 
         // Create and store context
         ref AccountContext context = new AccountContext();
-        //Print("AdjustBalanceInternal AccountContext Created: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalanceInternal AccountContext Created: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         context.playerId = playerId;
         context.cash = false; // Not needed for balance adjustment
         context.amount = amount;
-        //Print("AdjustBalanceInternal AccountContext Updated: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
+        Print("AdjustBalanceInternal AccountContext Updated: PlayerId=" + playerId + ", Amount=" + amount, LogLevel.NORMAL); // DEBUG
         m_AccountContexts.Insert(uid, context);
 
         EDF_JsonFileDbConnectionInfo connectInfo();
@@ -522,7 +661,7 @@ modded class SCR_BaseGameMode
         if (uid == string.Empty)
         {
             // Unable to retrieve UID from result, handle accordingly
-            //Print("OnAdjustBalanceRead: UID is empty.", LogLevel.WARNING);
+            Print("OnAdjustBalanceRead: UID is empty.", LogLevel.WARNING);
             return;
         }
 
@@ -543,7 +682,7 @@ modded class SCR_BaseGameMode
             // Server-side validation
             if (context.amount < 0 && Math.AbsInt(context.amount) > currentBalance)
             {
-                //Print("Insufficient balance for playerId: " + context.playerId, LogLevel.WARNING);
+                Print("Insufficient balance for playerId: " + context.playerId, LogLevel.WARNING);
                 NotifyPlayer(context.playerId, 0, "Insufficient funds for withdrawal.");
                 m_AccountContexts.Remove(uid);
                 return;
@@ -575,7 +714,7 @@ modded class SCR_BaseGameMode
         else
         {
             // Handle cases where context is not found
-            //Print("OnAdjustBalanceRead: Context not found for UID: " + uid, LogLevel.WARNING);
+            Print("OnAdjustBalanceRead: Context not found for UID: " + uid, LogLevel.WARNING);
         }
     }
 

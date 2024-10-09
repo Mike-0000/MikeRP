@@ -2,7 +2,14 @@ GenericEntity {
  ID "598F21A86EB5B48E"
  components {
   SCR_MapDescriptorComponent "{62836BDDE89857C5}" {
-   MainType "Construction Site"
+   MainType "Name Settlement"
+  }
+  ActionsManagerComponent "{598F21A8710B89C1}" {
+   additionalActions {
+    EL_ProcessAction "{598F21A877BE6DEE}" {
+     m_vDropOffset 1.5 0 0
+    }
+   }
   }
  }
 }

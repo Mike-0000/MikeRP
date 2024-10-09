@@ -30,8 +30,8 @@ GenericEntity : "{5AB38BCEACF295B2}Prefabs/PoliceItemShop.et" {
  angleY -60.573
 }
 GenericEntity : "{80327E8AC7033A5B}Prefabs/PoliceCarDealer.et" {
- coords 4456.832 1.896 11091.139
- angleY -59.484
+ coords 4567.804 16.716 10568.254
+ angleY 170.386
 }
 SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/Government/police_101.et" {
  components {
@@ -39,8 +39,8 @@ SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/
    Enabled 0
   }
  }
- coords 4474.301 0.893 11124.229
- angleY 27.65
+ coords 4535.943 0.981 10542.084
+ angleY -97.089
  {
   GenericEntity : "{386782DD1644B266}Prefabs/Structures/Services/Government/police_interior_03.et" {
    components {
@@ -48,6 +48,56 @@ SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/
     }
    }
    coords 0.01 1.731 -6.775
+   {
+    GenericEntity {
+     ID "5CC82C26A795EF65"
+     {
+      GenericEntity {
+       ID "56827905858F7867"
+       components {
+        DoorComponent "{221C667A9F7D4B69}" {
+         DoorAction SCR_DoorUserAction "{50888D3646A61640}" {
+          ParentContextList {
+           "SCR_PoliceDoorUserAction"
+          }
+         }
+        }
+        ActionsManagerComponent "{F32B667C3C823800}" {
+         ActionContexts {
+          UserActionContext "{50888D37F529F720}" {
+           ContextName "SCR_PoliceDoorUserAction"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+    GenericEntity {
+     ID "5CC82C26A795EF6B"
+     {
+      GenericEntity {
+       ID "56827905858F7867"
+       components {
+        DoorComponent "{221C667A9F7D4B69}" {
+         DoorAction SCR_DoorUserAction "{50888D3646A61640}" {
+          ParentContextList {
+           "SCR_PoliceDoorUserAction"
+          }
+         }
+        }
+        ActionsManagerComponent "{F32B667C3C823800}" {
+         ActionContexts {
+          UserActionContext "{50888D37F529F720}" {
+           ContextName "SCR_PoliceDoorUserAction"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
   }
   GenericEntity FactionSwitcher : "{403E2B0BE16D6CC9}Prefabs/ItemShop_Base.et" {
    components {

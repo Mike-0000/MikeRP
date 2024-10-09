@@ -133,26 +133,4 @@ class MIKE_LicensedShopAction : ScriptedUserAction
 		return false;
     }
 
-    //------------------------------------------------------------------------------------------------
-    void FindRecord(EDF_EDbOperationStatusCode statusCode, TAG_LicenseInfo result, Managed playerEntity)
-    {
-		Tuple1<SCR_ChimeraCharacter> typedContext = Tuple1<SCR_ChimeraCharacter>.Cast(playerEntity);
-		SCR_ChimeraCharacter currentUserChar = typedContext.param1; // We get our DoFind parameter back yay!
-		
-		
-		Print("Record received. recentLicense = Result GUID = " + result.guid1, LogLevel.NORMAL); // DEBUG
-        if (statusCode == EDF_EDbOperationStatusCode.SUCCESS && result != null)
-        {
-			currentUserChar.recentLicense = result.licensename;	
-            //licenseExists = true;
-            Print("License found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
-        }
-        else
-        {
-			
-            //licenseExists = false;
-            Print("License not found for user: " + currentUserChar.GetName(), LogLevel.NORMAL);
-        }
-
-    }
 };

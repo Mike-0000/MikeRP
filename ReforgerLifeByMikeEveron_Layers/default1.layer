@@ -94,6 +94,9 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
     m_sNameUpper "POLICE"
    }
    m_bShowInWelcomeScreenIfNonPlayable 0
+   m_aFriendlyFactionsIds {
+    "CIV"
+   }
   }
   SCR_Faction "{56DEAC40D3C2E623}" {
    m_bShowInWelcomeScreenIfNonPlayable 0
@@ -102,8 +105,6 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
    m_bShowInWelcomeScreenIfNonPlayable 0
   }
   SCR_Faction "{607AA5C7A94496DA}" {
-   m_aFriendlyFactionsIds {
-   }
   }
   SCR_Faction "{5EAEC8DEE0A2B3F7}" {
    m_bIsPlayable 0
@@ -122,4 +123,45 @@ EPF_SpawnPoint : "{260C1BEFBF9AA86B}Prefabs/MP/Spawn/SpawnPoint_LIFE.et" {
  angleY -84.215
  angleZ -0.154
  m_fSpawnRadius 1
+}
+$grp GenericEntity : "{5051C35424F81B0C}NewATM.et" {
+ {
+  coords 4395.997 10.805 10731.515
+  angleY -104.13
+ }
+ {
+  coords 4392.908 10.805 10746.905
+  angleY -104.13
+ }
+}
+GenericEntity : "{5AB38BCEACF295B2}Prefabs/PoliceItemShop.et" {
+ components {
+  ADM_ShopComponent "{5D775155BFB12BA4}" {
+   m_ShopName "Police Item Shop"
+   m_ShopConfig "{D2FC8180B47924EF}Configs/Shops/PoliceItemShop.conf"
+  }
+  SCR_CampaignMilitaryBaseMapDescriptorComponent "{628458FEDCD740A8}" {
+   DisplayName "TEST Police Item Store"
+   MainType Store
+  }
+  SCR_MapDescriptorComponent "{628458FD0773B331}" {
+   Scale 0
+  }
+  ActionsManagerComponent "{5D774D0B81D1F3C8}" {
+   ActionContexts {
+    UserActionContext "{5D775155C8CDB558}" {
+     Position PointInfo "{5D775155F4703FFA}" {
+      Offset 0 -0.2995 -0.0002
+     }
+     Radius 0.8
+    }
+   }
+   additionalActions {
+    ADM_PoliceShopAction "{5D775155F326F8BF}" {
+    }
+   }
+  }
+ }
+ coords 4537.644 23.382 10536.353
+ angleY 165.151
 }

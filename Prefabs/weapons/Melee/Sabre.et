@@ -1,0 +1,8 @@
+GenericEntity {
+ ID "5EAAA59C66B01513"
+ components {
+  SCR_MeleeWeaponProperties "{5EAAA59C66B01567}" {
+   m_fDamage 30
+  }
+ }
+}

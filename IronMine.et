@@ -1,12 +1,18 @@
 GenericEntity : "{19A3C48FC2665A3F}Prefabs/Props/Construction/GravelPile_01_large.et" {
  ID "F0DBA538AC2A0552"
  components {
+  MapDescriptorComponent "{628D631759381870}" {
+   DisplayName "Iron Mine"
+   MainType "Name Village"
+  }
   ActionsManagerComponent "{59A84AD20BA3F0D3}" {
    additionalActions {
     EL_GatherAction "{59A84AD20134F93A}" {
      UIInfo UIInfo "{59A84AD1D9DE9F7F}" {
       Name "Mine Iron"
      }
+     ActionTitle "Mine Iron"
+     m_GatherItemPrefab "{6853E2E2AE878611}Prefabs/Resources/Mining/IronNugget.et"
     }
    }
   }

@@ -59,6 +59,7 @@ class ChangeFactionUserAction : ScriptedUserAction
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
 
+		if(!CanBePerformedScript(pUserEntity))return;
 		// Ensure the user entity is valid
 		if (!pUserEntity)
 		{
@@ -139,22 +140,25 @@ class ChangeFactionUserAction : ScriptedUserAction
 	override bool CanBeShownScript(IEntity user)
 	{
 		// Determine if the action should be shown to the player
-		FactionAffiliationComponent factionAffiliation = FactionAffiliationComponent.Cast(user.FindComponent(FactionAffiliationComponent));
-		if (!factionAffiliation)
-			return false;
-
-		Faction userFaction = factionAffiliation.GetAffiliatedFaction();
-		if (!userFaction)
-			return false;
-
-		return userFaction.GetFactionKey() != TARGET_FACTION_KEY;
+		return true;
 	}
 
 	//------------------------------------------------------------------------------------------------
 	override bool CanBePerformedScript(IEntity user)
 	{
 		// Determine if the action can be performed by the player
-		return CanBeShownScript(user);
+				FactionAffiliationComponent factionAffiliation = FactionAffiliationComponent.Cast(user.FindComponent(FactionAffiliationComponent));
+		if (!factionAffiliation){
+			SetCannotPerformReason("Not Whitelisted for this Faction.");
+			return false;
+		}
+			
+
+		Faction userFaction = factionAffiliation.GetAffiliatedFaction();
+		if (!userFaction)
+			return false;
+
+		return userFaction.GetFactionKey() != TARGET_FACTION_KEY;
 	}
 
 	//------------------------------------------------------------------------------------------------
