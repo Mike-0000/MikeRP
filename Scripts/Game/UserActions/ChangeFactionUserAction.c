@@ -63,7 +63,7 @@ class ChangeFactionUserAction : ScriptedUserAction
 		// Ensure the user entity is valid
 		if (!pUserEntity)
 		{
-			Print("Error: User entity is null.", LogLevel.ERROR);
+			//Print("Error: User entity is null.", LogLevel.ERROR);
 			return;
 		}
 
@@ -72,15 +72,15 @@ class ChangeFactionUserAction : ScriptedUserAction
 		int playerID = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
 		string playerGUID = api.GetPlayerIdentityId(playerID);
 
-		// Print the player's GUID to the log
-		Print("Player GUID: " + playerGUID, LogLevel.NORMAL);
+		// //Print the player's GUID to the log
+		//Print("Player GUID: " + playerGUID, LogLevel.NORMAL);
 
 		// Check if the player is allowed to change faction
 		if (!IsPlayerAllowed(pUserEntity, playerGUID))
 		{
 
 			//SCR_HintManagerComponent.ShowCustomHint("Denied", "You are not whitelisted for this faction.", 6);
-			Print("Access Denied: You cannot change your faction.", LogLevel.NORMAL);
+			//Print("Access Denied: You cannot change your faction.", LogLevel.NORMAL);
 			return;
 		}
 
@@ -94,7 +94,7 @@ class ChangeFactionUserAction : ScriptedUserAction
 		if (!factionManager)
 		{
 
-			Print("Error: FactionManager not found.", LogLevel.ERROR);
+			//Print("Error: FactionManager not found.", LogLevel.ERROR);
 			return;
 		}
 
@@ -102,7 +102,7 @@ class ChangeFactionUserAction : ScriptedUserAction
 		Faction targetFaction = factionManager.GetFactionByKey(TARGET_FACTION_KEY);
 		if (!targetFaction)
 		{
-			Print("Error: Target faction not found: " + TARGET_FACTION_KEY, LogLevel.ERROR);
+			//Print("Error: Target faction not found: " + TARGET_FACTION_KEY, LogLevel.ERROR);
 			return;
 		}
 
@@ -110,7 +110,7 @@ class ChangeFactionUserAction : ScriptedUserAction
 		FactionAffiliationComponent factionAffiliation = FactionAffiliationComponent.Cast(pUserEntity.FindComponent(FactionAffiliationComponent));
 		if (!factionAffiliation)
 		{
-			Print("Error: Player has no FactionAffiliationComponent.", LogLevel.ERROR);
+			//Print("Error: Player has no FactionAffiliationComponent.", LogLevel.ERROR);
 			return;
 		}
 				//			Randomly select a Clock In Message from Notifications.conf
@@ -126,10 +126,10 @@ class ChangeFactionUserAction : ScriptedUserAction
 		ClockInNotificationsArray.Insert(ENotification.ClockedInMessages6);
 		SCR_NotificationsComponent.SendToPlayer(playerID, ENotification.ClockedInMessages2);
 		SCR_NotificationsComponent.SendToPlayer(playerID, ClockInNotificationsArray[Math.RandomInt(0, 6)]);
-		Print("Notification Sent to " + playerID, LogLevel.NORMAL);
+		//Print("Notification Sent to " + playerID, LogLevel.NORMAL);
 		// Change the player's faction
 		factionAffiliation.SetAffiliatedFaction(targetFaction);
-		Print("Faction changed to: " + TARGET_FACTION_KEY, LogLevel.NORMAL);
+		//Print("Faction changed to: " + TARGET_FACTION_KEY, LogLevel.NORMAL);
 
 
 
@@ -189,7 +189,7 @@ class ChangeFactionUserAction : ScriptedUserAction
 		// Check if the player's GUID is in the whitelist
 		if (!IsGUIDWhitelisted(playerGUID))
 		{
-			Print("Access Denied: Your GUID is not whitelisted.", LogLevel.NORMAL);
+			//Print("Access Denied: Your GUID is not whitelisted.", LogLevel.NORMAL);
 			return false;
 		}
 
@@ -197,21 +197,21 @@ class ChangeFactionUserAction : ScriptedUserAction
 		FactionAffiliationComponent userFactionAffiliation = FactionAffiliationComponent.Cast(pUserEntity.FindComponent(FactionAffiliationComponent));
 		if (!userFactionAffiliation)
 		{
-			Print("Error: Player has no FactionAffiliationComponent.", LogLevel.NORMAL);
+			//Print("Error: Player has no FactionAffiliationComponent.", LogLevel.NORMAL);
 			return false; // Player has no faction affiliation component, deny access
 		}
 
 		Faction userFaction = userFactionAffiliation.GetAffiliatedFaction();
 		if (!userFaction)
 		{
-			Print("Error: Player has no affiliated faction.", LogLevel.NORMAL);
+			//Print("Error: Player has no affiliated faction.", LogLevel.NORMAL);
 			return false; // Player has no faction, deny access
 		}
 
 		string userFactionKey = userFaction.GetFactionKey();
 		if (userFactionKey == TARGET_FACTION_KEY)
 		{
-			Print("Player already belongs to the target faction '" + TARGET_FACTION_KEY + "'.", LogLevel.NORMAL);
+			//Print("Player already belongs to the target faction '" + TARGET_FACTION_KEY + "'.", LogLevel.NORMAL);
 			return false; // Player already in target faction
 		}
 
@@ -231,7 +231,7 @@ class ChangeFactionUserAction : ScriptedUserAction
 
 		if (!file)
 		{
-			Print("ERROR: Could not open file " + filePath, LogLevel.ERROR);
+			//Print("ERROR: Could not open file " + filePath, LogLevel.ERROR);
 			return false;
 		}
 
@@ -248,7 +248,7 @@ class ChangeFactionUserAction : ScriptedUserAction
 		}
 
 		// GUID not found
-		Print("GUID not found in whitelist.", LogLevel.NORMAL);
+		//Print("GUID not found in whitelist.", LogLevel.NORMAL);
 		file.Close();
 		return false;
 	}

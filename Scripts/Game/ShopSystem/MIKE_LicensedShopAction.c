@@ -14,7 +14,7 @@ class MIKE_LicensedShopAction : ScriptedUserAction
         m_Shop = ADM_ShopComponent.Cast(pOwnerEntity.FindComponent(ADM_ShopComponent));
         if (!m_Shop) 
         {
-            Print("Error: Could not find shop component for this action.", LogLevel.NORMAL);
+            //Print("Error: Could not find shop component for this action.", LogLevel.NORMAL);
             return;
         }
     }
@@ -27,7 +27,7 @@ class MIKE_LicensedShopAction : ScriptedUserAction
         {
             // Optionally, provide feedback to the player
             // Example: ShowNotification(pUserEntity, "You do not have the required faction to access the shop.");
-            Print("Access Denied", LogLevel.NORMAL);
+            //Print("Access Denied", LogLevel.NORMAL);
             return; // Exit the method without performing the action
         }
 
@@ -95,9 +95,9 @@ class MIKE_LicensedShopAction : ScriptedUserAction
 	
     private bool IsPlayerAllowed(IEntity pUserEntity)
     {
-		Print("IsPlayerAllowed Invoked!", LogLevel.NORMAL); // DEBUG
+		//Print("IsPlayerAllowed Invoked!", LogLevel.NORMAL); // DEBUG
         if (!Replication.IsServer()){
-            Print("Replication on Client Exiting", LogLevel.NORMAL); // DEBUG
+            //Print("Replication on Client Exiting", LogLevel.NORMAL); // DEBUG
             //return false;
       		} 
 
@@ -113,7 +113,7 @@ class MIKE_LicensedShopAction : ScriptedUserAction
         // Consider handling the flow accordingly.
         
         // Check if the player already has the license locally
-		//Print("if (currentUserChar.recentLicense == LicenseName) Invoked. Current License = " + currentUserChar.recentLicense + "LicenseName =" + LicenseName, LogLevel.NORMAL); // DEBUG
+		////Print("if (currentUserChar.recentLicense == LicenseName) Invoked. Current License = " + currentUserChar.recentLicense + "LicenseName =" + LicenseName, LogLevel.NORMAL); // DEBUG
         SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(pUserEntity);
 		if (LicenseName == "drivers"){
 		

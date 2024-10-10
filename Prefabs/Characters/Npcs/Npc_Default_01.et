@@ -1,0 +1,15 @@
+EL_NpcBaseEntity : "{68C6EB0CCDD55E3F}Prefabs/Characters/Core/Npc_Base.et" {
+ ID "5A4B0B84EF6F2840"
+ components {
+  BaseLoadoutManagerComponent "{5A4B0B84C86D5843}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Enabled 1
+    }
+    LoadoutSlotInfo Pants {
+     Enabled 0
+    }
+   }
+  }
+ }
+}

@@ -32,20 +32,20 @@ class MIKE_License : ADM_MerchandisePrefab
 
     override bool CanSell(IEntity player, ADM_ShopBaseComponent shop, ADM_ShopMerchandise merchandise, int quantity = 1)
     {
-		Print("1", LogLevel.NORMAL);
+		//Print("1", LogLevel.NORMAL);
         return false;
     }
 
     override bool CanCollectMerchandise(IEntity player, ADM_ShopBaseComponent shop, ADM_ShopMerchandise merchandise, int quantity = 1)
     {
-		Print("2", LogLevel.NORMAL);
+		//Print("2", LogLevel.NORMAL);
         // Same as CanSell for now. In the future, check for limited quantity or pulling from specific storage.
         return CanSell(player, shop, merchandise, quantity);
     }
 
     override bool CollectMerchandise(IEntity player, ADM_ShopBaseComponent shop, ADM_ShopMerchandise merchandise, int quantity = 1)
     {
-		Print("3", LogLevel.NORMAL);
+		//Print("3", LogLevel.NORMAL);
         return false;
     }
 
@@ -81,21 +81,21 @@ class MIKE_License : ADM_MerchandisePrefab
         {
 			hintComponent.ShowCustomHint("License Not Purchased!", "You already have a "+LicenseName+". Maximum 1 License per Citizen.", 10);
 			
-            Print("License Found! Returning false to CanDeliver.", LogLevel.NORMAL);
+            //Print("License Found! Returning false to CanDeliver.", LogLevel.NORMAL);
             return false;
         }
         else
         {
-            Print("License Not Found! Returning true to CanDeliver.", LogLevel.NORMAL);
+            //Print("License Not Found! Returning true to CanDeliver.", LogLevel.NORMAL);
             return true;
         }
     }
 
     override bool Deliver(IEntity player, ADM_ShopBaseComponent shop, ADM_ShopMerchandise merchandise, int quantity = 1)
     {
-		Print("101", LogLevel.NORMAL);
+		//Print("101", LogLevel.NORMAL);
         if (!Replication.IsServer()) return false;
-		Print("102", LogLevel.NORMAL);
+		//Print("102", LogLevel.NORMAL);
         // Get the BackendApi and the player's guid
         BackendApi api = GetGame().GetBackendApi();
         int playerID = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(player);
@@ -127,7 +127,7 @@ class MIKE_License : ADM_MerchandisePrefab
         {
 			
 			hintComponent.ShowCustomHint("License Purchased!", "You have purchased a "+LicenseName+". You are now able to use the shops locked to this license.", 10);
-            Print("License Found! Returning true to Deliver.", LogLevel.NORMAL);
+            //Print("License Found! Returning true to Deliver.", LogLevel.NORMAL);
 			SCR_ChimeraCharacter playerChar = SCR_ChimeraCharacter.Cast(player);
 			
 			
@@ -150,7 +150,7 @@ class MIKE_License : ADM_MerchandisePrefab
         else
         {
 			hintComponent.ShowCustomHint("License Purchase Failure!", "There was an error in purchasing your license. Please try again later.", 10);
-            Print("License Not Found! Returning false to Deliver.", LogLevel.NORMAL);
+            //Print("License Not Found! Returning false to Deliver.", LogLevel.NORMAL);
             return false;
         }
     }
@@ -161,12 +161,12 @@ class MIKE_License : ADM_MerchandisePrefab
 
         if (result)
         {
-            Print(string.Format("License Found! Got License Name and guid1 as: "+ result.licensename+ result.guid1), LogLevel.NORMAL);
+            //Print(string.Format("License Found! Got License Name and guid1 as: "+ result.licensename+ result.guid1), LogLevel.NORMAL);
             licenseExists = true;
         }
         else
         {
-            Print("License Not Found!", LogLevel.NORMAL);
+            //Print("License Not Found!", LogLevel.NORMAL);
             licenseExists = false;
         }
     }

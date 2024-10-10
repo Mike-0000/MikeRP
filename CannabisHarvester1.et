@@ -1,0 +1,34 @@
+GenericEntity : "{3015494657D1632D}CopperMine.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{F3E2E8C688840E5D}Assets/Props/Furniture/PlantRoom_02/PlantRoom_02.xob"
+  }
+  SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
+   DisplayName "Cannabis Harvesting"
+  }
+  ActionsManagerComponent "{59A84AD20BA3F0D3}" {
+   ActionContexts {
+    UserActionContext "{59A84AD208E079FD}" {
+     UIInfo UIInfo "{6294420FDCE12D83}" {
+      Name "Harvest Cannabis"
+     }
+    }
+   }
+   additionalActions {
+    EL_GatherAction "{59A84AD20134F93A}" {
+     UIInfo UIInfo "{59A84AD1D9DE9F7F}" {
+      Name "Harvest Cannabis"
+     }
+     ActionTitle "Harvest Cannabis"
+     Duration 90
+     m_GatherItemPrefab "{AAB632A193BF6B69}PrefabsEditable/Auto/Props/Civilian/Suspicious Items/E_WeedBrick.et"
+    }
+   }
+  }
+ }
+ coords 6604.093 110.698 5865.173
+ angleX 0
+ angleY 0
+ angleZ 0
+}

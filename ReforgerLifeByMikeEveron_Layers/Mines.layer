@@ -4,11 +4,73 @@ GenericEntity IronMine : "{209AC28A5AFE8226}IronMine.et" {
  angleY 0.14
  angleZ -1.795
 }
+SCR_DestructibleBuildingEntity : "{2EDD4F7ABBB94AE8}Prefabs/Buildings/Big_Warehouse.et" {
+ coords 3021.119 124.113 5529.667
+ angleY 130.561
+ {
+  SCR_DestructibleBuildingEntity : "{3DDDA2AAA7B32209}PrefabsEditable/Auto/Structures/Agriculture/Greenhouse/E_Greenhouse_01.et" {
+   components {
+    SCR_EditableEntityComponent "{58910CB42AB2C38D}" {
+     Enabled 0
+    }
+   }
+   coords -10.021 -0.17 -15.696
+   angleY 89.387
+  }
+ }
+}
 GenericEntity CopperMine : "{3015494657D1632D}CopperMine.et" {
  coords 3430.815 43.084 3695.758
  angleX 11.48
  angleY -0.108
  angleZ -0.899
+}
+$grp GenericEntity : "{4E76BAA429C925E0}CannabisHarvester1.et" {
+ CannabisHarvester2 {
+  coords 6597.222 110.697 5870.372
+  angleX 0
+  angleY 0
+  angleZ 0
+ }
+ CannabisHarvester1 {
+  components {
+   SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
+    Enabled 0
+   }
+  }
+  coords 6604.093 110.698 5865.173
+  angleX 0
+  angleY 0
+  angleZ 0
+ }
+ {
+  components {
+   SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
+    DisplayName "Cocaine Harvesting"
+   }
+   ActionsManagerComponent "{59A84AD20BA3F0D3}" {
+    ActionContexts {
+     UserActionContext "{59A84AD208E079FD}" {
+      UIInfo UIInfo "{6294420FDCE12D83}" {
+       Name "Harvest Cocaine"
+      }
+     }
+    }
+    additionalActions {
+     EL_GatherAction "{59A84AD20134F93A}" {
+      ActionTitle "Harvest Cocaine"
+      Duration 120
+      m_GatherItemPrefab "{55476D9B2E3F4C63}PrefabsEditable/Auto/Props/Civilian/Suspicious Items/E_CocaineBrick.et"
+     }
+    }
+   }
+  }
+  coords 3015.596 124.054 5547.428
+ }
+}
+GameEntity : "{5DA5DF7405DF4B7D}Prefabs/Structures/BuildingParts/Ladders/Ladder_ChurchSmall_E_435_B.et" {
+ coords 4426.63 4.59 10787.994
+ angleY -27.209
 }
 GenericEntity GoldMine : "{5EEE78057DBAB7C9}GoldMine.et" {
  coords 10842.073 187.08 2389.22

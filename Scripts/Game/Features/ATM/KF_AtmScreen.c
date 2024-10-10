@@ -1,10 +1,10 @@
 // KF_AtmScreen.c
 
-class KF_AtmScreenClass : RplTestEntityClass  // Changed from GenericEntityClass to RplEntityClass
+class KF_AtmScreenClass : GenericEntityClass  // Changed from GenericEntityClass to RplEntityClass
 {
 };
 
-class KF_AtmScreen : RplTestEntity  // Changed from GenericEntity to RplEntity
+class KF_AtmScreen : GenericEntity  // Changed from GenericEntity to RplEntity
 {
     protected Widget m_wRoot;
     protected RTTextureWidget m_wRenderTargetTextureWidget;

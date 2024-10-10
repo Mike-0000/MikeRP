@@ -50,7 +50,7 @@ modded class SCR_ChimeraCharacter
     {
         m_bIsBusy = isBusy;
 		Replication.BumpMe(); // Ensure the state is synchronized across clients and server
-        Print("[SCR_ChimeraCharacter] SetBusyState: " + isBusy.ToString(), LogLevel.DEBUG);
+        //Print("[SCR_ChimeraCharacter] SetBusyState: " + isBusy.ToString(), LogLevel.DEBUG);
     }
 	bool IsBusy()
     {
@@ -183,7 +183,7 @@ modded class SCR_ChimeraCharacter
             repository.AddOrUpdateAsync(newEntry);
 
             if (repeat && !m_bRecentDeath)
-                GetGame().GetCallqueue().CallLater(SaveCash, 1000, true, -1, false);
+               GetGame().GetCallqueue().CallLater(SaveCash, 20000, true, -1, false);
             m_bRecentDeath = false;
         }
         else
@@ -237,11 +237,11 @@ modded class SCR_ChimeraCharacter
         if (result != null)
         {
             loadedCash = result.mikecash;
-            Print("Loaded cash: " + loadedCash.ToString(), LogLevel.ERROR);
+            //Print("Loaded cash: " + loadedCash.ToString(), LogLevel.ERROR);
         }
         else
         {
-            Print("No cash record found.", LogLevel.ERROR);
+            //Print("No cash record found.", LogLevel.ERROR);
         }
 
         SetCash(loadedCash, false);
@@ -340,13 +340,13 @@ modded class SCR_ChimeraCharacter
 //		cashResults = result;
 //        if (result)
 //        {
-//            Print(string.Format("Account found!"), LogLevel.ERROR);
+//            //Print(string.Format("Account found!"), LogLevel.ERROR);
 //			
 //            accountExists = true;
 //        }
 //        else
 //        {
-//            Print("Account not found!", LogLevel.ERROR);
+//            //Print("Account not found!", LogLevel.ERROR);
 //            accountExists = false;
 //        }
 //    }
@@ -538,7 +538,7 @@ modded class SCR_ChimeraCharacter
 //    	EDF_DbFindCallbackSingle<MIKE_Bank> findRecordHandler(this, "FindRecord");
 //		repository.FindFirstAsync(condition, callback: findRecordHandler);
 //		//return cashResults.mikecash;
-//		Print(cashResults.mikecash.ToString(), LogLevel.ERROR);
+//		//Print(cashResults.mikecash.ToString(), LogLevel.ERROR);
 //		SetCash(cashResults.mikecash, false);
 //	}
 //}

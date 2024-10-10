@@ -28,7 +28,7 @@ class ADM_PaymentMethodCurrency: ADM_PaymentMethodBase
             }
             else
             {
-                Print("Error: Unable to cast player to SCR_ChimeraCharacter or find SCR_InventoryStorageManagerComponent", LogLevel.ERROR);
+                ////Print("Error: Unable to cast player to SCR_ChimeraCharacter or find SCR_InventoryStorageManagerComponent", LogLevel.ERROR);
                 return false;
             }
         }
@@ -62,7 +62,7 @@ class ADM_PaymentMethodCurrency: ADM_PaymentMethodBase
             }
             else
             {
-                Print("Error: Unable to cast player to SCR_ChimeraCharacter or find SCR_InventoryStorageManagerComponent", LogLevel.ERROR);
+                ////Print("Error: Unable to cast player to SCR_ChimeraCharacter or find SCR_InventoryStorageManagerComponent", LogLevel.ERROR);
                 return false;
             }
         }
@@ -93,7 +93,7 @@ class ADM_PaymentMethodCurrency: ADM_PaymentMethodBase
             }
             else
             {
-                Print("Error: Unable to cast player to SCR_ChimeraCharacter or find SCR_InventoryStorageManagerComponent", LogLevel.ERROR);
+                ////Print("Error: Unable to cast player to SCR_ChimeraCharacter or find SCR_InventoryStorageManagerComponent", LogLevel.ERROR);
                 return false;
             }
         }

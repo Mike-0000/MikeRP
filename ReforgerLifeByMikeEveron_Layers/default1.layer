@@ -17,6 +17,29 @@ EL_GameModeRoleplay GameMode_Roleplay1 : "{03913608C59017A3}Prefabs/MP/Modes/Rol
      m_SpawnLogic SCR_MenuSpawnLogic "{628218CDEF135736}" {
       m_sForcedFaction "CIV"
      }
+     m_aDefaultCharacterItems {
+      EL_DefaultLoadoutItem "{5DE922B73E9BEFE0}" {
+       m_rPrefab "{D0C27D8DB0CC73D9}Prefabs/Characters/Uniforms/Shirt_CottonShirt_01/Shirt_CottonShirt_01_V1.et"
+       m_aStoredItems {
+        EL_DefaultLoadoutItem "{5DE922B7340B5316}" {
+         m_rPrefab ""
+        }
+        EL_DefaultLoadoutItem "{6294420C25CFA863}" {
+         m_rPrefab "{13772C903CB5E4F7}Prefabs/Items/Equipment/Maps/PaperMap_01_folded.et"
+        }
+       }
+      }
+      EL_DefaultLoadoutItem "{5DE92DF82F18AE7D}" {
+       m_rPrefab "{6925E6C63EBCF623}Prefabs/Characters/Uniforms/Pants_Trousers_01/Pants_Trousers_01_DarkBrown.et"
+       m_aStoredItems {
+        EL_DefaultLoadoutItem "{6294420C7A3EBE7F}" {
+         m_rPrefab "{61D4F80E49BF9B12}Prefabs/Items/Equipment/Compass/Compass_SY183.et"
+        }
+       }
+      }
+      EL_DefaultLoadoutItem "{6294420CF601F471}" {
+      }
+     }
     }
    }
   }
@@ -84,6 +107,8 @@ EL_GameModeRoleplay GameMode_Roleplay1 : "{03913608C59017A3}Prefabs/MP/Modes/Rol
   0
  }
  m_iStartingAmount 10000
+ m_iKillReward 0
+ m_iFriendlyFire 0
 }
 SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
  coords 1700.746 16.038 2295.042
@@ -128,10 +153,24 @@ $grp GenericEntity : "{5051C35424F81B0C}NewATM.et" {
  {
   coords 4395.997 10.805 10731.515
   angleY -104.13
+  {
+   GenericEntity {
+    ID "628D168ACAA5B2BE"
+    coords -1.428 0 4.683
+    angleY 12.379
+   }
+  }
  }
  {
   coords 4392.908 10.805 10746.905
   angleY -104.13
+  {
+   GenericEntity {
+    ID "628D168ACAA5B2BE"
+    coords -2.009 0 1.862
+    angleY 12.396
+   }
+  }
  }
 }
 GenericEntity : "{5AB38BCEACF295B2}Prefabs/PoliceItemShop.et" {
