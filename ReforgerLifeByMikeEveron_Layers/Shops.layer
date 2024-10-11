@@ -1,5 +1,16 @@
 $grp GenericEntity : "{3039B3E7B27736F6}DrugDealer.et" {
  {
+  components {
+   ActionsManagerComponent "{5D774D0B81D1F3C8}" {
+    ActionContexts {
+     UserActionContext "{5D775155C8CDB558}" {
+      Position PointInfo "{5D775155F4703FFA}" {
+       Offset 0 -0.2538 -0.0004
+      }
+     }
+    }
+   }
+  }
   coords 4463.744 12.844 10698.158
   angleY -151.831
  }

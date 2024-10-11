@@ -1,14 +1,12 @@
 Vehicle HondaCivicTypeR_ChromeSilver1 : "{00FD097EF2CCF383}Prefabs/Vehicles/Wheeled/S105/97CivicTypeR/HondaCivicTypeR_ChromeSilver.et" {
  components {
-  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
-   components {
-    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
-     Enabled 0
+  SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
+   FuelNodes {
+    SCR_FuelNode "{5622A70CD4036C5A}" {
+     MaxFuel 0.001
+     m_fInitialFuelTankState 0
     }
    }
-  }
-  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
-   Enabled 0
   }
  }
  coords 4465.448 17.962 10597.967
@@ -18,15 +16,13 @@ Vehicle HondaCivicTypeR_ChromeSilver1 : "{00FD097EF2CCF383}Prefabs/Vehicles/Whee
 }
 Vehicle Ford_F700_Black1 : "{0272ED965724BF65}Prefabs/Vehicles/Wheeled/M923A1/91FordF700/Ford_F700_Black.et" {
  components {
-  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
-   components {
-    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
-     Enabled 0
+  SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
+   FuelNodes {
+    SCR_FuelNode "{5622A70CD4036C5A}" {
+     MaxFuel 0.001
+     m_fInitialFuelTankState 0
     }
    }
-  }
-  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
-   Enabled 0
   }
  }
  coords 4461.965 18.318 10593.271
@@ -34,15 +30,13 @@ Vehicle Ford_F700_Black1 : "{0272ED965724BF65}Prefabs/Vehicles/Wheeled/M923A1/91
 }
 Vehicle DodgeCharger_06_ChromeGold1 : "{088FEBD665FF0039}Prefabs/Vehicles/Wheeled/M998/06Charger/DodgeCharger_06_ChromeGold.et" {
  components {
-  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
-   components {
-    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
-     Enabled 0
+  SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
+   FuelNodes {
+    SCR_FuelNode "{5622A70CD4036C5A}" {
+     MaxFuel 0.001
+     m_fInitialFuelTankState 0
     }
    }
-  }
-  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
-   Enabled 0
   }
  }
  coords 4456.548 17.986 10600.957
@@ -57,6 +51,7 @@ $grp GenericEntity : "{4E76BAA429C925E0}CannabisHarvester1.et" {
     Object "{0735A59B84394F7E}Assets/Props/Industrial/Pallets/MarsBox_01.xob"
    }
    SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
+    Enabled 0
     DisplayName "Cocaine Harvesting"
    }
    ActionsManagerComponent "{59A84AD20BA3F0D3}" {
@@ -103,7 +98,7 @@ $grp GenericEntity : "{4E76BAA429C925E0}CannabisHarvester1.et" {
        Name "Collect Dirty Cash"
       }
       ActionTitle "Collect Dirty Cash"
-      VisibilityRange 0.8
+      VisibilityRange 1.8
       Duration 8
       m_GatherItemPrefab "{696CC1F6BC5BE3F7}PrefabsEditable/Auto/Props/Civilian/Suspicious Items/E_StackofCash.et"
       m_GatherAmountMax 25
@@ -138,15 +133,13 @@ GenericEntity : "{5AB385123CF295B2}Prefabs/CarDealer.et" {
 }
 Vehicle NissanGTR_R35_Grey1 : "{7FAF29614DB5D1D4}Prefabs/Vehicles/Wheeled/M998/17R35GTR/NissanGTR_R35_Grey.et" {
  components {
-  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
-   components {
-    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
-     Enabled 0
+  SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
+   FuelNodes {
+    SCR_FuelNode "{5622A70CD4036C5A}" {
+     MaxFuel 0.001
+     m_fInitialFuelTankState 0
     }
    }
-  }
-  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
-   Enabled 0
   }
  }
  coords 4466.883 17.767 10601.26
@@ -155,20 +148,23 @@ Vehicle NissanGTR_R35_Grey1 : "{7FAF29614DB5D1D4}Prefabs/Vehicles/Wheeled/M998/1
  angleZ 1.275
 }
 GenericEntity MoneyLaunderer : "{9B282E7571EC095B}MoneyLaundererShop.et" {
+ components {
+  ADM_ShopComponent "{5D775155BFB12BA4}" {
+   m_ShopConfig "{80E9E38BA0E0C0A0}Configs/Shops/MoneyLaunder.conf"
+  }
+ }
  coords 9783.604 11.256 1603.892
  angleY -172.85
 }
 Vehicle LamboAventador_BlackCarbon1 : "{9C1616A504813231}Prefabs/Vehicles/Wheeled/M998/16Aventador/LamboAventador_BlackCarbon.et" {
  components {
-  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
-   components {
-    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
-     Enabled 0
+  SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
+   FuelNodes {
+    SCR_FuelNode "{5622A70CD4036C5A}" {
+     MaxFuel 0.001
+     m_fInitialFuelTankState 0
     }
    }
-  }
-  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
-   Enabled 0
   }
  }
  coords 4468.423 17.627 10605.131
@@ -178,20 +174,11 @@ Vehicle LamboAventador_BlackCarbon1 : "{9C1616A504813231}Prefabs/Vehicles/Wheele
 }
 Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15ChevyTahoe/ChevyTahoe_White.et" {
  components {
-  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
-   components {
-    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
-     Enabled 0
-    }
-   }
-  }
-  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
-   Enabled 0
-  }
   SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
    FuelNodes {
     SCR_FuelNode "{5622A70CD4036C5A}" {
-     m_fInitialFuelTankState 0.01
+     MaxFuel 0.001
+     m_fInitialFuelTankState 0
     }
    }
   }
@@ -201,15 +188,13 @@ Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15C
 }
 Vehicle AudiR8WB_White1 : "{E181F76FF3F9EC7D}Prefabs/Vehicles/Wheeled/M998/08AudiR8WB/AudiR8WB_White.et" {
  components {
-  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
-   components {
-    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
-     Enabled 0
+  SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
+   FuelNodes {
+    SCR_FuelNode "{5622A70CD4036C5A}" {
+     MaxFuel 0.001
+     m_fInitialFuelTankState 0
     }
    }
-  }
-  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
-   Enabled 0
   }
  }
  coords 4454.616 17.924 10604.542
@@ -219,15 +204,13 @@ Vehicle AudiR8WB_White1 : "{E181F76FF3F9EC7D}Prefabs/Vehicles/Wheeled/M998/08Aud
 }
 Vehicle FordF150_ChromeSilver1 : "{FEA4B4D79CC8772D}Prefabs/Vehicles/Wheeled/M998/21FordF150/FordF150_ChromeSilver.et" {
  components {
-  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
-   components {
-    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
-     Enabled 0
+  SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
+   FuelNodes {
+    SCR_FuelNode "{5622A70CD4036C5A}" {
+     MaxFuel 0.001
+     m_fInitialFuelTankState 0
     }
    }
-  }
-  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
-   Enabled 0
   }
  }
  coords 4458.292 18.122 10597.787
