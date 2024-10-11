@@ -2,6 +2,10 @@ SCR_DestructibleBuildingEntity : "{02B7D259CE7A23D9}Prefabs/Structures/Agricultu
  coords 4938.068 0.032 11955.875
  angleY -90.479
 }
+SCR_DestructibleBuildingEntity : "{0E4587C2945CE43E}Prefabs/Buildings/Fire House.et" {
+ coords 4373.643 12.338 10684.587
+ angleY -95.92
+}
 StaticModelEntity : "{1718E28BE8D121A9}Prefabs/Structures/BuildingParts/Doors/DoorSet_MetalGate_04_Big.et" {
  coords 4938.04 0 11955.913
  angleY 89.217
@@ -25,6 +29,12 @@ $grp SCR_DestructibleBuildingEntity : "{299A56D2A012D746}Prefabs/Prison/Prison_C
 GenericEntity : "{80327E8AC7033A5B}Prefabs/PoliceCarDealer.et" {
  coords 4369.517 11.781 10656.683
  angleY 170.386
+}
+GenericEntity : "{8215FBE4B900A979}ExoticCarDealer.et" {
+ coords 4461.764 17.628 10606.058
+ angleX -0.895
+ angleY -0.014
+ angleZ 0.895
 }
 SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/Government/police_101.et" {
  components {
@@ -244,5 +254,17 @@ SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/
    coords -5.331 1.731 -3.509
    angleY -90.681
   }
+ }
+}
+$grp SCR_DestructibleEntity : "{DAA2B3A4B10F5793}Prefabs/Structures/Walls/Metal/MetalWall_01/MetalWall_01_3m_End.et" {
+ {
+  coords 4377.933 11.959 10652.007
+  angleY -98.305
+  Flags 3
+ }
+ {
+  coords 4377.72 11.927 10654.891
+  angleY -98.305
+  Flags 3
  }
 }

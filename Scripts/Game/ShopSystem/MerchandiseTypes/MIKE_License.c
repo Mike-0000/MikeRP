@@ -111,7 +111,6 @@ class MIKE_License : ADM_MerchandisePrefab
         // Interact with the DB context through a repository
         EDF_DbRepository<TAG_LicenseInfo> repository = EDF_DbEntityHelper<TAG_LicenseInfo>.GetRepository(dbContext);
 		TAG_LicenseInfo newEntry = TAG_LicenseInfo.Create(playerguid1, LicenseName);
-		newEntry.SetId(playerguid1);
         // Add or update the license entry
         repository.AddOrUpdateAsync(newEntry);
 

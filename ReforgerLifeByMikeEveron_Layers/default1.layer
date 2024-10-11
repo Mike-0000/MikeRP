@@ -156,8 +156,8 @@ $grp GenericEntity : "{5051C35424F81B0C}NewATM.et" {
   {
    GenericEntity {
     ID "628D168ACAA5B2BE"
-    coords -1.428 0 4.683
-    angleY 12.379
+    coords -0.833 0 4.574
+    angleY 12.883
    }
   }
  }
@@ -167,8 +167,8 @@ $grp GenericEntity : "{5051C35424F81B0C}NewATM.et" {
   {
    GenericEntity {
     ID "628D168ACAA5B2BE"
-    coords -2.009 0 1.862
-    angleY 12.396
+    coords -2.333 -0.001 2.019
+    angleY 13.194
    }
   }
  }

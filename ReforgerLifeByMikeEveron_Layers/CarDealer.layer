@@ -1,6 +1,44 @@
+Vehicle HondaCivicTypeR_ChromeSilver1 : "{00FD097EF2CCF383}Prefabs/Vehicles/Wheeled/S105/97CivicTypeR/HondaCivicTypeR_ChromeSilver.et" {
+ coords 4465.448 17.962 10597.967
+ angleX -3.153
+ angleY -45.273
+ angleZ 1.911
+}
+Vehicle Ford_F700_Black1 : "{0272ED965724BF65}Prefabs/Vehicles/Wheeled/M923A1/91FordF700/Ford_F700_Black.et" {
+ coords 4461.965 18.318 10593.271
+ angleY -1.178
+}
+Vehicle DodgeCharger_06_ChromeGold1 : "{088FEBD665FF0039}Prefabs/Vehicles/Wheeled/M998/06Charger/DodgeCharger_06_ChromeGold.et" {
+ coords 4456.701 17.981 10600.966
+ angleX -3.791
+ angleY 45.084
+ angleZ -1.269
+}
+$grp GenericEntity : "{5192DCEC37001463}PrefabLibrary/Props/Construction/ConcretePipe_01_Short.et" {
+ {
+  coords 4690.415 20.837 10746.854
+  angleY 141.073
+ }
+ {
+  coords 4694.634 20.811 10741.707
+  angleY 140.83
+ }
+}
 GenericEntity : "{5AB385123CF295B2}Prefabs/CarDealer.et" {
  coords 4692.09 20.812 10753.086
  angleY -112.705
+}
+Vehicle NissanGTR_R35_Grey1 : "{7FAF29614DB5D1D4}Prefabs/Vehicles/Wheeled/M998/17R35GTR/NissanGTR_R35_Grey.et" {
+ coords 4466.883 17.767 10601.26
+ angleX -2.526
+ angleY -45.224
+ angleZ 1.275
+}
+Vehicle LamboAventador_BlackCarbon1 : "{9C1616A504813231}Prefabs/Vehicles/Wheeled/M998/16Aventador/LamboAventador_BlackCarbon.et" {
+ coords 4468.423 17.627 10605.131
+ angleX -1.896
+ angleY -45.189
+ angleZ 0.639
 }
 Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15ChevyTahoe/ChevyTahoe_White.et" {
  components {
@@ -14,16 +52,16 @@ Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15C
  }
  coords 4692.448 20.812 10744.401
  angleY -38.277
- {
-  $grp GenericEntity : "{5192DCEC37001463}PrefabLibrary/Props/Construction/ConcretePipe_01_Short.et" {
-   {
-    coords -0.076 0.025 3.186
-    angleY 179.35
-   }
-   {
-    coords 0.047 -0.001 -3.47
-    angleY 179.107
-   }
-  }
- }
+}
+Vehicle AudiR8WB_White1 : "{E181F76FF3F9EC7D}Prefabs/Vehicles/Wheeled/M998/08AudiR8WB/AudiR8WB_White.et" {
+ coords 4454.917 17.916 10604.509
+ angleX -3.162
+ angleY 45.035
+ angleZ -0.634
+}
+Vehicle FordF150_ChromeSilver1 : "{FEA4B4D79CC8772D}Prefabs/Vehicles/Wheeled/M998/21FordF150/FordF150_ChromeSilver.et" {
+ coords 4458.292 18.122 10597.787
+ angleX -3.793
+ angleY 45.035
+ angleZ -0.002
 }
