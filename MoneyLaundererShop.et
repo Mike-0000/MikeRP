@@ -1,0 +1,13 @@
+GenericEntity : "{5AB385123CF295B2}Prefabs/CarDealer.et" {
+ ID "5D7751550EF5EE4E"
+ components {
+  ADM_ShopComponent "{5D775155BFB12BA4}" {
+   m_ShopName "Dirty Money Store"
+  }
+  SCR_MapDescriptorComponent "{628458FD0773B331}" {
+   DisplayName "Dirty Money Launderer"
+  }
+ }
+ coords 9783.605 11.256 1603.892
+ angleY -172.85
+}

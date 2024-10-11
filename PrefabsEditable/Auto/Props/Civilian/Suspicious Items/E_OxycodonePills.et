@@ -1,0 +1,19 @@
+GenericEntity {
+ ID "5DCB097033027B4F"
+ components {
+  InventoryItemComponent "{5DCB097033027B79}" {
+   Attributes SCR_ItemAttributeCollection "{5DCB097033027B7C}" {
+    ItemDisplayName SCR_InventoryUIInfo "{5DCB097033027B62}" {
+     Name "Experimental Drug"
+     Description "Experimental Drug"
+    }
+   }
+  }
+  SCR_EditableEntityComponent "{5DCB097033027B6D}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5DCB097033027B90}" {
+    Name "Experimental Drug"
+    Description "Experimental Drug"
+   }
+  }
+ }
+}

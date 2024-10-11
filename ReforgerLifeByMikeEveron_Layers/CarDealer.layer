@@ -1,27 +1,135 @@
 Vehicle HondaCivicTypeR_ChromeSilver1 : "{00FD097EF2CCF383}Prefabs/Vehicles/Wheeled/S105/97CivicTypeR/HondaCivicTypeR_ChromeSilver.et" {
+ components {
+  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
+   components {
+    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
+     Enabled 0
+    }
+   }
+  }
+  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
+   Enabled 0
+  }
+ }
  coords 4465.448 17.962 10597.967
  angleX -3.153
  angleY -45.273
  angleZ 1.911
 }
 Vehicle Ford_F700_Black1 : "{0272ED965724BF65}Prefabs/Vehicles/Wheeled/M923A1/91FordF700/Ford_F700_Black.et" {
+ components {
+  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
+   components {
+    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
+     Enabled 0
+    }
+   }
+  }
+  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
+   Enabled 0
+  }
+ }
  coords 4461.965 18.318 10593.271
  angleY -1.178
 }
 Vehicle DodgeCharger_06_ChromeGold1 : "{088FEBD665FF0039}Prefabs/Vehicles/Wheeled/M998/06Charger/DodgeCharger_06_ChromeGold.et" {
- coords 4456.701 17.981 10600.966
+ components {
+  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
+   components {
+    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
+     Enabled 0
+    }
+   }
+  }
+  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
+   Enabled 0
+  }
+ }
+ coords 4456.548 17.986 10600.957
  angleX -3.791
  angleY 45.084
  angleZ -1.269
 }
-$grp GenericEntity : "{5192DCEC37001463}PrefabLibrary/Props/Construction/ConcretePipe_01_Short.et" {
- {
-  coords 4690.415 20.837 10746.854
-  angleY 141.073
+$grp GenericEntity : "{4E76BAA429C925E0}CannabisHarvester1.et" {
+ BankHarvester {
+  components {
+   MeshObject "{5872F0EB7FA40561}" {
+    Object "{0735A59B84394F7E}Assets/Props/Industrial/Pallets/MarsBox_01.xob"
+   }
+   SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
+    DisplayName "Cocaine Harvesting"
+   }
+   ActionsManagerComponent "{59A84AD20BA3F0D3}" {
+    ActionContexts {
+     UserActionContext "{59A84AD208E079FD}" {
+      UIInfo UIInfo "{6294420FDCE12D83}" {
+       Name "Collect Dirty Cash"
+      }
+      ContextName "default1"
+      Position PointInfo "{59A84AD1BB699158}" {
+       Offset 0 0.5852 0
+      }
+      Radius 0.5
+     }
+     UserActionContext "{62964342446AF5EE}" {
+      UIInfo UIInfo "{6294420FDCE12D83}" {
+       Name "Collect Dirty Cash"
+      }
+      ContextName "default"
+      Position PointInfo "{59A84AD1BB699158}" {
+       Offset 0.0541 0.556 -0.6641
+      }
+      Radius 0.5
+      Height 0
+     }
+     UserActionContext "{6296434244A866FF}" {
+      UIInfo UIInfo "{6294420FDCE12D83}" {
+       Name "Collect Dirty Cash"
+      }
+      ContextName "default2"
+      Position PointInfo "{59A84AD1BB699158}" {
+       Offset 0.0346 0.6298 0.564
+      }
+      Radius 0.5
+      Height 0
+     }
+    }
+    additionalActions {
+     EL_GatherAction "{59A84AD20134F93A}" {
+      ParentContextList {
+       "default1" "default" "default2"
+      }
+      UIInfo UIInfo "{59A84AD1D9DE9F7F}" {
+       Name "Collect Dirty Cash"
+      }
+      ActionTitle "Collect Dirty Cash"
+      VisibilityRange 0.8
+      Duration 8
+      m_GatherItemPrefab "{696CC1F6BC5BE3F7}PrefabsEditable/Auto/Props/Civilian/Suspicious Items/E_StackofCash.et"
+      m_GatherAmountMax 25
+      m_GatherTimeout 1200000
+     }
+    }
+   }
+  }
+  coords 4375.614 10.805 10726.132
+  angleX 0
+  angleY 179.061
+  angleZ 0
  }
- {
-  coords 4694.634 20.811 10741.707
-  angleY 140.83
+ CannabisHarvester3 {
+  components {
+   MeshObject "{5872F0EB7FA40561}" {
+    Enabled 0
+   }
+   SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
+    Enabled 0
+   }
+  }
+  coords 4376.896 10.805 10726.499
+  angleX 0
+  angleY 0
+  angleZ 0
  }
 }
 GenericEntity : "{5AB385123CF295B2}Prefabs/CarDealer.et" {
@@ -29,12 +137,40 @@ GenericEntity : "{5AB385123CF295B2}Prefabs/CarDealer.et" {
  angleY -112.705
 }
 Vehicle NissanGTR_R35_Grey1 : "{7FAF29614DB5D1D4}Prefabs/Vehicles/Wheeled/M998/17R35GTR/NissanGTR_R35_Grey.et" {
+ components {
+  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
+   components {
+    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
+     Enabled 0
+    }
+   }
+  }
+  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
+   Enabled 0
+  }
+ }
  coords 4466.883 17.767 10601.26
  angleX -2.526
  angleY -45.224
  angleZ 1.275
 }
+GenericEntity MoneyLaunderer : "{9B282E7571EC095B}MoneyLaundererShop.et" {
+ coords 9783.604 11.256 1603.892
+ angleY -172.85
+}
 Vehicle LamboAventador_BlackCarbon1 : "{9C1616A504813231}Prefabs/Vehicles/Wheeled/M998/16Aventador/LamboAventador_BlackCarbon.et" {
+ components {
+  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
+   components {
+    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
+     Enabled 0
+    }
+   }
+  }
+  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
+   Enabled 0
+  }
+ }
  coords 4468.423 17.627 10605.131
  angleX -1.896
  angleY -45.189
@@ -42,6 +178,16 @@ Vehicle LamboAventador_BlackCarbon1 : "{9C1616A504813231}Prefabs/Vehicles/Wheele
 }
 Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15ChevyTahoe/ChevyTahoe_White.et" {
  components {
+  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
+   components {
+    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
+     Enabled 0
+    }
+   }
+  }
+  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
+   Enabled 0
+  }
   SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
    FuelNodes {
     SCR_FuelNode "{5622A70CD4036C5A}" {
@@ -54,12 +200,36 @@ Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15C
  angleY -38.277
 }
 Vehicle AudiR8WB_White1 : "{E181F76FF3F9EC7D}Prefabs/Vehicles/Wheeled/M998/08AudiR8WB/AudiR8WB_White.et" {
- coords 4454.917 17.916 10604.509
+ components {
+  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
+   components {
+    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
+     Enabled 0
+    }
+   }
+  }
+  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
+   Enabled 0
+  }
+ }
+ coords 4454.616 17.924 10604.542
  angleX -3.162
  angleY 45.035
  angleZ -0.634
 }
 Vehicle FordF150_ChromeSilver1 : "{FEA4B4D79CC8772D}Prefabs/Vehicles/Wheeled/M998/21FordF150/FordF150_ChromeSilver.et" {
+ components {
+  BaseVehicleNodeComponent "{20FB66C5B2237133}" {
+   components {
+    SCR_CarControllerComponent "{20FB66C5BC92275B}" {
+     Enabled 0
+    }
+   }
+  }
+  SCR_EditableVehicleComponent "{50DEB7C26B5EB312}" {
+   Enabled 0
+  }
+ }
  coords 4458.292 18.122 10597.787
  angleX -3.793
  angleY 45.035

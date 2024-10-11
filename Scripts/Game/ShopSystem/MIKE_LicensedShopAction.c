@@ -54,7 +54,7 @@ class MIKE_LicensedShopAction : ScriptedUserAction
     //------------------------------------------------------------------------------------------------
     override bool CanBePerformedScript(IEntity user)
     {
-        if (!m_Shop || m_Shop.GetMerchandiseAll().Count() <= 0) 
+        if (!m_Shop || m_Shop.GetMerchandiseAll().Count() <= 0 || user == null) 
             return false;
         
         // Check if the player is allowed to perform the action

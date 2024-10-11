@@ -31,7 +31,7 @@ GenericEntity : "{80327E8AC7033A5B}Prefabs/PoliceCarDealer.et" {
  angleY 170.386
 }
 GenericEntity : "{8215FBE4B900A979}ExoticCarDealer.et" {
- coords 4461.764 17.628 10606.058
+ coords 4461.479 17.632 10606.058
  angleX -0.895
  angleY -0.014
  angleZ 0.895

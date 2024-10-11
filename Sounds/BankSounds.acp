@@ -1,0 +1,230 @@
+AudioClass {
+ sounds {
+  SoundClass {
+   id 23561
+   name "MIKE_SOUND_BANK_BELL"
+   version 5
+   tl 142.294 -882.765
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 20498
+       port 65
+      }
+      ConnectionClass connection {
+       id 27666
+       port 65
+      }
+     }
+    }
+   }
+   outState 24587
+   outStatePort 79879
+  }
+ }
+ mixers {
+  MixerClass {
+   id 24587
+   name "OutputState 24"
+   version 4
+   tl 355.817 -868.627
+   res "{B764D803219C775E}Sounds/FinalMix.afm"
+   ins {
+    ConnectionsClass connections {
+     id 79879
+     links {
+      ConnectionClass connection {
+       id 23561
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16384 0
+   }
+   path "{B764D803219C775E}Sounds/FinalMix.afm"
+   inputs {
+    "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialogue" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialogue_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct" "SFX_Reverb_Small" "SFX_Reverb_Medium" "SFX_Reverb_Large"
+   }
+  }
+ }
+ shaders {
+  ShaderClass {
+   id 20498
+   name "Shader 20"
+   version 5
+   tl -116.154 -691.584
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 21532
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 22547
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 19460
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    3 0
+   }
+  }
+  ShaderClass {
+   id 27666
+   name "Shader 20"
+   version 5
+   tl -107.157 -1092.042
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 28700
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 26643
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 29700
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    3 0
+   }
+  }
+ }
+ amplitudes {
+  AmplitudeClass {
+   id 22547
+   name "Amplitude 22"
+   version 5
+   tl -313.529 -462.941
+   curve SCurve
+  }
+  AmplitudeClass {
+   id 26643
+   name "Amplitude 22"
+   version 5
+   tl -303.531 -863.399
+   curve Custom
+   AttenuationCurve {
+    CurvePoint "1" {
+     X -0.66943
+     Y 0.23236
+    }
+    CurvePoint "2" {
+     X 86.65203
+     Y 0.99517
+    }
+    CurvePoint "3" {
+     X 142.69412
+     Y 0.94838
+    }
+    CurvePoint "4" {
+     X 240
+    }
+   }
+  }
+ }
+ banks_local {
+  BankLocalClass {
+   id 19460
+   name "Sounds"
+   version 7
+   tl -382.537 -703.787
+   Volume 6
+   "Loop count" 4
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{50323DB3C94F3F43}Sounds/Fire Bell Sound Effect (1).wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 29700
+   name "Sounds"
+   version 7
+   tl -373.539 -1104.245
+   Volume 6
+   "Loop count" 4
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{0FE8473975EFB2F2}Sounds/Midrange Rhythmic Buzzing Alarm with Slap Back Echo and Reverb (1).wav"
+    }
+   }
+  }
+ }
+ spatialities {
+  SpatialityClass {
+   id 21532
+   name "Spatiality 21"
+   version 5
+   tl -311.765 -535.882
+   SpatialFactorSource Curve
+   SFCurve {
+    CurvePoint "1" {
+     X -0.07788
+     Y 1.05797
+    }
+    CurvePoint "2" {
+     X 10.60048
+     Y 0.26214
+    }
+   }
+  }
+  SpatialityClass {
+   id 28700
+   name "Spatiality 21"
+   version 5
+   tl -302.768 -936.34
+   SpatialFactorSource Curve
+   SFCurve {
+    CurvePoint "1" {
+     X -0.07788
+     Y 1.05797
+    }
+    CurvePoint "2" {
+     X 10.60048
+     Y 0.26214
+    }
+   }
+  }
+ }
+ version 1
+}
