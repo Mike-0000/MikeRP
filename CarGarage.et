@@ -1,0 +1,30 @@
+GenericEntity : "{80327E8AC7033A5B}Prefabs/PoliceCarDealer.et" {
+ ID "5D7751550EF5EE4E"
+ components {
+  ADM_ShopComponent "{5D775155BFB12BA4}" {
+   Enabled 0
+  }
+  MIKE_GarageComponent "{629A73556A22A697}" {
+   m_ShopName "Car Garage"
+  }
+  SCR_MapDescriptorComponent "{628458FD0773B331}" {
+   DisplayName "Car Garage"
+   MainType "Name Generic"
+  }
+  ActionsManagerComponent "{5D774D0B81D1F3C8}" {
+   ActionContexts {
+    UserActionContext "{5D775155C8CDB558}" {
+     Position PointInfo "{5D775155F4703FFA}" {
+      Offset 0 -0.2713 -0.0004
+     }
+    }
+   }
+   additionalActions {
+    MIKE_GarageAction "{5D775155F326F8BF}" {
+    }
+   }
+  }
+ }
+ coords 4371.4 11.782 10656.741
+ angleY 170.386
+}

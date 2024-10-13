@@ -102,7 +102,7 @@ class ADM_MerchandiseVehicle: ADM_MerchandisePrefab
         // Now find the record
         
 
-		TAG_MikeGarage newEntry = TAG_MikeGarage.Create(playerguid1, m_sPrefab, 500);
+		TAG_MikeGarage newEntry = TAG_MikeGarage.Create(playerguid1, m_sPrefab, 0);
         repository.AddOrUpdateAsync(newEntry);
 		return true;
 	}

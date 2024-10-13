@@ -1,4 +1,17 @@
 $grp GenericEntity : "{3039B3E7B27736F6}DrugDealer.et" {
+ DrugManufacturing {
+  components {
+   ADM_ShopComponent "{5D775155BFB12BA4}" {
+    m_ShopConfig "{1EC50D33B8EBB15C}Configs/Shops/DrugManufacturing.conf"
+   }
+   SCR_MapDescriptorComponent "{628458FD0773B331}" {
+    DisplayName "Black Market Drug Manufacturing"
+    MainType "Name Village"
+   }
+  }
+  coords 9359.522 1.407 5121.383
+  angleY -107.163
+ }
  {
   components {
    ADM_ShopComponent "{5D775155BFB12BA4}" {
@@ -34,21 +47,8 @@ $grp GenericEntity : "{3039B3E7B27736F6}DrugDealer.et" {
     }
    }
   }
-  coords 4463.744 12.844 10698.158
-  angleY -151.831
- }
- DrugManufacturing {
-  components {
-   ADM_ShopComponent "{5D775155BFB12BA4}" {
-    m_ShopConfig "{1EC50D33B8EBB15C}Configs/Shops/DrugManufacturing.conf"
-   }
-   SCR_MapDescriptorComponent "{628458FD0773B331}" {
-    DisplayName "Black Market Drug Manufacturing"
-    MainType "Name Village"
-   }
-  }
-  coords 9359.522 1.407 5121.383
-  angleY -107.163
+  coords 4520.558 28.903 10573.486
+  angleY 82.908
  }
 }
 GenericEntity GunStore1 : "{39395A6166E54808}Prefabs/LicensedShop.et" {

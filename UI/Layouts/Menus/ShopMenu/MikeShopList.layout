@@ -1,0 +1,108 @@
+FrameWidgetClass "{629A98C28430EC85}" {
+ Name "rootFrame"
+ "Left rule" Stop
+ {
+  OverlayWidgetClass "{629A98C28430EC8B}" {
+   Name "Overlay0"
+   Slot FrameWidgetSlot "{605028C4E12773E2}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX -1820
+    OffsetRight 0
+    SizeY -1050
+    OffsetBottom 0
+   }
+   {
+    SizeLayoutWidgetClass "{629A98C28430EC8A}" {
+     Name "SizeLayout0"
+     Slot OverlayWidgetSlot "{605028C48528AB54}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     {
+      VerticalLayoutWidgetClass "{629A98C284374FF4}" {
+       Name "HorizontalLayout0"
+       Slot AlignableSlot "{605028C329F16F63}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       {
+        HorizontalLayoutWidgetClass "{629A98C284374FF1}" {
+         Name "HorizontalLayout0"
+         Slot LayoutSlot "{605028CCA772422E}" {
+         }
+         {
+          ButtonWidgetClass "{629A98C284374FF3}" : "{FC2639E8024276DC}UI/Layouts/Menus/ShopMenu/CategorySpinBox.layout" {
+           Name "CategoriesBox"
+           Slot LayoutSlot "{60545C9EA4AA2E09}" {
+            HorizontalAlign 3
+            Padding 0 10 0 0
+            SizeMode Fill
+           }
+          }
+          ButtonWidgetClass "{629A98C284374F8F}" : "{67B4F07635959DC7}UI/layouts/WidgetLibrary/EditBox/WLib_EditBoxSearch.layout" {
+           Name "EditBoxSearch0"
+           Slot LayoutSlot "{605028CCD1E58C55}" {
+            HorizontalAlign 3
+            Padding 0 10 0 0
+            SizeMode Fill
+            FillWeight 1
+           }
+           "Right rule" Explicit
+           "Right target" "RightAreaOverlay"
+           "Down target" "ScrollLayout0"
+          }
+         }
+        }
+        OverlayWidgetClass "{629A98C284374F88}" : "{94CAAE4A601195D3}UI/layouts/ListBox/ListBox.layout" {
+         Name "ListBox0"
+         Slot LayoutSlot "{605049D7E7013BAC}" {
+          SizeMode Fill
+         }
+         components {
+          SCR_ListBoxComponent "{566C9415BAA54E1B}" {
+           m_sElementLayout "{530E1366C27ED30A}UI/Layouts/Menus/ShopMenu/MikeListBoxElement_ShopItem.layout"
+          }
+         }
+         {
+          TextWidgetClass "{629A98C284374F8B}" {
+           Name "Empty Text"
+           Slot OverlayWidgetSlot "{605C4DC566A3DED8}" {
+           }
+           Text "Empty Text"
+           "Font Size" 26
+           "Min Font Size" 26
+           FontProperties FontProperties "{605C4DC56D06CF41}" {
+            Font "{E2CBA6F76AAA42AF}UI/Fonts/Roboto/Roboto_Regular.fnt"
+           }
+          }
+          ScrollLayoutWidgetClass "{56691148E692435A}" {
+           Prefab "{56691148E692435A}"
+           "Down target" "ScrollLayout0"
+           "Scrollbar Always Visible" 1
+           {
+            VerticalLayoutWidgetClass "{56691148E013D981}" {
+             Prefab "{56691148E013D981}"
+             Slot AlignableSlot "{56691148E013D9A9}" {
+              Padding 0 0 15 0
+             }
+            }
+           }
+          }
+          ImageWidgetClass "{5DB6D18100D38307}" {
+           Prefab "{5DB6D18100D38307}"
+           "Is Visible" 0
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

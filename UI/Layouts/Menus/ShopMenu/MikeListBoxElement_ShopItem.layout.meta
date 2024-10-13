@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{530E1366C27ED30A}UI/Layouts/Menus/ShopMenu/ListBoxElement_ShopItem.layout"
+ Configurations {
+  LayoutResourceClass PC {
+  }
+  LayoutResourceClass XBOX_ONE : PC {
+  }
+  LayoutResourceClass XBOX_SERIES : PC {
+  }
+  LayoutResourceClass PS4 : PC {
+  }
+  LayoutResourceClass PS5 : PC {
+  }
+  LayoutResourceClass HEADLESS : PC {
+  }
+ }
+}

@@ -1,0 +1,214 @@
+ButtonWidgetClass "{629A98C298B8B103}" {
+ Name "ListBoxElement"
+ Slot AlignableSlot "{554ADB1D2D5974C0}" {
+  HorizontalAlign 3
+ }
+ components {
+  MIKE_GarageShopUI_Item "{629A98C5197967BE}" {
+  }
+  SCR_ListBoxElementComponent "{56CB58E7628E6533}" : "{2D2F81F501855B34}Configs/UI/ListBoxElement_ModularButtonComponent.conf" {
+   m_bFocusOnMouseEnter 1
+   m_sWidgetTextName "Name"
+  }
+ }
+ style blank
+ {
+  SizeLayoutWidgetClass "{629A98C298B8B11F}" {
+   Name "SizeLayout"
+   Slot ButtonWidgetSlot "{5548E6E7E6AEDDC1}" {
+    HorizontalAlign 3
+    Padding 0 5 0 5
+   }
+   AllowHeightOverride 1
+   HeightOverride 64
+   {
+    OverlayWidgetClass "{629A98C298B8B119}" {
+     Name "Overlay"
+     Slot ButtonWidgetSlot "{5548E6E7F213FB11}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     {
+      ImageWidgetClass "{629A98C298B8B118}" {
+       Name "Background"
+       Slot OverlayWidgetSlot "{605049DA182F5FC4}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Color 0 0 0 0.7
+      }
+      HorizontalLayoutWidgetClass "{629A98C298B8B11B}" {
+       Name "HorizontalLayout0"
+       Slot OverlayWidgetSlot "{605049E870709C5F}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Clipping False
+       {
+        SizeLayoutWidgetClass "{629A98C298B8B11A}" {
+         Name "Item Preview Overlay"
+         Slot LayoutSlot "{605049E81DA7CB9C}" {
+         }
+         AllowWidthOverride 1
+         WidthOverride 64
+         AllowHeightOverride 1
+         HeightOverride 64
+         {
+          ItemPreviewWidgetClass "{629A98C298B83175}" {
+           Name "ItemPreview0"
+           Slot AlignableSlot "{605049E81A06927A}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+           }
+           Filter Bilinear
+           Format LDR
+          }
+         }
+        }
+        OverlayWidgetClass "{629A98C298B8317B}" {
+         Name "Name Overlay"
+         Slot LayoutSlot "{605049EB786451ED}" {
+          SizeMode Fill
+         }
+         Clipping True
+         {
+          TextWidgetClass "{629A98C298B83179}" : "{E64DA8292CD7DBDD}UI/layouts/WidgetLibrary/TextWidgets/Text_InteractiveSmall.layout" {
+           Name "Name"
+           Slot OverlayWidgetSlot "{605049E4C7A0969F}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+            Padding 10 0 10 0
+           }
+           "Z Order" 8
+           Text "Item Name"
+           "Font Size" 20
+           "Min Font Size" 20
+           "Horizontal Alignment" Center
+           "Vertical Alignment" Center
+           Wrap 1
+          }
+         }
+        }
+        OverlayWidgetClass "{629A98C298B8317E}" {
+         Name "Price Overlay"
+         Slot LayoutSlot "{605049E4C7A096BF}" {
+          SizeMode Fill
+         }
+         Clipping True
+         {
+          ScrollLayoutWidgetClass "{629A98C298B8317F}" {
+           Name "ScrollLayout0"
+           Slot OverlayWidgetSlot "{60514A93AB2B25EC}" {
+            VerticalAlign 3
+            Padding 0 5 0 5
+           }
+           style Small
+           ScrollDirection Horizontal
+           {
+            HorizontalLayoutWidgetClass "{629A98C298B80592}" {
+             Name "CostOverlay"
+             Slot AlignableSlot "{60514A99FD074C71}" {
+              HorizontalAlign 3
+              VerticalAlign 3
+             }
+             {
+              TextWidgetClass "{629A98C298B80591}" : "{E64DA8292CD7DBDD}UI/layouts/WidgetLibrary/TextWidgets/Text_InteractiveSmall.layout" {
+               Name "Cost"
+               Slot LayoutSlot "{60514A996F956BB4}" {
+               }
+               "Z Order" 8
+               Text "$1234"
+               "Font Size" 20
+               "Min Font Size" 20
+               "Horizontal Alignment" Center
+               "Vertical Alignment" Center
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        OverlayWidgetClass "{629A98C298B80590}" {
+         Name "Quantity Overlay"
+         Slot LayoutSlot "{605049EB66F26D7D}" {
+          SizeMode Fill
+         }
+         Clipping True
+         {
+          HorizontalLayoutWidgetClass "{629A98C298B87B10}" {
+           Name "HorizontalLayout0"
+           Slot OverlayWidgetSlot "{60515D7B46186E55}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+           }
+           {
+            TextWidgetClass "{629A98C298B87B2F}" {
+             Name "Quantity"
+             Slot LayoutSlot "{60515D752BE86B5A}" {
+              Padding 5 0 5 0
+              SizeMode Fill
+              FillWeight 2
+             }
+             Text "123"
+             "Font Size" 20
+             "Min Font Size" 20
+             "Horizontal Alignment" Center
+             "Vertical Alignment" Center
+            }
+           }
+          }
+         }
+        }
+        OverlayWidgetClass "{629A98C298B87B2E}" {
+         Name "Overlay0"
+         Slot LayoutSlot "{605A1C4650327C62}" {
+         }
+         {
+          ButtonWidgetClass "{629A98C298B9980E}" {
+           Name "RemoveButton"
+           Slot OverlayWidgetSlot "{605A1C46739B60AF}" {
+            Padding 10 0 10 0
+           }
+           style blank
+           {
+            SizeLayoutWidgetClass "{629A98C298B992B5}" {
+             Name "SizeLayout0"
+             Slot ButtonWidgetSlot "{605A1C4662F0530C}" {
+             }
+             AllowWidthOverride 1
+             WidthOverride 32
+             AllowHeightOverride 1
+             HeightOverride 32
+             {
+              ImageWidgetClass "{629A98C298B992B6}" {
+               Name "Image0"
+               Slot AlignableSlot "{605A1C466342BE66}" {
+               }
+               Texture "{2EFEA2AF1F38E7F0}UI/Textures/Icons/icons_wrapperUI-64.imageset"
+               Image "trash"
+               Size 64 64
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      PanelWidgetClass "{629A98C298B992B7}" {
+       Name "Border"
+       Slot OverlayWidgetSlot "{5548E6E7D859FCD2}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Color 0.761 0.386 0.08 1
+       style outline_2px
+      }
+     }
+    }
+   }
+  }
+ }
+}

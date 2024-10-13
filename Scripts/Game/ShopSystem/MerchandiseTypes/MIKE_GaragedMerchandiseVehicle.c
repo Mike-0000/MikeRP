@@ -1,7 +1,7 @@
 [BaseContainerProps()]
 class MIKE_GaragedMerchandiseVehicle: ADM_MerchandisePrefab
 {
-	[Attribute()]
+	
 	ref PointInfo m_SpawnPosition;
 	
 	[Attribute(desc: "Ignore player when checking if spawn area is clear")]
@@ -16,7 +16,10 @@ class MIKE_GaragedMerchandiseVehicle: ADM_MerchandisePrefab
 	{
 		EntitySpawnParams params = EntitySpawnParams();
 		params.TransformMode = ETransformMode.WORLD;
-		
+		IEntity shopEntity = shop.GetOwner();
+		MIKE_GarageComponent getComp;
+		getComp = MIKE_GarageComponent.Cast(shopEntity.FindComponent(MIKE_GarageComponent));
+		m_SpawnPosition = getComp.m_SpawnPosition;
 		if (m_SpawnPosition && !shop.IsInherited(ADM_PhysicalShopComponent)) {
 			m_SpawnPosition.Init(shop.GetOwner());
 			m_SpawnPosition.GetModelTransform(params.Transform);

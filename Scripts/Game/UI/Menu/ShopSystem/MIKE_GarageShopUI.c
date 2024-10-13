@@ -24,20 +24,28 @@ class MIKE_GarageShopUI_Item : SCR_ModularButtonComponent
 	protected bool m_bBuyOrSell; 
 	protected int m_iMaxQuantity = 0;
 	protected bool m_bIsCartItem = false;
-	
+override bool OnClick(Widget w, int x, int y, int button)
+{
+    Print("MIKE_GarageShopUI_Item OnClick Invoked!", LogLevel.NORMAL);
+    return super.OnClick(w, x, y, button);
+}
+
 	int GetQuantity()
 	{
+		Print("GetQuantity Invoked!", LogLevel.NORMAL);
 		return m_quantity;
 	}
 	
 	void SetQuantity(int quantity)
 	{
+		Print("SetQuantity Invoked!", LogLevel.NORMAL);
 		m_quantity = quantity;
 		UpdateItem(this.m_wRoot);
 	}
 	
 	void UpdateQuantity(int amount)
 	{
+		Print("UpdateQuantity Invoked!", LogLevel.NORMAL);
 		m_quantity = m_quantity + amount;
 		if (m_quantity < 1)
 			m_quantity = 1;
@@ -52,16 +60,19 @@ class MIKE_GarageShopUI_Item : SCR_ModularButtonComponent
 	
 	ADM_ShopMerchandise GetMerchandise()
 	{
+		Print("GetMerchandise Invoked!", LogLevel.NORMAL);
 		return m_Merchandise;
 	}
 	
 	void SetMerchandise(ADM_ShopMerchandise merch)
 	{
+		Print("SetMerchandise Invoked!", LogLevel.NORMAL);
 		m_Merchandise = merch;
 	}
 	
 	void SetShopUI(MIKE_GarageShopUI shopUI)
 	{
+		Print("SetShopUI Invoked!", LogLevel.NORMAL);
 		m_ShopUI = shopUI;
 	}
 	
@@ -119,6 +130,7 @@ class MIKE_GarageShopUI_Item : SCR_ModularButtonComponent
 	
 	override void HandlerAttached(Widget w)
 	{
+		Print("HandlerAttached Invoked!", LogLevel.NORMAL);
 		super.HandlerAttached(w);
 		
 		Widget left = w.FindAnyWidget("ButtonLeft");
@@ -174,6 +186,7 @@ class MIKE_GarageShopUI_Item : SCR_ModularButtonComponent
 	
 	override bool OnFocus(Widget w, int x, int y)
 	{
+		Print("OnFocus Invoked!", LogLevel.NORMAL);
 		super.OnFocus(w, x, y);
 
 		AddActionListeners();
@@ -195,6 +208,7 @@ class MIKE_GarageShopUI_Item : SCR_ModularButtonComponent
 
 	override bool OnFocusLost(Widget w, int x, int y)
 	{
+		Print("OnFocusLost Invoked!", LogLevel.NORMAL);
 		super.OnFocusLost(w, x, y);
 
 		RemoveActionListeners();
@@ -216,11 +230,13 @@ class MIKE_GarageShopUI_Item : SCR_ModularButtonComponent
 	
 	void SetCartItem(bool b)
 	{
+		Print("SetCartItem Invoked!", LogLevel.NORMAL);
 		m_bIsCartItem = b;
 	}
 	
 	bool CanPurchase()
 	{
+		Print("CanPurchase Invoked!", LogLevel.NORMAL);
 		if (GetBuyOrSell())
 		{
 			int additionalQuantity = m_quantity;
@@ -231,12 +247,14 @@ class MIKE_GarageShopUI_Item : SCR_ModularButtonComponent
 			
 			return m_ShopUI.CanPurchase(m_Merchandise, additionalQuantity);
 		} else {
+			Print("CanPurchase Invoked2!", LogLevel.NORMAL);
 			return true;
 		}
 	}
 	
 	bool UpdateItem(Widget w)
 	{
+		Print("UpdateItem Invoked!", LogLevel.NORMAL);
 		if (m_quantity < 1) m_quantity = 1;
 
 		if (m_iMaxQuantity > 0 && m_quantity > m_iMaxQuantity)
@@ -298,6 +316,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	void SetShop(MIKE_GarageComponent shop)
 	{
+		Print("SetShop Invoked!", LogLevel.NORMAL);
 		m_Shop = shop;
 		
 		if (m_wHeaderText)
@@ -311,6 +330,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	bool CanPurchase(ADM_ShopMerchandise additionalMerchandise = null, int additionalQuantity = 0)
 	{
+		Print("CanPurchase Invoked!", LogLevel.NORMAL);
 		// this method isn't perfect because it doesn't keep track of money spent as it iterates all merchandise in the cart
 		// so at best it only returns false when an item of the same type exceeds the amount possible
 		
@@ -342,6 +362,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	int GetCartQuantity(ADM_ShopMerchandise merchandise, bool buyOrSell = true)
 	{
+		Print("GetCartQuantity Invoked!", LogLevel.NORMAL);
 		map<ADM_ShopMerchandise, int> shoppingCart = m_BuyShoppingCart;
 		if (!buyOrSell)
 		{
@@ -354,32 +375,66 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	void AddToCart(MIKE_GarageShopUI_Item item)
 	{
-		ADM_ShopMerchandise merch = item.GetMerchandise();
-		if (!merch)
-			return;
-		
-		if (!item.CanPurchase())
-			return;
-		
-		map<ADM_ShopMerchandise, int> shoppingCart = m_BuyShoppingCart;
-		if (!item.GetBuyOrSell())
-			shoppingCart = m_SellShoppingCart;
-		
-		bool inShoppingCart = shoppingCart.Contains(merch);
-		if (inShoppingCart)
-		{
-			int curQuantity = shoppingCart.Get(merch);
-			int newQuantity = curQuantity + item.GetQuantity();
-			shoppingCart.Set(merch, newQuantity);
-		} else {
-			shoppingCart.Insert(merch, item.GetQuantity());
-		}
-		
-		PopulateCartTab(m_wCartTabView);		
+	    // Log the start of the AddToCart function
+	    Print("SCRIPT       : AddToCart started.", LogLevel.NORMAL);
+	    
+	    // Retrieve the merchandise from the item
+	    ADM_ShopMerchandise merch = item.GetMerchandise();
+	    if (!merch)
+	    {
+	        Print("SCRIPT       : Error! ADM_ShopMerchandise is null.", LogLevel.ERROR);
+	        return;
+	    }
+	    Print("SCRIPT       : Retrieved ADM_ShopMerchandise: " + merch, LogLevel.NORMAL);
+	    
+	    // Check if the item can be purchased
+	    if (!item.CanPurchase())
+	    {
+	        Print("SCRIPT       : Cannot purchase item: " + merch.GetType().GetDisplayName(), LogLevel.WARNING);
+	        return;
+	    }
+	    Print("SCRIPT       : Item can be purchased: " + merch.GetType().GetDisplayName(), LogLevel.NORMAL);
+	    
+	    // Determine which shopping cart to use (Buy or Sell)
+	    map<ADM_ShopMerchandise, int> shoppingCart = m_BuyShoppingCart;
+	    if (!item.GetBuyOrSell())
+	    {
+	        shoppingCart = m_SellShoppingCart;
+	        Print("SCRIPT       : Using Sell Shopping Cart for merchandise: " + merch.GetType().GetDisplayName(), LogLevel.NORMAL);
+	    }
+	    else
+	    {
+	        Print("SCRIPT       : Using Buy Shopping Cart for merchandise: " + merch.GetType().GetDisplayName(), LogLevel.NORMAL);
+	    }
+	    
+	    // Check if the merchandise is already in the shopping cart
+	    bool inShoppingCart = shoppingCart.Contains(merch);
+	    if (inShoppingCart)
+	    {
+	        int curQuantity = shoppingCart.Get(merch);
+	        int newQuantity = curQuantity + item.GetQuantity();
+	        shoppingCart.Set(merch, newQuantity);
+	        Print("SCRIPT       : Updated quantity for " + merch.GetType().GetDisplayName() + ": " + curQuantity + " -> " + newQuantity, LogLevel.NORMAL);
+	    }
+	    else
+	    {
+	        shoppingCart.Insert(merch, item.GetQuantity());
+	        Print("SCRIPT       : Inserted new merchandise into cart: " + merch.GetType().GetDisplayName() + " with quantity: " + item.GetQuantity(), LogLevel.NORMAL);
+	    }
+	    
+	    // Populate the cart tab to reflect changes
+	    Print("SCRIPT       : Populating Cart Tab.", LogLevel.NORMAL);
+	    PopulateCartTab(m_wCartTabView);
+	    Print("SCRIPT       : PopulateCartTab completed.", LogLevel.NORMAL);
+	    
+	    // Log the successful completion of AddToCart
+	    Print("SCRIPT       : AddToCart completed successfully for merchandise: " + merch.GetType().GetDisplayName(), LogLevel.NORMAL);
 	}
+
 	
 	void RemoveFromCart(MIKE_GarageShopUI_Item item)
 	{
+		Print("RemoveFromCart Invoked!", LogLevel.NORMAL);
 		if (!item)
 			return;
 		
@@ -399,6 +454,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	protected void CreateCartListboxItem(SCR_ListBoxComponent listbox, ADM_ShopMerchandise merch, bool buyOrSell = true)
 	{
+		Print("CreateCartListboxItem Invoked!", LogLevel.NORMAL);
 		ADM_MerchandiseType merchType = merch.GetType();
 		if (!merchType)
 			return;
@@ -484,6 +540,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 		}
 		
 		// Quantity
+		Print("Quantity Invoked!", LogLevel.NORMAL);
 		MIKE_GarageShopUI_Item item = MIKE_GarageShopUI_Item.Cast(lbItem.GetRootWidget().FindHandler(MIKE_GarageShopUI_Item));
 		if (item) {
 			int quantity = GetCartQuantity(merch, buyOrSell);
@@ -500,6 +557,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	protected void PopulateCartTab(SCR_TabViewContent wTabView)
 	{
+		Print("PopulateCartTab Invoked!", LogLevel.NORMAL);
 		Widget wListboxBuy = wTabView.m_wTab.FindAnyWidget("ListBox0");
 		if (!wListboxBuy)
 			return;
@@ -672,6 +730,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	protected void Checkout(SCR_InputButtonComponent btn)
 	{
+		Print("Checkout Invoked!", LogLevel.NORMAL);
 		PlayerController playerController = GetGame().GetPlayerController();
 		if (!playerController)
 			return;
@@ -687,6 +746,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	protected void ConfigureCategory(SCR_SpinBoxComponent component, array<ADM_ShopCategory> categories)
 	{
+		Print("ConfigureCategory Invoked!", LogLevel.NORMAL);
 		if (!component || !categories)
 			return;
 		
@@ -701,6 +761,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	protected void SelectCategory(SCR_TabViewContent wTabView, int index, array<ref ADM_ShopMerchandise> items, string search = "", bool buyOrSell = true)
 	{
+		Print("SelectCategory Invoked!", LogLevel.NORMAL);
 		if (!m_Shop || !items || items.Count() < 1) 
 			return;
 		
@@ -735,28 +796,33 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	protected void SelectCategoryBuy(string search = "")
 	{		
+		Print("SelectCategoryBuy Invoked!", LogLevel.NORMAL);
 		SelectCategory(m_wBuyTabView, m_iCategoryBuy, m_Shop.GetMerchandiseBuy(), search, true);
 	}
 	
 	protected void SelectCategorySell(string search = "")
 	{		
+		Print("SelectCategorySell Invoked!", LogLevel.NORMAL);
 		SelectCategory(m_wSellTabView, m_iCategorySell, m_Shop.GetMerchandiseSell(), search, false);
 	}
 	
 	protected void ChangeCategoryBuy(SCR_SpinBoxComponent comp, int itemIndex)
 	{
+		Print("ChangeCategoryBuy Invoked!", LogLevel.NORMAL);
 		m_iCategoryBuy = itemIndex - 1;
 		SelectCategoryBuy(m_sSearchBuy);
 	}
 	
 	protected void ChangeCategorySell(SCR_SpinBoxComponent comp, int itemIndex)
 	{
+		Print("ChangeCategorySell Invoked!", LogLevel.NORMAL);
 		m_iCategorySell = itemIndex - 1;
 		SelectCategorySell(m_sSearchSell);
 	}
 	
 	protected void ConfigureTabs()
 	{
+		Print("ConfigureTabs Invoked!", LogLevel.NORMAL);
 		if (!m_wBuyTabView || !m_wSellTabView || !m_Shop)
 			return;
 		
@@ -796,6 +862,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	protected void ClearTab(SCR_TabViewContent wTabView)
 	{
+		Print("ClearTab Invoked!", LogLevel.NORMAL);
 		if (!wTabView)
 			return;
 		
@@ -817,7 +884,8 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	}
 	
 	protected void CreateListboxItem(SCR_ListBoxComponent listbox, ADM_ShopMerchandise merch, bool buyOrSell = true)
-	{			
+	{	
+		Print("CreateListboxItem Invoked!", LogLevel.NORMAL);		
 		ADM_MerchandiseType merchType = merch.GetType();
 		if (!merchType)
 			return;
@@ -905,6 +973,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	protected void PopulateTab(SCR_TabViewContent wTabView, array<ref ADM_ShopMerchandise> merchandise, bool buyOrSell = true)
 	{
+		Print("PopulateTab Invoked!", LogLevel.NORMAL);
 		Widget wListbox = wTabView.m_wTab.FindAnyWidget("ListBox0");
 		if (!wListbox)
 			return;
@@ -940,6 +1009,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	protected array<ref ADM_ShopMerchandise> ProcessSearch(string search, array<ref ADM_ShopMerchandise> merchandise)
 	{
+		Print("ProcessSearch Invoked!", LogLevel.NORMAL);
 		search = search.Trim();
 		search.ToLower();
 		
@@ -965,12 +1035,14 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	protected void ProcessSearchBuy(SCR_EditBoxSearchComponent searchbox, string search)
 	{
+		Print("ProcessSearchBuy Invoked!", LogLevel.NORMAL);
 		m_sSearchBuy = search;
 		SelectCategoryBuy(m_sSearchBuy);
 	}
 	
 	protected void ProcessSearchSell(SCR_EditBoxSearchComponent searchbox, string search)
 	{
+		Print("ProcessSearchSell Invoked!", LogLevel.NORMAL);
 		m_sSearchSell = search;
 		SelectCategorySell(m_sSearchSell);
 	}
@@ -979,6 +1051,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	private float m_fCachedMoneyTime = -5000000;
 	protected void UpdateMoneyText()
 	{
+		Print("UpdateMoneyText Invoked!", LogLevel.NORMAL);
 		if (!m_wMoneyText)
 			return;
 		
@@ -1007,6 +1080,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	static MIKE_GarageShopUI_Item FindShopUIItem(Widget w)
 	{
+		Print("FindShopUIItem Invoked!", LogLevel.NORMAL);
 		Widget parent = w.GetParent();
 		while (parent)
 		{
@@ -1022,6 +1096,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	override void OnMenuFocusLost()
 	{
+		Print("OnMenuFocusLost Invoked!", LogLevel.NORMAL);
 		m_bFocused = false;
 		
 		InputManager inputManager = GetGame().GetInputManager();
@@ -1038,6 +1113,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 
 	override void OnMenuFocusGained()
 	{
+		Print("OnMenuFocusGained Invoked!", LogLevel.NORMAL);
 		m_bFocused = true;
 		
 		InputManager inputManager = GetGame().GetInputManager();
@@ -1054,6 +1130,7 @@ class MIKE_GarageShopUI: ChimeraMenuBase
 	
 	override void HandlerAttached(Widget w)
 	{
+		Print("HandlerAttached Invoked!", LogLevel.NORMAL);
 		super.HandlerAttached(w);
 		m_wRoot = w;
 		

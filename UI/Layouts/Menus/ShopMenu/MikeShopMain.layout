@@ -1,0 +1,431 @@
+FrameWidgetClass "{629A98CBEC5980D1}" {
+ Name "ShopRoot"
+ "Ignore Cursor" 0
+ {
+  ButtonWidgetClass "{629A98CBEC5980AF}" {
+   Name "FakeFocusDontRemove"
+   Slot FrameWidgetSlot "{5E5662CF4CB310ED}" {
+    Anchor 0 0 0 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 10
+    OffsetRight -10
+    SizeY 0
+    OffsetBottom 0
+   }
+   Opacity 0
+  }
+  OverlayWidgetClass "{629A98CBEC5980AC}" : "{01FD644AD2B6317D}UI/layouts/Menus/Common/MenuBackground.layout" {
+   Name "MenuBackground0"
+   Slot FrameWidgetSlot "{552C9A0A8526D2AD}" {
+   }
+   Color 1 1 1 1
+   {
+    BlurWidgetClass "{629A98CBEC5980AD}" : "{352322057FD78AE1}UI/layouts/WidgetLibrary/BaseElements/WLib_Blur.layout" {
+     Name "Blur0"
+     Slot OverlayWidgetSlot "{591A71E69D6C3FC5}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     Color 1 1 1 1
+     "Inherit Color" 1
+     Intensity 0.15
+    }
+    ScaleWidgetClass "{629A98CBEC5980AB}" {
+     Name "Scale0"
+     Slot OverlayWidgetSlot "{5E688DCDAE1180E9}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+     }
+     {
+      ImageWidgetClass "{629A98CBEC5985EB}" {
+       Prefab "{5CFCF5E894AE6628}"
+       Name "BackgroundImageFilter"
+       Slot AlignableSlot "{552C8E22202CDAE6}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Opacity 0.8
+       Color 0.024 0.024 0.024 1
+       Texture "{A107AA59D1143AE4}UI/Textures/MainMenu/InventoryBackgroundBlank_U.edds"
+       Size 1920 1080
+       Mask "{77BCE26FDE4C299E}UI/Textures/MainMenu/InventoryBackgroundBlank_U_mask.edds"
+       "Transition width" 0.798
+       Progress 0.572
+       "Mask Mode" "Include Below"
+      }
+     }
+    }
+    ScaleWidgetClass "{5CFCF5E894AE6629}" {
+     Prefab "{5CFCF5E894AE6629}"
+     {
+      ImageWidgetClass "{5CFCF5E894AE6628}" {
+       Prefab "{5CFCF5E894AE6628}"
+       Slot AlignableSlot "{552C8E22202CDAE6}" {
+        HorizontalAlign 3
+        VerticalAlign 3
+       }
+       Opacity 0.7
+       Size 3840 2160
+       "Transition width" 0.485
+       Progress 0.288
+      }
+     }
+    }
+    VerticalLayoutWidgetClass "{5CFCF5E894AE662F}" {
+     Prefab "{5CFCF5E894AE662F}"
+     Opacity 0.8
+     {
+      ImageWidgetClass "{5CFCF5E894AE662E}" {
+       Prefab "{5CFCF5E894AE662E}"
+       "Is Visible" 0
+      }
+      ImageWidgetClass "{5CFCF5E894AE662C}" {
+       Prefab "{5CFCF5E894AE662C}"
+       Color 0.003 0.004 0.004 1
+       Progress 0.479
+      }
+     }
+    }
+    HorizontalLayoutWidgetClass "{5CFCF5E894AE6623}" {
+     Prefab "{5CFCF5E894AE6623}"
+     Opacity 0.7
+     Color 0.007 0.012 0.014 1
+     {
+      ImageWidgetClass "{5CFCF5E894AE6622}" {
+       Prefab "{5CFCF5E894AE6622}"
+       Progress 0.512
+      }
+      SizeLayoutWidgetClass "{5CFCF5E894AE6621}" {
+       Prefab "{5CFCF5E894AE6621}"
+       WidthOverride 600
+      }
+      ImageWidgetClass "{5CFCF5E894AE6620}" {
+       Prefab "{5CFCF5E894AE6620}"
+       Progress 0.525
+      }
+     }
+    }
+   }
+  }
+  OverlayWidgetClass "{629A98CBEC5985E7}" : "{BBD087BFC198428A}UI/layouts/WidgetLibrary/BaseElements/WLib_MenuBaseSimple.layout" {
+   Name "MenuBase1"
+   Slot FrameWidgetSlot "{54D8A1A69BDC4E85}" {
+   }
+   {
+    SizeLayoutWidgetClass "{589F049780D13CA5}" {
+     Prefab "{589F049780D13CA5}"
+     {
+      VerticalLayoutWidgetClass "{589F049780D13CA3}" {
+       Prefab "{589F049780D13CA3}"
+       Clipping Inherit
+       {
+        SizeLayoutWidgetClass "{589F049780D13CA2}" {
+         Prefab "{589F049780D13CA2}"
+         HeightOverride 56
+         {
+          OverlayWidgetClass "{589F1BFADB1DDB0A}" {
+           Prefab "{589F1BFADB1DDB0A}"
+           Slot LayoutSlot "{589F1BFADB1DDB58}" {
+            Padding 0 0 0 0
+           }
+           {
+            HorizontalLayoutWidgetClass "{629A98CBEC5985E5}" {
+             Name "HorizontalLayout0"
+             Slot OverlayWidgetSlot "{593872AE847A1BEB}" {
+              HorizontalAlign 3
+              VerticalAlign 3
+             }
+             {
+              HorizontalLayoutWidgetClass "{629A98CBEC5985E2}" {
+               Name "HorizontalLayout1"
+               Slot LayoutSlot "{591A71E17ECC7FA7}" {
+                Padding 0 0 0 0
+                SizeMode Fill
+               }
+               {
+                OverlayWidgetClass "{629A98CBEC59A2C7}" {
+                 Prefab "{589F1BFADB1DDB0A}"
+                 Name "Overlay"
+                 {
+                  TextWidgetClass "{629A98CBEC59A2C5}" {
+                   Name "HeaderText"
+                   Slot OverlayWidgetSlot "{605005069F7723B8}" {
+                   }
+                   Text "Heading"
+                   "Font Size" 40
+                   "Min Font Size" 32
+                   "Vertical Alignment" Center
+                   FontProperties FontProperties "{6050050D87445316}" {
+                    Font "{CD2634D279AB011A}UI/Fonts/Roboto/Roboto_Bold.fnt"
+                    ShadowOffset 0 0
+                   }
+                  }
+                 }
+                }
+               }
+              }
+              HorizontalLayoutWidgetClass "{629A98CBEC59A2C4}" {
+               Name "HorizontalLayout0"
+               Slot LayoutSlot "{591A71E17ECC7FA7}" {
+                Padding 0 0 0 0
+                SizeMode Fill
+               }
+               "Fill Origin" Right
+               {
+                HorizontalLayoutWidgetClass "{629A98CBEC5960B7}" {
+                 Name "TotalMoneyDisplay"
+                 Slot LayoutSlot "{5915002BED056598}" {
+                  HorizontalAlign 0
+                  Padding 0 0 0 0
+                 }
+                 {
+                  ImageWidgetClass "{629A98CBEC5960A8}" {
+                   Name "Image0"
+                   Slot LayoutSlot "{5915002B4B82D872}" {
+                    HorizontalAlign 1
+                    VerticalAlign 1
+                    Padding 0 0 5 0
+                   }
+                   "Is Enabled" 0
+                   "Is Visible" 0
+                   Texture "{3DF214A79EFFDB7C}UI/Textures/InventoryIcons/Supplies-cost.edds"
+                   Size 64 64
+                  }
+                  TextWidgetClass "{629A98CBEC5960A9}" : "{3132F64DB8B4CB44}UI/layouts/WidgetLibrary/TextWidgets/Text_Body.layout" {
+                   Name "TotalMoneyText"
+                   Slot LayoutSlot "{591A48FB3922356A}" {
+                    Padding 6 0 10 0
+                   }
+                   Text "$0"
+                   "Vertical Alignment" Center
+                  }
+                 }
+                }
+               }
+              }
+             }
+            }
+            TextWidgetClass "{589F049780D13CAD}" {
+             Prefab "{589F049780D13CAD}"
+             "Is Enabled" 0
+             "Is Visible" 0
+            }
+           }
+          }
+         }
+        }
+        OverlayWidgetClass "{589F0497F7A00346}" {
+         Prefab "{589F0497F7A00346}"
+         Slot LayoutSlot "{589F0497F7A00365}" {
+         }
+         {
+          HorizontalLayoutWidgetClass "{629A98CBEC5937BD}" {
+           Name "InventoryContent"
+           Slot OverlayWidgetSlot "{58E0C2B3E4BC9ACA}" {
+            HorizontalAlign 3
+            VerticalAlign 3
+           }
+           "Z Order" 1
+           {
+            VerticalLayoutWidgetClass "{629A98CBEC5937BE}" {
+             Name "LeftMiddle"
+             Slot LayoutSlot "{58B105F76C8A2663}" {
+              SizeMode Fill
+              FillWeight 1
+             }
+             "Right rule" Explicit
+             "Right target" "RightAreaOverlay"
+             {
+              HorizontalLayoutWidgetClass "{629A98CBEC5937BF}" {
+               Name "LeftMiddleHorizontal"
+               Slot LayoutSlot "{58B105EE51990B35}" {
+                SizeMode Fill
+                FillWeight 0.7
+               }
+               {
+                VerticalLayoutWidgetClass "{629A98CBEC26E88B}" {
+                 Name "LeftArea"
+                 Slot LayoutSlot "{51F6DADB91D582C2}" {
+                  SizeMode Fill
+                  FillWeight 1.5
+                 }
+                 Color 1 1 1 1
+                 "Right rule" Explicit
+                 "Right target" "MiddleArea"
+                 {
+                  VerticalLayoutWidgetClass "{629A98CBEC26E88C}" {
+                   Name "HorizontalLayout0"
+                   Slot LayoutSlot "{60528403C7EF1B4E}" {
+                    SizeMode Fill
+                   }
+                   {
+                    VerticalLayoutWidgetClass "{629A98CBEC267BF3}" : "{D1CAF877446C66DE}UI/layouts/WidgetLibrary/TabView/WLib_TabViewCoreMenus.layout" {
+                     Name "BuySellTabView"
+                     Slot LayoutSlot "{589F093AB3EA94D8}" {
+                     }
+                     components {
+                      SCR_TabViewComponent "{546B27D01CA8A38D}" {
+                       m_aElements {
+                        SCR_TabViewContent "{6050050F33E4E8B5}" {
+                         m_ElementLayout "{7513528C6C68D18B}UI/Layouts/Menus/ShopMenu/MikeShopList.layout"
+                         m_sTabButtonContent "Buy"
+                        }
+                        SCR_TabViewContent "{6050050F241B75AC}" {
+                         m_ElementLayout "{7513528C6C68D18B}UI/Layouts/Menus/ShopMenu/MikeShopList.layout"
+                         m_sTabButtonContent "Sell"
+                        }
+                       }
+                       m_bKeepHiddenTabs 1
+                       m_bCreateAllTabsAtStart 1
+                      }
+                     }
+                     {
+                      ImageWidgetClass "{00000000DB4F9EA9}" {
+                       Prefab "{00000000DB4F9EA9}"
+                       "Is Visible" 1
+                      }
+                     }
+                    }
+                    ImageWidgetClass "{629A98CBEC267BF0}" {
+                     Name "SeparatorBottom"
+                     Slot LayoutSlot "{60527D406DF5A633}" {
+                      SizeMode Fill
+                      FillWeight 0.005
+                     }
+                     "Is Visible" 1
+                     Color 0.133 0.133 0.133 1
+                     Size 32 4
+                    }
+                   }
+                  }
+                 }
+                }
+                OverlayWidgetClass "{629A98CBEC26344D}" {
+                 Name "MiddleArea"
+                 Slot LayoutSlot "{51D090E952815267}" {
+                  SizeMode Fill
+                  FillWeight 1
+                 }
+                 "Left rule" Explicit
+                 "Left target" "LeftArea"
+                 "Right rule" Explicit
+                 "Right target" "StorageGrid"
+                }
+               }
+              }
+             }
+            }
+            OverlayWidgetClass "{629A98CBEC263442}" {
+             Name "RightAreaOverlay"
+             Slot LayoutSlot "{58C46C6434935D71}" {
+              SizeMode Fill
+              FillWeight 0.5
+             }
+             "Left target" "LeftMiddle"
+             {
+              VerticalLayoutWidgetClass "{629A98CBEC263443}" {
+               Name "VerticalLayout0"
+               Slot OverlayWidgetSlot "{5A1E5D94F5D784DE}" {
+                HorizontalAlign 3
+                VerticalAlign 3
+               }
+               {
+                VerticalLayoutWidgetClass "{629A98CBEC263440}" : "{D1CAF877446C66DE}UI/layouts/WidgetLibrary/TabView/WLib_TabViewCoreMenus.layout" {
+                 Name "CartTabView"
+                 Slot LayoutSlot "{589F093AB3EA94D8}" {
+                 }
+                 components {
+                  SCR_TabViewComponent "{546B27D01CA8A38D}" {
+                   m_aElements {
+                    SCR_TabViewContent "{6052766FEFD49854}" {
+                     m_ElementLayout "{8C726E31F48200A5}UI/Layouts/Menus/ShopMenu/ShopCart.layout"
+                     m_sTabButtonContent "Cart"
+                    }
+                   }
+                   m_bKeepHiddenTabs 1
+                   m_bCreateAllTabsAtStart 1
+                   m_sActionLeft ""
+                   m_sActionRight ""
+                  }
+                 }
+                 {
+                  ImageWidgetClass "{00000000DB4F9EA9}" {
+                   Prefab "{00000000DB4F9EA9}"
+                   "Is Visible" 1
+                  }
+                 }
+                }
+                ImageWidgetClass "{629A98CBEC263441}" {
+                 Name "SeparatorBottom"
+                 Slot LayoutSlot "{60527D406DF5A6A5}" {
+                  Padding 0 5 0 0
+                  SizeMode Fill
+                  FillWeight 0.005
+                 }
+                 "Is Visible" 1
+                 Color 0.133 0.133 0.133 1
+                 Size 32 4
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+        SizeLayoutWidgetClass "{589F0497E391441C}" {
+         Prefab "{589F0497E391441C}"
+         {
+          HorizontalLayoutWidgetClass "{589F049780D13CD1}" {
+           Prefab "{589F049780D13CD1}"
+           components {
+            SCR_NavigationBarUI "{58E0C2B35EF2421A}" {
+            }
+           }
+           {
+            ButtonWidgetClass "{589F049780D13CDF}" {
+             Prefab "{589F049780D13CDF}"
+             Slot LayoutSlot "{54ACA297E9BAB648}" {
+              HorizontalAlign 0
+             }
+             components {
+              SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+               m_sActionName "InventoryEscape"
+              }
+             }
+            }
+            HorizontalLayoutWidgetClass "{589F049780D13CDD}" {
+             Prefab "{589F049780D13CDD}"
+             {
+              ButtonWidgetClass "{629A98CBEC263444}" : "{C42847838185932E}UI/layouts/WidgetLibrary/Buttons/WLib_InputButton.layout" {
+               Name "Checkout"
+               Slot LayoutSlot "{605C4DC75019D420}" {
+                HorizontalAlign 2
+                Padding 100000 0 0 0
+               }
+               components {
+                SCR_InputButtonComponent "{5D346C3DD81D95CD}" {
+                 m_sActionName "MenuSelectHold"
+                 m_sLabel "Checkout"
+                 m_iHeightInPixel 48
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

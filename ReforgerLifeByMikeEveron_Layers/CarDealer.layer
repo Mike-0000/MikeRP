@@ -1,10 +1,14 @@
 Vehicle HondaCivicTypeR_ChromeSilver1 : "{00FD097EF2CCF383}Prefabs/Vehicles/Wheeled/S105/97CivicTypeR/HondaCivicTypeR_ChromeSilver.et" {
  components {
+  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
+   Enabled 0
+  }
   SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
    FuelNodes {
     SCR_FuelNode "{5622A70CD4036C5A}" {
      MaxFuel 0.001
      m_fInitialFuelTankState 0
+     m_eFuelNodeType 0
     }
    }
   }
@@ -16,11 +20,15 @@ Vehicle HondaCivicTypeR_ChromeSilver1 : "{00FD097EF2CCF383}Prefabs/Vehicles/Whee
 }
 Vehicle Ford_F700_Black1 : "{0272ED965724BF65}Prefabs/Vehicles/Wheeled/M923A1/91FordF700/Ford_F700_Black.et" {
  components {
+  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
+   Enabled 0
+  }
   SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
    FuelNodes {
     SCR_FuelNode "{5622A70CD4036C5A}" {
      MaxFuel 0.001
      m_fInitialFuelTankState 0
+     m_eFuelNodeType 0
     }
    }
   }
@@ -30,11 +38,15 @@ Vehicle Ford_F700_Black1 : "{0272ED965724BF65}Prefabs/Vehicles/Wheeled/M923A1/91
 }
 Vehicle DodgeCharger_06_ChromeGold1 : "{088FEBD665FF0039}Prefabs/Vehicles/Wheeled/M998/06Charger/DodgeCharger_06_ChromeGold.et" {
  components {
+  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
+   Enabled 0
+  }
   SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
    FuelNodes {
     SCR_FuelNode "{5622A70CD4036C5A}" {
      MaxFuel 0.001
      m_fInitialFuelTankState 0
+     m_eFuelNodeType 0
     }
    }
   }
@@ -43,6 +55,24 @@ Vehicle DodgeCharger_06_ChromeGold1 : "{088FEBD665FF0039}Prefabs/Vehicles/Wheele
  angleX -3.791
  angleY 45.084
  angleZ -1.269
+}
+$grp SCR_DestructibleBuildingEntity : "{106216A0F7EB2E32}PrefabLibrary/Infrastructure/Bridges/ConcreteBridge_01_Narrow.et" {
+ {
+  coords 4531.292 17.318 10631.063
+  angleX 0.326
+  angleY -99.361
+  angleZ 19.096
+ }
+ {
+  coords 4522.531 17.371 10629.608
+  angleX 0.766
+  angleY -100.633
+  angleZ 19.084
+ }
+}
+GenericEntity : "{249F126A91000B2C}Prefabs/Structures/Civilian/parking.et" {
+ coords 4542.739 17.204 10588.396
+ angleY -8.836
 }
 GenericEntity : "{39395A6166E54808}Prefabs/LicensedShop.et" {
  components {
@@ -185,11 +215,15 @@ GenericEntity : "{5AB385123CF295B2}Prefabs/CarDealer.et" {
 }
 Vehicle NissanGTR_R35_Grey1 : "{7FAF29614DB5D1D4}Prefabs/Vehicles/Wheeled/M998/17R35GTR/NissanGTR_R35_Grey.et" {
  components {
+  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
+   Enabled 0
+  }
   SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
    FuelNodes {
     SCR_FuelNode "{5622A70CD4036C5A}" {
      MaxFuel 0.001
      m_fInitialFuelTankState 0
+     m_eFuelNodeType 0
     }
    }
   }
@@ -198,6 +232,31 @@ Vehicle NissanGTR_R35_Grey1 : "{7FAF29614DB5D1D4}Prefabs/Vehicles/Wheeled/M998/1
  angleX -2.526
  angleY -45.224
  angleZ 1.275
+}
+$grp GenericEntity : "{8B67A8316EC73FF2}CarGarage.et" {
+ {
+  components {
+   MIKE_GarageComponent "{629A73556A22A697}" {
+    m_SpawnPosition PointInfo "{629B5A24B3AD7A6B}" {
+     Offset 0.0001 0.2739 9.6368
+    }
+   }
+  }
+  coords 4371.345 11.781 10656.563
+  angleY -179.742
+ }
+ {
+  components {
+   MIKE_GarageComponent "{629A73556A22A697}" {
+    m_SpawnPosition PointInfo "{629B5A24B3AD7A6B}" {
+     Offset 0.3796 0.3696 6.1724
+     Angles 0 4.1121 0
+    }
+   }
+  }
+  coords 4514.475 17.804 10585.654
+  angleY -11.827
+ }
 }
 GenericEntity MoneyLaunderer : "{9B282E7571EC095B}MoneyLaundererShop.et" {
  components {
@@ -210,11 +269,15 @@ GenericEntity MoneyLaunderer : "{9B282E7571EC095B}MoneyLaundererShop.et" {
 }
 Vehicle LamboAventador_BlackCarbon1 : "{9C1616A504813231}Prefabs/Vehicles/Wheeled/M998/16Aventador/LamboAventador_BlackCarbon.et" {
  components {
+  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
+   Enabled 0
+  }
   SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
    FuelNodes {
     SCR_FuelNode "{5622A70CD4036C5A}" {
      MaxFuel 0.001
      m_fInitialFuelTankState 0
+     m_eFuelNodeType 0
     }
    }
   }
@@ -243,11 +306,15 @@ Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15C
 }
 Vehicle AudiR8WB_White1 : "{E181F76FF3F9EC7D}Prefabs/Vehicles/Wheeled/M998/08AudiR8WB/AudiR8WB_White.et" {
  components {
+  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
+   Enabled 0
+  }
   SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
    FuelNodes {
     SCR_FuelNode "{5622A70CD4036C5A}" {
      MaxFuel 0.001
      m_fInitialFuelTankState 0
+     m_eFuelNodeType 0
     }
    }
   }
@@ -259,11 +326,15 @@ Vehicle AudiR8WB_White1 : "{E181F76FF3F9EC7D}Prefabs/Vehicles/Wheeled/M998/08Aud
 }
 Vehicle FordF150_ChromeSilver1 : "{FEA4B4D79CC8772D}Prefabs/Vehicles/Wheeled/M998/21FordF150/FordF150_ChromeSilver.et" {
  components {
+  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
+   Enabled 0
+  }
   SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
    FuelNodes {
     SCR_FuelNode "{5622A70CD4036C5A}" {
      MaxFuel 0.001
      m_fInitialFuelTankState 0
+     m_eFuelNodeType 0
     }
    }
   }
