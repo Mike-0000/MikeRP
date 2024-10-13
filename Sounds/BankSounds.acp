@@ -141,23 +141,24 @@ AudioClass {
    id 26643
    name "Amplitude 22"
    version 5
-   tl -303.531 -863.399
+   tl -302.622 -864.308
    curve Custom
    AttenuationCurve {
     CurvePoint "1" {
-     X -0.66943
-     Y 0.23236
+     X -2.46883
+     Y 0.18044
     }
     CurvePoint "2" {
-     X 86.65203
-     Y 0.99517
+     X 75.85564
+     Y 0.54518
     }
     CurvePoint "3" {
-     X 142.69412
-     Y 0.94838
+     X 167.8857
+     Y 0.24224
     }
     CurvePoint "4" {
-     X 240
+     X 250.34653
+     Y 0.00692
     }
    }
   }
@@ -180,7 +181,7 @@ AudioClass {
    id 29700
    name "Sounds"
    version 7
-   tl -373.539 -1104.245
+   tl -373.539 -1103.336
    Volume 6
    "Loop count" 4
    Samples {
@@ -195,7 +196,7 @@ AudioClass {
    id 21532
    name "Spatiality 21"
    version 5
-   tl -311.765 -535.882
+   tl -311.765 -536.791
    SpatialFactorSource Curve
    SFCurve {
     CurvePoint "1" {

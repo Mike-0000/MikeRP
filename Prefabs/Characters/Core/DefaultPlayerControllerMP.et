@@ -3,8 +3,5 @@ SCR_PlayerController : "{6E2BB64764E3BE9B}Prefabs/Characters/Core/DefaultPlayerC
  components {
   ADM_PlayerShopManagerComponent "{627D54112D6CA70F}" {
   }
-  SCR_NotificationsComponent "{54C89090E8C413C6}" {
-   m_sNotificationConfig "{D50EEE378B97A83F}CustomNotifications.conf"
-  }
  }
 }

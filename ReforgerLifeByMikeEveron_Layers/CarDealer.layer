@@ -44,6 +44,25 @@ Vehicle DodgeCharger_06_ChromeGold1 : "{088FEBD665FF0039}Prefabs/Vehicles/Wheele
  angleY 45.084
  angleZ -1.269
 }
+GenericEntity : "{39395A6166E54808}Prefabs/LicensedShop.et" {
+ components {
+  ADM_ShopComponent "{5D775155BFB12BA4}" {
+   m_ShopConfig "{94E810D42D8FC406}Configs/Shops/T2GunStore.conf"
+  }
+  SCR_MapDescriptorComponent "{628458FD0773B331}" {
+   DisplayName "Tier 2 Gun Store"
+  }
+  ActionsManagerComponent "{5D774D0B81D1F3C8}" {
+   additionalActions {
+    MIKE_LicensedShopAction "{5D775155F326F8BF}" {
+     LicenseName "tier2civhandgun"
+    }
+   }
+  }
+ }
+ coords 4416.903 10.568 10780.868
+ angleY 141.164
+}
 $grp GenericEntity : "{4E76BAA429C925E0}CannabisHarvester1.et" {
  BankHarvester {
   components {
@@ -127,7 +146,40 @@ $grp GenericEntity : "{4E76BAA429C925E0}CannabisHarvester1.et" {
   angleZ 0
  }
 }
+$grp GenericEntity : "{5051C35424F81B0C}NewATM.et" {
+ {
+  coords 9715.078 11.971 1486.408
+  angleY -126.832
+  {
+   GenericEntity {
+    ID "628D168ACAA5B2BE"
+    coords 0.119 -0.212 0.585
+    angleY 10.421
+   }
+  }
+ }
+ {
+  coords 4374.248 11.822 10657.229
+  angleY -4.895
+  {
+   GenericEntity {
+    ID "628D168ACAA5B2BE"
+    components {
+     MapDescriptorComponent "{62973794288AB977}" {
+      DisplayName "ATM"
+      MainType "Name Generic"
+     }
+    }
+   }
+  }
+ }
+}
 GenericEntity : "{5AB385123CF295B2}Prefabs/CarDealer.et" {
+ components {
+  SCR_MapDescriptorComponent "{628458FD0773B331}" {
+   DisplayName "Basic Car Dealer"
+  }
+ }
  coords 4692.09 20.812 10753.086
  angleY -112.705
 }
@@ -174,6 +226,9 @@ Vehicle LamboAventador_BlackCarbon1 : "{9C1616A504813231}Prefabs/Vehicles/Wheele
 }
 Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15ChevyTahoe/ChevyTahoe_White.et" {
  components {
+  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
+   Enabled 0
+  }
   SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
    FuelNodes {
     SCR_FuelNode "{5622A70CD4036C5A}" {

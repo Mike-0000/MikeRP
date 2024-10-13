@@ -126,6 +126,10 @@ GenericEntity {
     }
     RplComponent "{628D23B8962CAF74}" {
     }
+    MapDescriptorComponent "{62973794288AB977}" {
+     DisplayName "ATM"
+     MainType "Name Generic"
+    }
    }
    coords 0 0 0
   }

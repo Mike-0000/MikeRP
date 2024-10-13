@@ -1,6 +1,16 @@
 GenericEntity {
  ID "5DCB097033027B4F"
  components {
+  EPF_PersistenceComponent "{6297379BC402BFEE}" {
+   m_pSaveData EPF_ItemSaveDataClass "{62980803B6DA744B}" {
+    m_aComponents {
+     EPF_BaseInventoryStorageComponentSaveDataClass "{5A1306108DCB1AD6}" {
+     }
+     EL_QuantityComponentSaveDataClass "{5E0678CA7591F1F3}" {
+     }
+    }
+   }
+  }
   InventoryItemComponent "{5DCB097033027B79}" {
    Attributes SCR_ItemAttributeCollection "{5DCB097033027B7C}" {
     ItemDisplayName SCR_InventoryUIInfo "{5DCB097033027B62}" {

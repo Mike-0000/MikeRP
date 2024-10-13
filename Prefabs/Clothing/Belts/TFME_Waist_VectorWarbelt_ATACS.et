@@ -1,0 +1,13 @@
+GameEntity : "{B89432A8B5F489E5}Prefabs/Characters/Core/Uniform_Base.et" {
+ ID "5D054161150AAAFD"
+ components {
+  MeshObject "{5104869D194C6262}" {
+   Materials {
+    MaterialAssignClass "{62984603C9780D69}" {
+     SourceMaterial "CryeUniform_Pants_MC_sdr"
+     AssignedMaterial "{07B3C1CBCB455CF0}Prefabs/Characters/HeadGear/Hat_M70_01/hat_black.emat"
+    }
+   }
+  }
+ }
+}

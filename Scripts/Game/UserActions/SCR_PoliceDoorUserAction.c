@@ -8,7 +8,6 @@ class SCR_PoliceDoorUserAction : DoorUserAction
     //------------------------------------------------------------------------------------------------
     override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
     {		
-		SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();
         // First, check if the player is allowed to perform the action
         if (!IsPlayerAllowed(pUserEntity))
         {
@@ -16,11 +15,11 @@ class SCR_PoliceDoorUserAction : DoorUserAction
             // Example: ShowNotification(pUserEntity, "You do not have the required faction to perform this action.");
 			
 
-			hintComponent.ShowCustomHint("Access Denied", "You do not have keys for this door.", 5);
-            Print("Access Denied: Player does not belong to the 'US' faction.");
+			//hintComponent.ShowCustomHint("Access Denied", "You do not have keys for this door.", 5);
+            //Print("Access Denied: Player does not belong to the 'US' faction.");
             return; // Exit the method without performing the action
         }
-			hintComponent.ShowCustomHint("Access Granted", "You have keys for this door.", 3);
+			
         // Existing door action logic
         DoorComponent doorComponent = GetDoorComponent();
         if (doorComponent)

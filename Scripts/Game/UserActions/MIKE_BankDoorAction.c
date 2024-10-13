@@ -2,8 +2,6 @@
 //! When performed either opens or closes the door based on the previous state of the door.
 class MIKE_BankDoorUserAction : DoorUserAction
 {
-
-
 	//------------------------------------------------------------------------------------------------
 	override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{		
@@ -49,13 +47,13 @@ class MIKE_BankDoorUserAction : DoorUserAction
 	        if (controlValue != 0.0)
 	        {
 				Print("ControlValue != 0.0, playing sound!", LogLevel.NORMAL);
+				SCR_HintManagerComponent hintComponent = SCR_HintManagerComponent.GetInstance();
+				hintComponent.ShowCustomHint("The Bank at St. Phillipe is being robbed!", "All Units Respond! Civilians stay clear.", 20);
 	            // Play door opening or closing soundComp
 				soundComp.PlayStr("MIKE_SOUND_BANK_BELL");
 	        }
 	    }
 	}
-		
-	
 	
 	//------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------

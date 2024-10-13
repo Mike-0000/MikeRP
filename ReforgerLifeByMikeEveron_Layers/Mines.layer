@@ -70,6 +70,11 @@ SCR_DestructibleBuildingEntity : "{3DDDA2AAA7B32209}PrefabsEditable/Auto/Structu
 }
 $grp GenericEntity : "{4E76BAA429C925E0}CannabisHarvester1.et" {
  CannabisHarvester2 {
+  components {
+   SCR_MapDescriptorComponent "{62836BDCCB12EDC3}" {
+    DisplayName "Cannabis Harvesting"
+   }
+  }
   coords 6597.222 110.697 5870.372
   angleX 0
   angleY 0

@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{8F9C51CD79EC181C}Prefabs/Clothing/Belts/TFME_Waist_VectorWarbelt_ATACS.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

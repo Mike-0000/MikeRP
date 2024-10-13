@@ -1,11 +1,8 @@
 GenericEntity {
- ID "5CF51AF1F523FD58"
+ ID "5DC80CC50787243E"
  components {
-  SCR_MeleeWeaponProperties "{5CF51AF1F523FEB6}" {
-   m_fDamage 30
-  }
-  EPF_PersistenceComponent "{62980803CFDAB8FF}" {
-   m_pSaveData EPF_ItemSaveDataClass "{62980803CDD552B3}" {
+  EPF_PersistenceComponent "{6297379B16D74A88}" {
+   m_pSaveData EPF_ItemSaveDataClass "{62980803AA584563}" {
     m_aComponents {
      EPF_BaseInventoryStorageComponentSaveDataClass "{5A1306108DCB1AD6}" {
      }

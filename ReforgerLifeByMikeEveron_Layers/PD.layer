@@ -27,6 +27,11 @@ $grp SCR_DestructibleBuildingEntity : "{299A56D2A012D746}Prefabs/Prison/Prison_C
  }
 }
 GenericEntity : "{80327E8AC7033A5B}Prefabs/PoliceCarDealer.et" {
+ components {
+  SCR_MapDescriptorComponent "{628458FD0773B331}" {
+   MainType "Name Generic"
+  }
+ }
  coords 4369.517 11.781 10656.683
  angleY 170.386
 }
@@ -112,6 +117,12 @@ SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/
      m_ShopName "Police Car Dealer"
      m_ShopConfig "{C487BABC00BCA327}Configs/Shops/VehicleShop.conf"
     }
+    SCR_MapDescriptorComponent "{628458FD0773B331}" {
+     Enabled 0
+    }
+    SCR_MapDescriptorComponent "{62865194AA5AFD5C}" {
+     Enabled 0
+    }
     ActionsManagerComponent "{5D774D0B81D1F3C8}" {
      ActionContexts {
       UserActionContext "{5D775155C8CDB558}" {
@@ -133,7 +144,7 @@ SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/
        UIInfo UIInfo "{628458FB4135A361}" {
         Name "Change Faction to Police (Whitelist Required)"
        }
-       ActionTitle "Change Faction to COP"
+       ActionTitle "Change Faction to Police (Whitelist Required)"
        "Inventory action" 1
       }
      }

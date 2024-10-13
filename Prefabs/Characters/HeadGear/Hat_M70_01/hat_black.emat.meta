@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{07B3C1CBCB455CF0}Prefabs/Characters/HeadGear/Hat_M70_01/hat_black.emat"
+ Configurations {
+  EMATResourceClass PC {
+  }
+  EMATResourceClass XBOX_ONE : PC {
+  }
+  EMATResourceClass XBOX_SERIES : PC {
+  }
+  EMATResourceClass PS4 : PC {
+  }
+  EMATResourceClass PS5 : PC {
+  }
+  EMATResourceClass HEADLESS : PC {
+  }
+ }
+}

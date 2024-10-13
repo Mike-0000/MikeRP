@@ -31,7 +31,7 @@ GenericEntity : "{8594DC1E8A135607}Prefabs/Processor/ItemProcessor_Base.et" {
      }
      m_aProcessingOutputs {
       EL_ProcessingOutput "{62836BD3484C2CF8}" {
-       m_OutputPrefab "{BCD1E8CD7F975074}Prefabs/Resources/Mining/IronBar.et"
+       m_OutputPrefab "{ACC9A10F0F20F5C4}Prefabs/Resources/Mining/GoldBar.et"
       }
      }
      m_bForceDropOutput 1

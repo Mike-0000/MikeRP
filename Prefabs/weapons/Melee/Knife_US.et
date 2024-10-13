@@ -4,5 +4,15 @@ GenericEntity : "{3805C0B87B9D2AB0}prefabs/weapons/Melee/Knife.et" {
   SCR_MeleeWeaponProperties "{5AED36F415E489A6}" {
    m_fDamage 30
   }
+  EPF_PersistenceComponent "{62980803CA108ABE}" {
+   m_pSaveData EPF_ItemSaveDataClass "{62980803CBEEBA9A}" {
+    m_aComponents {
+     EPF_BaseInventoryStorageComponentSaveDataClass "{5A1306108DCB1AD6}" {
+     }
+     EL_QuantityComponentSaveDataClass "{5E0678CA7591F1F3}" {
+     }
+    }
+   }
+  }
  }
 }

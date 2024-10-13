@@ -16,5 +16,16 @@ $grp GenericEntity : "{5051C35424F81B0C}NewATM.et" {
  }
  {
   coords 4689.155 20.812 10755.646
+  {
+   GenericEntity {
+    ID "628D168ACAA5B2BE"
+    components {
+     MapDescriptorComponent "{62973795616BDAE4}" {
+      DisplayName "ATM"
+      MainType "Name Generic"
+     }
+    }
+   }
+  }
  }
 }
