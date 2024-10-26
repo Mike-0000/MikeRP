@@ -4,11 +4,6 @@ SCR_ChimeraCharacter : "{37578B1666981FCE}Prefabs/Characters/Core/Character_Base
   FactionAffiliationComponent "{62836BF216716A61}" {
    "faction affiliation" "CIV"
   }
-  MIKE_GarageComponent "{62AD70C350C77F74}" {
-   m_SpawnPosition PointInfo "{62AD70C355F4A57C}" {
-    Offset 0 0.2485 -8.7071
-   }
-  }
   SCR_NotificationsComponent "{62884C9D72EBA812}" {
   }
  }
