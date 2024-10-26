@@ -116,7 +116,8 @@ class MIKE_LicensedShopAction : ScriptedUserAction
 		////Print("if (currentUserChar.recentLicense == LicenseName) Invoked. Current License = " + currentUserChar.recentLicense + "LicenseName =" + LicenseName, LogLevel.NORMAL); // DEBUG
         SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(pUserEntity);
 		if (LicenseName == "drivers"){
-		
+			if(!char)
+				return false;
 			if(char.driversLicenseExists)
 				return true;
 			

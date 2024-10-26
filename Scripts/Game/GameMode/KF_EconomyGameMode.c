@@ -26,6 +26,93 @@ modded enum ENotification
 
 class MikesMethods
 {
+	
+	
+	 void FindVehicles(EDF_EDbOperationStatusCode statusCode, array<ref TAG_MikeGarage> result, Managed playerEntityTupled)
+    {
+		Print("FindVehicles Initiated", LogLevel.NORMAL);
+
+		
+		Tuple1<SCR_ChimeraCharacter> playerTyped = Tuple1<SCR_ChimeraCharacter>.Cast(playerEntityTupled);
+        SCR_ChimeraCharacter player = playerTyped.param1;
+        Print("Going for foreach.", LogLevel.NORMAL);
+        foreach (TAG_MikeGarage car : result) {
+			if (!car)
+            {
+                Print("Error! TAG_MikeGarage instance is null.", LogLevel.NORMAL);
+                continue;
+            }
+			//Print("VehiclePrefab Trying to Load: " + car.VehiclePrefab, LogLevel.NORMAL);
+			//-- INSERT
+			player.arrayOfVehiclesOwned.Insert(car.VehiclePrefab);
+			//--|
+			Print("VehiclePrefab Loaded: " + car.VehiclePrefab, LogLevel.NORMAL);
+			
+			
+				
+		}
+	}
+	
+	
+	
+	
+	void LoadOwnedVehicles(IEntity player)
+    {
+		BackendApi api = GetGame().GetBackendApi();
+	     if (!api)
+	     {
+	            return;
+	     }
+	        
+	     int playerID = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(player); 
+		string playerguid1 = api.GetPlayerIdentityId(playerID);
+		
+		
+		
+		
+
+			// Get the connection info
+	        EDF_JsonFileDbConnectionInfo connectInfo = new EDF_JsonFileDbConnectionInfo();
+	        if (!connectInfo)
+	        {
+	            return;
+	        }
+	        connectInfo.m_sDatabaseName = "PlayerGarages";
+	        // Get a db context instance
+	        EDF_DbContext dbContext = EDF_DbContext.Create(connectInfo);
+	        if (!dbContext)
+	        {
+	            return;
+	        }
+	        
+	        // Interact with the DB context through a repository
+	        EDF_DbRepository<TAG_MikeGarage> repository = EDF_DbEntityHelper<TAG_MikeGarage>.GetRepository(dbContext);
+	        if (!repository)
+	        {
+	            return;
+	        }
+	        
+	        // Now find the record
+	        EDF_DbFindCondition condition = EDF_DbFind.Field("guid").Contains(playerguid1);
+	        if (!condition)
+	        {
+	            return;
+	        }
+			SCR_ChimeraCharacter char = SCR_ChimeraCharacter.Cast(player);
+			Tuple1<SCR_ChimeraCharacter> context = new Tuple1<SCR_ChimeraCharacter>(SCR_ChimeraCharacter.Cast(char));
+	        EDF_DbFindCallbackMultiple<TAG_MikeGarage> findRecordHandler = new EDF_DbFindCallbackMultiple<TAG_MikeGarage>(this, "FindVehicles", context);
+	        if (!findRecordHandler)
+	        {
+	            return;
+	        }
+	        Print("FindAllAsync called.", LogLevel.NORMAL);
+	        repository.FindAllAsync(condition, callback: findRecordHandler);
+	        	
+		
+	}
+
+	
+	
     //------------------------------------------------------------------------------------------------
     //! Asynchronously sets local license records for a player
     void SetLocalLicenseRecordsAsync(IEntity player)
@@ -153,6 +240,7 @@ modded class SCR_BaseGameMode
 
         MikesMethods Mikes = new MikesMethods();
         Mikes.SetLocalLicenseRecordsAsync(controlledEntity);
+		//Mikes.LoadOwnedVehicles(controlledEntity);
 
         GetGame().GetCallqueue().CallLater(RefreshBalance, 1000, false, playerId);
     }

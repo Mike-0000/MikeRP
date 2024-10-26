@@ -3,7 +3,10 @@ SCR_PlayerController : "{6E2BB64764E3BE9B}Prefabs/Characters/Core/DefaultPlayerC
  components {
   ADM_PlayerShopManagerComponent "{627D54112D6CA70F}" {
   }
-  MIKE_GaragePlayerComponent "{629B77668C3A6536}" {
+  MIKE_GarageComponent "{62AE3A52D8AAC174}" {
+   m_SpawnPosition PointInfo "{62AE3A5308F6E5A4}" {
+    Offset 0 0 -8.466
+   }
   }
  }
 }

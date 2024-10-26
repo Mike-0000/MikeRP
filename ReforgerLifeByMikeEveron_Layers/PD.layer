@@ -35,19 +35,13 @@ GenericEntity : "{80327E8AC7033A5B}Prefabs/PoliceCarDealer.et" {
  coords 4369.517 11.781 10656.683
  angleY 170.386
 }
-GenericEntity : "{8215FBE4B900A979}ExoticCarDealer.et" {
- coords 4461.479 17.632 10606.058
- angleX -0.895
- angleY -0.014
- angleZ 0.895
-}
 SCR_DestructibleBuildingEntity : "{C914CC910842E973}Prefabs/Structures/Services/Government/police_101.et" {
  components {
   SCR_EditableEntityComponent "{5CCD1A6A47654137}" {
    Enabled 0
   }
  }
- coords 4335.979 1.162 10638.452
+ coords 4336.565 1.187 10638.558
  angleY -100.208
  {
   GenericEntity : "{386782DD1644B266}Prefabs/Structures/Services/Government/police_interior_03.et" {

@@ -1,3 +1,275 @@
+$grp GenericEntity {
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4576.226 19.455 10590.001
+  angleY -9.121
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4573.35 19.455 10589.542
+  angleY -9.121
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4571.889 19.455 10587.064
+  angleY -97.044
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4572.369 19.455 10583.285
+  angleY -97.044
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4572.531 19.455 10582.126
+  angleY -98.099
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4574.565 19.455 10580.509
+  angleY -3.933
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4577.428 19.455 10580.687
+  angleY 176.893
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4564.73 19.617 10588.63
+  angleY -1.7
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4560.747 19.617 10588.196
+  angleY -9.121
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4559.286 19.617 10585.718
+  angleY -97.044
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4559.766 19.617 10581.942
+  angleY -97.044
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4560.129 19.617 10579.283
+  angleY -98.099
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4562.165 19.617 10577.662
+  angleY -3.933
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4566.128 19.617 10577.904
+  angleY 176.893
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4566.928 19.617 10577.985
+  angleY 176.893
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4568.502 19.617 10583.552
+  angleY -97.044
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4568.986 19.617 10579.933
+  angleY -98.099
+  Flags 2
+ }
+ {
+  components {
+   MeshObject "{62A61CCC64A97F3E}" {
+    Object "{F09986CDD3D8E7F4}Assets/Structures/Walls/Concrete/ConcreteWall_02_4m.xob"
+   }
+   RigidBody "{62A61CCC6E33A9EB}" {
+    CenterOfMass 0 -2.313 0
+    ModelGeometry 1
+    Static 1
+   }
+  }
+  coords 4567.373 19.617 10587.104
+  angleY 62.328
+  Flags 2
+ }
+}
 Vehicle HondaCivicTypeR_ChromeSilver1 : "{00FD097EF2CCF383}Prefabs/Vehicles/Wheeled/S105/97CivicTypeR/HondaCivicTypeR_ChromeSilver.et" {
  components {
   EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
@@ -13,48 +285,8 @@ Vehicle HondaCivicTypeR_ChromeSilver1 : "{00FD097EF2CCF383}Prefabs/Vehicles/Whee
    }
   }
  }
- coords 4465.448 17.962 10597.967
- angleX -3.153
- angleY -45.273
- angleZ 1.911
-}
-Vehicle Ford_F700_Black1 : "{0272ED965724BF65}Prefabs/Vehicles/Wheeled/M923A1/91FordF700/Ford_F700_Black.et" {
- components {
-  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
-   Enabled 0
-  }
-  SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
-   FuelNodes {
-    SCR_FuelNode "{5622A70CD4036C5A}" {
-     MaxFuel 0.001
-     m_fInitialFuelTankState 0
-     m_eFuelNodeType 0
-    }
-   }
-  }
- }
- coords 4461.965 18.318 10593.271
- angleY -1.178
-}
-Vehicle DodgeCharger_06_ChromeGold1 : "{088FEBD665FF0039}Prefabs/Vehicles/Wheeled/M998/06Charger/DodgeCharger_06_ChromeGold.et" {
- components {
-  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
-   Enabled 0
-  }
-  SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
-   FuelNodes {
-    SCR_FuelNode "{5622A70CD4036C5A}" {
-     MaxFuel 0.001
-     m_fInitialFuelTankState 0
-     m_eFuelNodeType 0
-    }
-   }
-  }
- }
- coords 4456.548 17.986 10600.957
- angleX -3.791
- angleY 45.084
- angleZ -1.269
+ coords 4574.892 17.804 10587.21
+ angleY -98.467
 }
 $grp SCR_DestructibleBuildingEntity : "{106216A0F7EB2E32}PrefabLibrary/Infrastructure/Bridges/ConcreteBridge_01_Narrow.et" {
  {
@@ -71,6 +303,11 @@ $grp SCR_DestructibleBuildingEntity : "{106216A0F7EB2E32}PrefabLibrary/Infrastru
  }
 }
 GenericEntity : "{249F126A91000B2C}Prefabs/Structures/Civilian/parking.et" {
+ components {
+  SCR_EditableEntityComponent "{5CF6E86BC1E2BEE7}" {
+   Enabled 0
+  }
+ }
  coords 4542.739 17.204 10588.396
  angleY -8.836
 }
@@ -203,6 +440,17 @@ $grp GenericEntity : "{5051C35424F81B0C}NewATM.et" {
    }
   }
  }
+ {
+  coords 4549.846 17.804 10574.265
+  angleY -98.819
+  {
+   GenericEntity {
+    ID "628D168ACAA5B2BE"
+    coords 15.451 0 -13.725
+    angleY -91.63
+   }
+  }
+ }
 }
 GenericEntity : "{5AB385123CF295B2}Prefabs/CarDealer.et" {
  components {
@@ -210,7 +458,7 @@ GenericEntity : "{5AB385123CF295B2}Prefabs/CarDealer.et" {
    DisplayName "Basic Car Dealer"
   }
  }
- coords 4692.09 20.812 10753.086
+ coords 4691.095 20.812 10753.017
  angleY -112.705
 }
 Vehicle NissanGTR_R35_Grey1 : "{7FAF29614DB5D1D4}Prefabs/Vehicles/Wheeled/M998/17R35GTR/NissanGTR_R35_Grey.et" {
@@ -228,35 +476,8 @@ Vehicle NissanGTR_R35_Grey1 : "{7FAF29614DB5D1D4}Prefabs/Vehicles/Wheeled/M998/1
    }
   }
  }
- coords 4466.883 17.767 10601.26
- angleX -2.526
- angleY -45.224
- angleZ 1.275
-}
-$grp GenericEntity : "{8B67A8316EC73FF2}CarGarage.et" {
- {
-  components {
-   MIKE_GarageComponent "{629A73556A22A697}" {
-    m_SpawnPosition PointInfo "{629B5A24B3AD7A6B}" {
-     Offset 0.0001 0.2739 9.6368
-    }
-   }
-  }
-  coords 4371.345 11.781 10656.563
-  angleY -179.742
- }
- {
-  components {
-   MIKE_GarageComponent "{629A73556A22A697}" {
-    m_SpawnPosition PointInfo "{629B5A24B3AD7A6B}" {
-     Offset 0.3796 0.3696 6.1724
-     Angles 0 4.1121 0
-    }
-   }
-  }
-  coords 4514.475 17.804 10585.654
-  angleY -11.827
- }
+ coords 4564.033 17.804 10585.563
+ angleY 82.482
 }
 GenericEntity MoneyLaunderer : "{9B282E7571EC095B}MoneyLaundererShop.et" {
  components {
@@ -282,10 +503,8 @@ Vehicle LamboAventador_BlackCarbon1 : "{9C1616A504813231}Prefabs/Vehicles/Wheele
    }
   }
  }
- coords 4468.423 17.627 10605.131
- angleX -1.896
- angleY -45.189
- angleZ 0.639
+ coords 4564.85 17.804 10581.098
+ angleY 79.456
 }
 Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15ChevyTahoe/ChevyTahoe_White.et" {
  components {
@@ -304,26 +523,6 @@ Vehicle ChevyTahoe_White2 : "{DB27B960766CA6B7}Prefabs/Vehicles/Wheeled/M998/15C
  coords 4692.448 20.812 10744.401
  angleY -38.277
 }
-Vehicle AudiR8WB_White1 : "{E181F76FF3F9EC7D}Prefabs/Vehicles/Wheeled/M998/08AudiR8WB/AudiR8WB_White.et" {
- components {
-  EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
-   Enabled 0
-  }
-  SCR_FuelManagerComponent "{5622A70CD78A9E2C}" {
-   FuelNodes {
-    SCR_FuelNode "{5622A70CD4036C5A}" {
-     MaxFuel 0.001
-     m_fInitialFuelTankState 0
-     m_eFuelNodeType 0
-    }
-   }
-  }
- }
- coords 4454.616 17.924 10604.542
- angleX -3.162
- angleY 45.035
- angleZ -0.634
-}
 Vehicle FordF150_ChromeSilver1 : "{FEA4B4D79CC8772D}Prefabs/Vehicles/Wheeled/M998/21FordF150/FordF150_ChromeSilver.et" {
  components {
   EPF_PersistenceComponent "{5A0D2D215F2F2559}" {
@@ -339,8 +538,6 @@ Vehicle FordF150_ChromeSilver1 : "{FEA4B4D79CC8772D}Prefabs/Vehicles/Wheeled/M99
    }
   }
  }
- coords 4458.292 18.122 10597.787
- angleX -3.793
- angleY 45.035
- angleZ -0.002
+ coords 4575.398 17.804 10582.731
+ angleY -98.35
 }

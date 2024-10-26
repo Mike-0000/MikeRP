@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{713544BC356CD09E}Prefabs/Characters/Core/Character_Police.et"
+ Name "{89E8BB162129F1D5}LargeWallCollider.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

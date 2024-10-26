@@ -18,6 +18,15 @@ SCR_DestructibleBuildingEntity : "{2EDD4F7ABBB94AE8}Prefabs/Buildings/Big_Wareho
    angleY 89.387
    {
     GenericEntity CocaineHarvest : "{4E76BAA429C925E0}CannabisHarvester1.et" {
+     components {
+      ActionsManagerComponent "{59A84AD20BA3F0D3}" {
+       additionalActions {
+        EL_GatherAction "{59A84AD20134F93A}" {
+         Duration 50
+        }
+       }
+      }
+     }
      coords 0.05 0.111 0.119
      angleY 140.052
     }
@@ -57,7 +66,7 @@ SCR_DestructibleBuildingEntity : "{3DDDA2AAA7B32209}PrefabsEditable/Auto/Structu
      additionalActions {
       EL_GatherAction "{59A84AD20134F93A}" {
        ActionTitle "Harvest Cocaine"
-       Duration 120
+       Duration 50
        m_GatherItemPrefab "{55476D9B2E3F4C63}PrefabsEditable/Auto/Props/Civilian/Suspicious Items/E_CocaineBrick.et"
       }
      }

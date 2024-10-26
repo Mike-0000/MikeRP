@@ -1,0 +1,14 @@
+GenericEntity {
+ ID "62A61CCDFB717C5F"
+ components {
+  MeshObject "{62A6047510A03E8C}" {
+   Object "{7786C45752F182FC}LargeColliderWall.xob"
+  }
+  RigidBody "{62A6047514493B24}" {
+   ModelGeometry 1
+   Static 1
+  }
+ }
+ coords 4562.312 17.804 10572.397
+ angleY -7.501
+}
